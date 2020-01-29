@@ -80,7 +80,7 @@ namespace CowboyCafe.Data
 
         private bool mayo = true;
         /// <summary>
-        /// If the burger is topped with lettuce
+        /// If the burger is topped with mayo
         /// </summary>
         public bool Mayo
         {
