@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace CowboyCafe.Data
 {
     /// <summary>
-    /// A class representing the Trail burger entree
+    /// A class representing the Trailburger entree
     /// </summary>
     public class TrailBurger
     {
