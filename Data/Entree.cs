@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: Entree.cs
+ * Description: Handles Entree classes (abstract)
+  */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

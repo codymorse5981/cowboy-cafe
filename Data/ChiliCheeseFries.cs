@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: ChiliCheeseFries.cs
+ * Description: Handles chili cheese fries side class
+  */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

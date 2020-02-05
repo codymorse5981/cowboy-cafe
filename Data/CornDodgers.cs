@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: CornDodgers.cs
+ * Description: Handles corn dodgers side class
+  */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

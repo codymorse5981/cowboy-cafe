@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: TexasTripleBurger.cs
+ * Description: Handles Texas Triple Burger entree class
+  */
+
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data

@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: Size.cs
+ * Description: Handles size class to implement enumerator
+  */
+using System;
 using System.Collections.Generic;
 using System.Text;
 

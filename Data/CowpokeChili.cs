@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: CowpokeChili.cs
+ * Description: Handles Cowpoke Chili entree class
+  */
+
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data

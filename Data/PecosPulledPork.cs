@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: PecosPulledPork.cs
+ * Description: Handles Pecos Pulled Pork class
+  */
+
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data

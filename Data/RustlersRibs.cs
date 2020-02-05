@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: RustlersRibs.cs
+ * Description: Handles Rustler's Ribs entree class
+  */
+
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data

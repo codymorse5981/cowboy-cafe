@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: AngryChicken.cs
+ * Description: Handles Angry Chicken entree class
+  */
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data

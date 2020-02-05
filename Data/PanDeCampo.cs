@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: PanDeCampo.cs
+ * Description: Handles Pan De Campo side class
+  */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

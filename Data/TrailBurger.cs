@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: TrailBurger.cs
+ * Description: Handles Trail Burger entree class
+  */
+
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data

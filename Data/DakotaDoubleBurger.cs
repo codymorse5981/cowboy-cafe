@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: DakotaDoubleBurger.cs
+ * Description: Handles Dakota Double Burger entree class.
+  */
+
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data

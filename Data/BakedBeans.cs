@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: BakedBeans.cs
+ * Description: Handles baked beans side class
+  */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
