@@ -1,4 +1,5 @@
-﻿/* Author: Cody Morse
+﻿/* Author: Professor Bean
+ * Edited by: Cody Morse
  * Class: CowpokeChili.cs
  * Description: Handles Cowpoke Chili entree class
   */

@@ -1,4 +1,5 @@
-﻿/* Author: Cody Morse
+﻿/* Author: Professor Bean
+ * Edited by: Cody Morse
  * Class: Side.cs
  * Description: Handles Side classes (abstract)
   */

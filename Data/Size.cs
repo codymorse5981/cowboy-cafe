@@ -1,4 +1,5 @@
-﻿/* Author: Cody Morse
+﻿/* Author: Professor Bean
+ * Edited by: Cody Morse
  * Class: Size.cs
  * Description: Handles size class to implement enumerator
   */
