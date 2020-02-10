@@ -12,10 +12,10 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing a jerked soda drink
     /// </summary>
-    public class JerkedSoda: Drink
+    public class JerkedSoda : Drink
     {
         /// <summary>
-        /// Gets the price of the side
+        /// Gets the price of the jerked soda
         /// </summary>
         public override double Price
         {
@@ -26,9 +26,9 @@ namespace CowboyCafe.Data
                     case Size.Small:
                         return 1.59;
                     case Size.Medium:
-                        return 1.79;
+                        return 2.10;
                     case Size.Large:
-                        return 1.99;
+                        return 2.59;
                     default:
                         throw new NotImplementedException();
                 }
@@ -37,7 +37,7 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// Gets the calories of the side
+        /// Gets the calories of jerked soda
         /// </summary>
         public override uint Calories
         {
@@ -46,15 +46,30 @@ namespace CowboyCafe.Data
                 switch (Size)
                 {
                     case Size.Small:
-                        return 312;
+                        return 110;
                     case Size.Medium:
-                        return 378;
+                        return 146;
                     case Size.Large:
-                        return 410;
+                        return 198;
                     default:
                         throw new NotImplementedException();
                 }
 
+            }
+        }
+
+        /// <summary>
+        /// Special instructions for the jerked soda
+        /// </summary>
+        public override List<string> SpecialInstructions
+        {
+            get
+            {
+                var instructions = new List<string>();
+
+                if (!Ice) instructions.Add("hold ice");
+
+                return instructions;
             }
         }
     }

@@ -14,8 +14,6 @@ namespace CowboyCafe.Data
     /// </summary>
     public abstract class Drink
     {
-
-    
         /// <summary>
         /// Gets the size of the drink
         /// </summary>
@@ -40,6 +38,11 @@ namespace CowboyCafe.Data
         /// Gets the calories of the drink
         /// </summary>
         public abstract uint Calories { get; }
+
+        /// <summary>
+        /// Gets the instructions of the drink
+        /// </summary>
+        public abstract List<string> SpecialInstructions { get; }
     }
 
 }
