@@ -1,10 +1,107 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: Water.cs
+ * Description: Handles Water class
+  */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace CowboyCafe.Data
 {
-    class Water
+    /// <summary>
+    /// A class representing a water drink
+    /// </summary>
+    public class Water: Drink
     {
+        /// <summary>
+        /// If there is a lemon in the water
+        /// </summary>
+        private bool lemon = false;
+        public bool Lemon
+        {
+            get { return lemon; }
+            set { lemon = value; }
+        }
+
+        /// <summary>
+        /// Gets the price of the water
+        /// </summary>
+        public override double Price
+        {
+            get
+            {
+                switch (Size)
+                {
+                    case Size.Small:
+                        return 0.12;
+                    case Size.Medium:
+                        return 0.12;
+                    case Size.Large:
+                        return 0.12;
+                    default:
+                        throw new NotImplementedException();
+                }
+
+            }
+        }
+
+        private List<string> ingridients;
+        /// <summary>
+        /// List of water ingridients
+        /// </summary>
+        public override List<string> Ingridients
+        {
+            get { return ingridients; }
+            set { ingridients = value; }
+        }
+
+        private bool ice = true;
+        /// <summary>
+        /// If the water has ice
+        /// </summary>
+        public override bool Ice
+        {
+            get { return ice; }
+            set { ice = value; }
+        }
+
+        /// <summary>
+        /// Gets the calories of the water
+        /// </summary>
+        public override uint Calories
+        {
+            get
+            {
+                switch (Size)
+                {
+                    case Size.Small:
+                        return 0;
+                    case Size.Medium:
+                        return 0;
+                    case Size.Large:
+                        return 0;
+                    default:
+                        throw new NotImplementedException();
+                }
+            }      
+        }
+
+        /// <summary>
+        /// Special instructions for the water
+        /// </summary>
+        public override List<string> SpecialInstructions
+        {
+            get
+            {
+                var instructions = new List<string>();
+
+                if (!Ice) instructions.Add("Hold Ice");
+                if (Lemon) instructions.Add("Add Lemon");
+
+                return instructions;
+            }
+        }
     }
 }
+

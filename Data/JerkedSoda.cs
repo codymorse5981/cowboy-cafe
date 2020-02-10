@@ -12,8 +12,13 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing a jerked soda drink
     /// </summary>
-    public class JerkedSoda : Drink
+    public class JerkedSoda: Drink
     {
+        /// <summary>
+        /// Gets the flavor of the jerked soda
+        /// </summary>
+        public SodaFlavor Flavor { get; set; }
+
         /// <summary>
         /// Gets the price of the jerked soda
         /// </summary>
@@ -34,6 +39,26 @@ namespace CowboyCafe.Data
                 }
 
             }
+        }
+
+        private List<string> ingridients;
+        /// <summary>
+        /// List of soda ingridients
+        /// </summary>
+        public override List<string> Ingridients
+        {         
+                get { return ingridients; }
+                set { ingridients = value; }
+        }
+
+        private bool ice = true;
+        /// <summary>
+        /// If the jerked soda has ice
+        /// </summary>
+        public override bool Ice
+        {
+            get { return ice; }
+            set { ice = value; }
         }
 
         /// <summary>
@@ -67,7 +92,7 @@ namespace CowboyCafe.Data
             {
                 var instructions = new List<string>();
 
-                if (!Ice) instructions.Add("hold ice");
+                if (!Ice) instructions.Add("Hold Ice");
 
                 return instructions;
             }

@@ -10,7 +10,7 @@ using System.Text;
 namespace CowboyCafe.Data
 {
     /// <summary>
-    /// A base class representing a entree
+    /// A base class representing a drink
     /// </summary>
     public abstract class Drink
     {
@@ -22,7 +22,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Gets the ingridients of the drink
         /// </summary>
-        public abstract List<string> Ingridients { get;}
+        public abstract List<string> Ingridients { get; set; }
 
         /// <summary>
         /// Whether ice is wanted
