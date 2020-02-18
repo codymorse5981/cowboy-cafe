@@ -140,11 +140,11 @@ namespace CowboyCafe.Data
         {
             if (Sweet)
             {
-                return Size + " Sweet Texas Tea";
+                return Size + " Texas Sweet Tea";
             }
             else
             {
-                return Size + " Texas Tea";
+                return Size + " Texas Plain Tea";
             }
         }
     }
