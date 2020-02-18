@@ -93,6 +93,14 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+
+        /// <summary>
+        /// Override ToString() method and provide string return.
+        /// </summary>
+        public override string ToString()
+        {
+            return "Cowpoke Chili";
+        }
     }
 }
 

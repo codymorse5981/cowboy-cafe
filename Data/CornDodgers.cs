@@ -57,5 +57,13 @@ namespace CowboyCafe.Data
 
             }
         }
+
+        /// <summary>
+        /// Override ToString() method and provide string return.
+        /// </summary>
+        public override string ToString()
+        {
+            return Size + " Corn Dodgers";
+        }
     }
 }

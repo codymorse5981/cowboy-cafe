@@ -115,6 +115,22 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+
+        /// <summary>
+        /// Override ToString() method and provide string return.
+        /// </summary>
+        public override string ToString()
+        {
+            if (Decaf)
+            {
+                return Size + " Decaf Cowboy Coffee";
+            }
+            else
+            {
+                return Size + " Cowboy Coffee";
+            }
+            
+        }
     }
 }
 

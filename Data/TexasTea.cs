@@ -132,6 +132,21 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+
+        /// <summary>
+        /// Override ToString() method and provide string return.
+        /// </summary>
+        public override string ToString()
+        {
+            if (Sweet)
+            {
+                return Size + " Sweet Texas Tea";
+            }
+            else
+            {
+                return Size + " Texas Tea";
+            }
+        }
     }
 }
 

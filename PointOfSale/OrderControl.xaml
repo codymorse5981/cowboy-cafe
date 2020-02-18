@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="PointOfSale.OrderControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="1200.118">
+    <UserControl.Resources>
+
+        <Style TargetType="Button">
+            <Setter Property= "Height" Value= " 50px"/>
+            <Setter Property= "FontSize" Value= "18"/>
+            <Setter Property= "Margin" Value= "6"/>
+            <Setter Property= "Width" Value= "195"/>
+            <Setter Property= "Background" Value= "White"/>
+            <Setter Property= "BorderBrush" Value= "Black"/>
+            <Setter Property= "BorderThickness" Value= "2"/>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property= "FontSize" Value= "18"/>
+            <Setter Property= "Width" Value= "180"/>
+            <Setter Property= "Margin" Value= "6"/>
+            <Setter Property= "Background" Value= "White"/>
+        </Style>
+
+        <Style TargetType="ColumnDefinition">
+            <Setter Property= "Width" Value= "250"/>
+        </Style>
+
+        <Style TargetType="ListView">
+            <Setter Property= "Height" Value= " 420px"/>
+            <Setter Property= "FontSize" Value= "18"/>
+            <Setter Property= "Width" Value= "300"/>
+        </Style>
+
+    </UserControl.Resources>
+
+    <Grid Background="LightBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition>
+            </ColumnDefinition>
+            <ColumnDefinition>
+            </ColumnDefinition>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="448">
+            </ColumnDefinition>
+            <ColumnDefinition Width="52">
+            </ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column= "0">
+            <TextBlock TextAlignment="Center" Background="Silver">Entree</TextBlock>
+            <Button Click="CowpokeChiliClick">Cowpoke Chili</Button>
+            <Button Click="RustlersRibsClick">Rustler's Ribs</Button>
+            <Button Click="PecosPorkClick">Pecos Pulled Pork</Button>
+            <Button Click="TrailBurgerClick">Trail Burger</Button>
+            <Button Click="DakotaBurgerClick">Dakota Double Burger</Button>
+            <Button Click="TexasBurgerClick">Texas Triple Burger</Button>
+            <Button Click="AngryChickenClick">Angry Chicken</Button>
+        </StackPanel>
+
+        <StackPanel Grid.Column= "1">
+            <TextBlock TextAlignment="Center" Background="Silver">Side</TextBlock>
+            <Button Click="ChiliFriesClick">Chili Cheese Fries</Button>
+            <Button Click="CornDodgersClick">Corn Dodgers</Button>
+            <Button Click="PanDeCampoClick">Pan De Campo</Button>
+            <Button Click="BakedBeansClick">Baked Beans</Button>
+        </StackPanel>
+
+        <StackPanel Grid.Column= "2">
+            <TextBlock TextAlignment="Center" Background="Silver">Drink</TextBlock>
+            <Button Click="JerkedSodaClick">Jerked Soda</Button>
+            <Button Click="TexasTeaClick">Texas Tea</Button>
+            <Button Click="CowboyCoffeeClick">Cowboy Coffee</Button>
+            <Button Click="WaterClick">Water</Button>
+        </StackPanel>
+
+        <StackPanel Grid.Column= "3" Width="Auto" Background="LightBlue">
+            <TextBlock TextAlignment="Center" Background="Silver">Order</TextBlock>
+            <ListView x:Name ="OrderList" HorizontalAlignment="Stretch" Width="370" BorderBrush="Black" BorderThickness="2"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

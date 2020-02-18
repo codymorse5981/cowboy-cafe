@@ -39,7 +39,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Gets the calories of the side
         /// </summary>
-        public override uint Calories 
+        public override uint Calories
         {
             get
             {
@@ -57,5 +57,13 @@ namespace CowboyCafe.Data
 
             }
         }
+            /// <summary>
+            /// Override ToString() method and provide string return.
+            /// </summary>
+        public override string ToString()
+        {
+            return Size + " Chili Cheese Fries";
+        }
     }
+
 }
