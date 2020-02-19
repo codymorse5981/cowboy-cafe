@@ -138,7 +138,7 @@ namespace CowboyCafe.Data
         /// </summary>
         public override string ToString()
         {
-            if (Sweet)
+            if (sweet)
             {
                 return Size + " Texas Sweet Tea";
             }
