@@ -20,7 +20,6 @@
 
         <Style TargetType="TextBlock">
             <Setter Property= "FontSize" Value= "18"/>
-            <Setter Property= "Width" Value= "180"/>
             <Setter Property= "Margin" Value= "6"/>
             <Setter Property= "Background" Value= "White"/>
         </Style>
@@ -30,56 +29,52 @@
         </Style>
 
         <Style TargetType="ListView">
-            <Setter Property= "Height" Value= " 420px"/>
+            <Setter Property= "Height" Value= "600"/>
             <Setter Property= "FontSize" Value= "18"/>
-            <Setter Property= "Width" Value= "300"/>
+            <Setter Property= "MinWidth" Value= "300"/>
         </Style>
+        
 
     </UserControl.Resources>
 
     <Grid Background="LightBlue">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition>
-            </ColumnDefinition>
-            <ColumnDefinition>
-            </ColumnDefinition>
             <ColumnDefinition/>
-            <ColumnDefinition Width="448">
-            </ColumnDefinition>
-            <ColumnDefinition Width="52">
-            </ColumnDefinition>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="450"/>
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column= "0">
             <TextBlock TextAlignment="Center" Background="Silver">Entree</TextBlock>
-            <Button Click="CowpokeChiliClick">Cowpoke Chili</Button>
-            <Button Click="RustlersRibsClick">Rustler's Ribs</Button>
-            <Button Click="PecosPorkClick">Pecos Pulled Pork</Button>
-            <Button Click="TrailBurgerClick">Trail Burger</Button>
-            <Button Click="DakotaBurgerClick">Dakota Double Burger</Button>
-            <Button Click="TexasBurgerClick">Texas Triple Burger</Button>
-            <Button Click="AngryChickenClick">Angry Chicken</Button>
+            <Button Click="CowpokeChili_Click">Cowpoke Chili</Button>
+            <Button Click="RustlersRibs_Click">Rustler's Ribs</Button>
+            <Button Click="PecosPork_Click">Pecos Pulled Pork</Button>
+            <Button Click="TrailBurger_Click">Trail Burger</Button>
+            <Button Click="DakotaBurger_Click">Dakota Double Burger</Button>
+            <Button Click="TexasBurger_Click">Texas Triple Burger</Button>
+            <Button Click="AngryChicken_Click">Angry Chicken</Button>
         </StackPanel>
 
         <StackPanel Grid.Column= "1">
             <TextBlock TextAlignment="Center" Background="Silver">Side</TextBlock>
-            <Button Click="ChiliFriesClick">Chili Cheese Fries</Button>
-            <Button Click="CornDodgersClick">Corn Dodgers</Button>
-            <Button Click="PanDeCampoClick">Pan De Campo</Button>
-            <Button Click="BakedBeansClick">Baked Beans</Button>
+            <Button Click="ChiliFries_Click">Chili Cheese Fries</Button>
+            <Button Click="CornDodgers_Click">Corn Dodgers</Button>
+            <Button Click="PanDeCampo_Click">Pan de Campo</Button>
+            <Button Click="BakedBeans_Click">Baked Beans</Button>
         </StackPanel>
 
         <StackPanel Grid.Column= "2">
             <TextBlock TextAlignment="Center" Background="Silver">Drink</TextBlock>
-            <Button Click="JerkedSodaClick">Jerked Soda</Button>
-            <Button Click="TexasTeaClick">Texas Tea</Button>
-            <Button Click="CowboyCoffeeClick">Cowboy Coffee</Button>
-            <Button Click="WaterClick">Water</Button>
+            <Button Click="JerkedSoda_Click">Jerked Soda</Button>
+            <Button Click="TexasTea_Click">Texas Tea</Button>
+            <Button Click="CowboyCoffee_Click">Cowboy Coffee</Button>
+            <Button Click="Water_Click">Water</Button>
         </StackPanel>
 
-        <StackPanel Grid.Column= "3" Width="Auto" Background="LightBlue">
+        <StackPanel Grid.Column= "3" Background="LightBlue">
             <TextBlock TextAlignment="Center" Background="Silver">Order</TextBlock>
-            <ListView x:Name ="OrderList" HorizontalAlignment="Stretch" Width="370" BorderBrush="Black" BorderThickness="2"/>
+            <ListView x:Name ="OrderList" BorderBrush="Black" BorderThickness="2"/>
         </StackPanel>
     </Grid>
 </UserControl>
