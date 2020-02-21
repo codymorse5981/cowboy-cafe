@@ -78,29 +78,29 @@
         
         <StackPanel Grid.Column= "0">
             <TextBlock TextAlignment="Center" Background="Silver">Entree</TextBlock>
-            <Button Click="CowpokeChiliClick">Cowpoke Chili</Button>
-            <Button Click="RustlersRibsClick">Rustler's Ribs</Button>
-            <Button Click="PecosPorkClick">Pecos Pulled Pork</Button>
-            <Button Click="TrailBurgerClick">Trail Burger</Button>
-            <Button Click="DakotaBurgerClick">Dakota Double Burger</Button>
-            <Button Click="TexasBurgerClick">Texas Triple Burger</Button>
-            <Button Click="AngryChickenClick">Angry Chicken</Button>
+            <Button Click="CowpokeChili_Click">Cowpoke Chili</Button>
+            <Button Click="RustlersRibs_Click">Rustler's Ribs</Button>
+            <Button Click="PecosPork_Click">Pecos Pulled Pork</Button>
+            <Button Click="TrailBurger_Click">Trail Burger</Button>
+            <Button Click="DakotaBurger_Click">Dakota Double Burger</Button>
+            <Button Click="TexasBurger_Click">Texas Triple Burger</Button>
+            <Button Click="AngryChicken_Click">Angry Chicken</Button>
         </StackPanel>
 
         <StackPanel Grid.Column= "1">
             <TextBlock TextAlignment="Center" Background="Silver">Side</TextBlock>
-            <Button Click="ChiliFriesClick">Chili Cheese Fries</Button>
-            <Button Click="CornDodgersClick">Corn Dodgers</Button>
-            <Button Click="PanDeCampoClick">Pan De Campo</Button>
-            <Button Click="BakedBeansClick">Baked Beans</Button>
+            <Button Click="ChiliFries_Click">Chili Cheese Fries</Button>
+            <Button Click="CornDodgers_Click">Corn Dodgers</Button>
+            <Button Click="PanDeCampo_Click">Pan De Campo</Button>
+            <Button Click="BakedBeans_Click">Baked Beans</Button>
         </StackPanel>
 
         <StackPanel Grid.Column= "2">
             <TextBlock TextAlignment="Center" Background="Silver">Drink</TextBlock>
-            <Button Click="JerkedSodaClick">Jerked Soda</Button>
-            <Button Click="TexasTeaClick" FontFamily="Times New Roman">Texas Tea</Button>
-            <Button Click="CowboyCoffeeClick">Cowboy Coffee</Button>
-            <Button Click="WaterClick">Water</Button>
+            <Button Click="JerkedSoda_Click">Jerked Soda</Button>
+            <Button Click="TexasTea_Click" FontFamily="Times New Roman">Texas Tea</Button>
+            <Button Click="CowboyCoffee_Click">Cowboy Coffee</Button>
+            <Button Click="Water_Click">Water</Button>
         </StackPanel>
 
         <StackPanel Grid.Column= "3">
