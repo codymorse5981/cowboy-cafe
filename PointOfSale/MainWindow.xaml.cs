@@ -25,9 +25,5 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
-        private void OrderControl_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

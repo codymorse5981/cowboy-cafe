@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="Cowboy Cafe" MinHeight="650" Width="1250">
     <Grid>
-        <local:OrderControl Loaded="OrderControl_Loaded"></local:OrderControl>
+        <local:OrderControl></local:OrderControl>
     </Grid>
 </Window>
