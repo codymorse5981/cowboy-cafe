@@ -15,7 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Circuitry.png" />
+    <Resource Include="Images\Cafe.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
