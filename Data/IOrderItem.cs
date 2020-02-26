@@ -12,11 +12,11 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The price of the order item
         /// </summary>
-        double Price { get; }
+        public double Price { get; }
 
         /// <summary>
         /// The special instructions for the order item
         /// </summary>
-        List<string> SpecialInstructions { get; }
+        public IEnumerable<string> SpecialInstructions { get; }
     }
 }

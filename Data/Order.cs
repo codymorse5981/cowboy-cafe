@@ -11,9 +11,9 @@ namespace CowboyCafe.Data
 
         private List<IOrderItem> items;
 
-        public IEnumerable<IOrderItem> Items => throw new NotImplementedException(); //{ get; }
+        public IEnumerable<IOrderItem> Items  { get; }
 
-        public double Subtotal => 0; //{ get; }
+        public double Subtotal { get; }
 
         public uint OrderNumber { get; }
 
