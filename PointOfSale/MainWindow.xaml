@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PointOfSale"
         mc:Ignorable="d"
-        Title="Cowboy Cafe" MinHeight="1000" Width="1300">
+        Title="Cowboy Cafe" MinHeight="1000" Width="1250">
     
     <Window.Resources>
         <Style TargetType="Button">
@@ -42,7 +42,7 @@
         </Style>
     </Window.Resources>
         
-    <Grid Name="MainGrid" Background="White">
+    <Grid Name="MainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition  Width="283"/>
             <ColumnDefinition Width="283"/>
@@ -54,16 +54,26 @@
             <RowDefinition MinHeight="920"/>
             </Grid.RowDefinitions>
 
+
+        <Grid.Background>
+            <ImageBrush ImageSource= "Images/Cafe.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        
         <StackPanel Grid.Column="0" Grid.Row="0">
-            <Button Margin="10"> Item Selection</Button>
+            <Button HorizontalAlignment="Center" Margin="15"> Item Selection</Button>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="0">
-            <Button Margin="10">Cancel Order</Button>
+            <Button HorizontalAlignment="Center"  Margin="15">Cancel Order</Button>
         </StackPanel>
 
         <StackPanel Grid.Column="2" Grid.Row="0">
-            <Button Margin="10">Complete Order</Button>
+            <Button HorizontalAlignment="Center" Margin="15" Content="Complete Order"/>
         </StackPanel>
+
+        <StackPanel Grid.ColumnSpan ="4" Grid.Row="1">
+            <local:OrderControl Width="1026"></local:OrderControl>
+        </StackPanel>
+
     </Grid>
 </Window>
