@@ -29,6 +29,32 @@ namespace PointOfSale
         public MainWindow()
         {
             InitializeComponent();
+            CompleteOrderButton.Click += CompleteOrderButtonClicked;
+            CancelOrderButton.Click += CancelOrderButtonClicked;
+            ItemSelectButton.Click += ItemSelectButtonClicked;
         }
+
+        public void CompleteOrderButtonClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        public void CancelOrderButtonClicked(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is MainWindow data)
+            {
+                this.DataContext = new Order();
+            }
+        }
+
+        public void ItemSelectButtonClicked(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is MainWindow data)
+            {
+                this.DataContext = new Order();
+            }
+        }
+
+
     }
 }

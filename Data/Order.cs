@@ -9,11 +9,24 @@ namespace CowboyCafe.Data
     {
         private uint lastOrderNumber = 0;
 
-        private List<IOrderItem> items;
+        private List<IOrderItem> items = new List<IOrderItem>();
 
-        public IEnumerable<IOrderItem> Items { get; }
+        public IEnumerable<IOrderItem> Items
+        {
+            get
+            {
+                return items;
+            }
+        }
 
-        public double Subtotal { get; }
+        public double Subtotal
+        {
+            get
+            {
+                return 0;
+            }
+        }
+        
 
         public uint OrderNumber {
             get

@@ -17,34 +17,21 @@
             <RowDefinition MinHeight="750"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-
-        <Border BorderThickness="2" BorderBrush="Black" Grid.Column="0" Grid.Row="0" Grid.RowSpan="1"/>
-        <Border BorderThickness="2" BorderBrush="Black" Grid.Column="0" Grid.Row="1"/>
-        <Border BorderThickness="2" BorderBrush="Black" Grid.Column="0" Grid.Row="3" Grid.RowSpan="1"/>
-        <Border BorderThickness="2" BorderBrush="Black" Grid.Column="1" Grid.Row="0" Grid.RowSpan="1"/>
-
-        <Border BorderThickness="2" BorderBrush="Black" Grid.Column="1" Grid.Row="1"/>
-
-        <Border BorderThickness="2" BorderBrush="Black" Grid.Column="1" Grid.Row="3" Grid.RowSpan="1"/>
-
         <StackPanel Grid.Column ="0" Grid.RowSpan = "1">
-            <TextBox BorderThickness="2" FontSize="25" BorderBrush="Black" Height ="40" Text="{Binding Path=OrderNumber, StringFormat=c}"/>
+            <TextBox  FontSize="25" Height ="40" Text="{Binding Path=OrderNumber, StringFormat=c}"/>
         </StackPanel>
-
         <StackPanel Grid.Column ="0" Grid.Row = "2">
-            <TextBox BorderThickness="2" FontSize="25" BorderBrush="Black" Height ="40" Text="Subtotal"/>
+            <TextBox FontSize="25"  Height ="40" Text="Subtotal"/>
         </StackPanel>
-
         <StackPanel Grid.Column ="1" Grid.Row = "1">
             <ListView x:Name ="OrderList"></ListView>
+            
         </StackPanel>
-
         <StackPanel Grid.Column ="1" Grid.Row = "1">
             <ListView x:Name ="PriceList"></ListView>
         </StackPanel>
-
         <StackPanel Grid.Row = "2" Grid.Column="1">
-            <TextBox BorderThickness="2" BorderBrush="Black" Height ="40" Text="{Binding Path=Subtotal, StringFormat=c}"/>
+            <TextBox  Height ="40" Text="{Binding Path=Subtotal, StringFormat=c}"/>
         </StackPanel>
 
     </Grid>

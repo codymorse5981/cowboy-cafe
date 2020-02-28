@@ -27,7 +27,7 @@
                    Background="{TemplateBinding Background}">
                             <Grid >
                                 <ContentPresenter HorizontalAlignment="Center"
-                                  VerticalAlignment="Center" >
+                                  VerticalAlignment="Center">
                                     <ContentPresenter.RenderTransform>
                                         <TranslateTransform X="1.0" Y="1.0" />
                                     </ContentPresenter.RenderTransform>
@@ -60,19 +60,19 @@
         </Grid.Background>
         
         <StackPanel Grid.Column="0" Grid.Row="0">
-            <Button HorizontalAlignment="Center" Margin="15"> Item Selection</Button>
+            <Button Name ="ItemSelectButton" HorizontalAlignment="Center" Margin="15"> Item Selection</Button>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="0">
-            <Button HorizontalAlignment="Center"  Margin="15">Cancel Order</Button>
+            <Button Name ="CancelOrderButton" HorizontalAlignment="Center"  Margin="15">Cancel Order</Button>
         </StackPanel>
 
         <StackPanel Grid.Column="2" Grid.Row="0">
-            <Button HorizontalAlignment="Center" Margin="15" Content="Complete Order"/>
+            <Button Name ="CompleteOrderButton" HorizontalAlignment="Center" Margin="15">Complete Order</Button>
         </StackPanel>
 
         <StackPanel Grid.ColumnSpan ="4" Grid.Row="1">
-            <local:OrderControl Width="1026"></local:OrderControl>
+            <local:OrderControl Width="1200"></local:OrderControl>
         </StackPanel>
 
     </Grid>

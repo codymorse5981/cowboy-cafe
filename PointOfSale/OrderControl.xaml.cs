@@ -27,7 +27,7 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl
     {
-        
+        private Order OrderList = new Order();
         public OrderControl()
         {
             InitializeComponent();
@@ -37,7 +37,8 @@ namespace PointOfSale
         /// </summary>
         private void CowpokeChili_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new CowpokeChili());
+            OrderList.Add(new CowpokeChili());
+            
         }
 
         /// <summary>
@@ -45,7 +46,7 @@ namespace PointOfSale
         /// </summary>
         private void RustlersRibs_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new RustlersRibs());
+            OrderList.Add(new RustlersRibs());
         }
 
         /// <summary>
@@ -53,7 +54,7 @@ namespace PointOfSale
         /// </summary>
         private void PecosPork_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new PecosPulledPork());
+            OrderList.Add(new PecosPulledPork());
         }
 
         /// <summary>
@@ -61,7 +62,7 @@ namespace PointOfSale
         /// </summary>
         private void TrailBurger_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new TrailBurger());
+            OrderList.Add(new TrailBurger());
         }
 
         /// <summary>
@@ -69,7 +70,7 @@ namespace PointOfSale
         /// </summary>
         private void DakotaBurger_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new DakotaDoubleBurger());
+            OrderList.Add(new DakotaDoubleBurger());
         }
 
         /// <summary>
@@ -77,7 +78,7 @@ namespace PointOfSale
         /// </summary>
         private void TexasBurger_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new TexasTripleBurger());
+            OrderList.Add(new TexasTripleBurger());
         }
 
         /// <summary>
@@ -85,7 +86,7 @@ namespace PointOfSale
         /// </summary>
         private void AngryChicken_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new AngryChicken());
+            OrderList.Add(new AngryChicken());
         }
 
         /// <summary>
@@ -93,7 +94,7 @@ namespace PointOfSale
         /// </summary>
         private void ChiliFries_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new ChiliCheeseFries());
+            OrderList.Add(new ChiliCheeseFries());
         }
 
         /// <summary>
@@ -101,7 +102,7 @@ namespace PointOfSale
         /// </summary>
         private void CornDodgers_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new CornDodgers());
+            OrderList.Add(new CornDodgers());
         }
 
         /// <summary>
@@ -109,7 +110,7 @@ namespace PointOfSale
         /// </summary>
         private void PanDeCampo_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new PanDeCampo());
+            OrderList.Add(new PanDeCampo());
         }
 
         /// <summary>
@@ -117,7 +118,7 @@ namespace PointOfSale
         /// </summary>
         private void BakedBeans_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new BakedBeans());
+            OrderList.Add(new BakedBeans());
         }
 
         /// <summary>
@@ -125,7 +126,7 @@ namespace PointOfSale
         /// </summary>
         private void JerkedSoda_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new JerkedSoda());
+            OrderList.Add(new JerkedSoda());
         }
 
         /// <summary>
@@ -133,7 +134,7 @@ namespace PointOfSale
         /// </summary>
         private void TexasTea_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new TexasTea());
+            OrderList.Add(new TexasTea());
         }
 
         /// <summary>
@@ -141,7 +142,7 @@ namespace PointOfSale
         /// </summary>
         private void Water_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new Water());
+            OrderList.Add(new Water());
         }
 
         /// <summary>
@@ -149,7 +150,7 @@ namespace PointOfSale
         /// </summary>
         private void CowboyCoffee_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new CowboyCoffee());
+            OrderList.Add(new CowboyCoffee());
         }
     }
 }

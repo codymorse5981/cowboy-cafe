@@ -102,7 +102,7 @@
         </StackPanel>
 
         <StackPanel Grid.Column= "3">
-            <local:OrderSummaryControl Padding="6" Margin="15" Height ="950" Width="410"></local:OrderSummaryControl>
+            <local:OrderSummaryControl Padding="6" Margin="15" Height ="900" Width="410"></local:OrderSummaryControl>
         </StackPanel>
     </Grid>
 </UserControl>
