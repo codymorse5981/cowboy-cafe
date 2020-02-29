@@ -27,7 +27,14 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl
     {
+        /// <summary>
+        /// Order variable for class
+        /// </summary>
         public Order OrderList;
+
+        /// <summary>
+        /// Constructor for OrderControl
+        /// </summary>
         public OrderControl()
         {
             InitializeComponent();
@@ -35,15 +42,15 @@ namespace PointOfSale
             this.DataContext = OrderList;
         }
         /// <summary>
-        /// Adds Cowpoke Chili to List View
+        /// Adds Cowpoke Chili to List 
         /// </summary>
         private void CowpokeChili_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Add(new CowpokeChili());  
+            OrderList.Add(new CowpokeChili());
         }
 
         /// <summary>
-        /// Adds Rustler's Ribs to List View
+        /// Adds Rustler's Ribs to List 
         /// </summary>
         private void RustlersRibs_Click(object sender, RoutedEventArgs e)
         {
@@ -51,7 +58,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Adds Pecos Pulled Pork to List View
+        /// Adds Pecos Pulled Pork to List
         /// </summary>
         private void PecosPork_Click(object sender, RoutedEventArgs e)
         {
@@ -59,7 +66,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Adds Trail Burger to List View
+        /// Adds Trail Burger to List
         /// </summary>
         private void TrailBurger_Click(object sender, RoutedEventArgs e)
         {
@@ -67,7 +74,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Adds Dakota Double Burger to List View
+        /// Adds Dakota Double Burger to List
         /// </summary>
         private void DakotaBurger_Click(object sender, RoutedEventArgs e)
         {
@@ -75,7 +82,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Adds Texas Triple Burger to List View
+        /// Adds Texas Triple Burger to List
         /// </summary>
         private void TexasBurger_Click(object sender, RoutedEventArgs e)
         {
@@ -83,7 +90,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Adds Angry Chicken to List View
+        /// Adds Angry Chicken to List
         /// </summary>
         private void AngryChicken_Click(object sender, RoutedEventArgs e)
         {
@@ -91,7 +98,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Adds Chili Cheese Fries to List View
+        /// Adds Chili Cheese Fries to List
         /// </summary>
         private void ChiliFries_Click(object sender, RoutedEventArgs e)
         {
@@ -99,7 +106,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Adds Corn Dodgers to List View
+        /// Adds Corn Dodgers to List 
         /// </summary>
         private void CornDodgers_Click(object sender, RoutedEventArgs e)
         {
@@ -107,7 +114,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Adds Pan de Campo to List View
+        /// Adds Pan de Campo to List
         /// </summary>
         private void PanDeCampo_Click(object sender, RoutedEventArgs e)
         {
@@ -115,7 +122,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Adds Baked Beans to List View
+        /// Adds Baked Beans to List
         /// </summary>
         private void BakedBeans_Click(object sender, RoutedEventArgs e)
         {
@@ -123,7 +130,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Adds Jerked Soda to List View
+        /// Adds Jerked Soda to List 
         /// </summary>
         private void JerkedSoda_Click(object sender, RoutedEventArgs e)
         {
@@ -131,7 +138,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Adds Texas Tea to List View
+        /// Adds Texas Tea to List
         /// </summary>
         private void TexasTea_Click(object sender, RoutedEventArgs e)
         {
@@ -139,7 +146,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Adds Water to List View
+        /// Adds Water to List 
         /// </summary>
         private void Water_Click(object sender, RoutedEventArgs e)
         {
@@ -147,16 +154,11 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Adds Cowboy Coffee to List View
+        /// Adds Cowboy Coffee to List 
         /// </summary>
         private void CowboyCoffee_Click(object sender, RoutedEventArgs e)
         {
             OrderList.Add(new CowboyCoffee());
-        }
-
-        private void OrderSummaryControl_Loaded(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

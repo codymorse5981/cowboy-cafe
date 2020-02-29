@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: OrderControlSummary.xaml.cs
+ * Description: Handles OrderControlSummary class for application (WPF)
+  */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

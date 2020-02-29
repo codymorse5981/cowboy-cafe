@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: OrderTests.cs
+ * Description: Handles OrderTests class.
+  */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using CowboyCafe.Data;

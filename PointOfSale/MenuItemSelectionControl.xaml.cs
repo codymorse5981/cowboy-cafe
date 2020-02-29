@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: MenuItemSelectionControl.xaml.cs
+ * Description: Handles MenuItemSelectionControl class for application (WPF)
+  */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -19,6 +24,9 @@ namespace PointOfSale
     /// </summary>
     public partial class MenuItemSelectionControl : UserControl
     {
+        /// <summary>
+        /// Instantiations for WPF button clicks\
+        /// </summary>
         public MenuItemSelectionControl()
         {
             InitializeComponent();
@@ -29,11 +37,13 @@ namespace PointOfSale
 
         public void CompleteOrderButtonClicked(object sender, RoutedEventArgs e)
         {
+            /// Creates new order
             this.DataContext = new Order();
         }
 
         public void CancelOrderButtonClicked(object sender, RoutedEventArgs e)
         {
+            /// Creates new order
             this.DataContext = new Order();
         }
 

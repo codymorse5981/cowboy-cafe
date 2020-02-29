@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="500">
 
-    <Grid Name="OrderGrid" Background="White">
+    <Grid Name="OrderSummaryGrid" Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition  Width="375"/>
             <ColumnDefinition Width="125"/>
@@ -17,35 +17,49 @@
             <RowDefinition MinHeight="750"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Column ="0" Grid.Row = "0" Orientation="Horizontal">
-            <Border BorderBrush ="Black" BorderThickness="2"></Border>
+        
+        <StackPanel Grid.Column ="0" Grid.Row = "0" Orientation="Horizontal">           
             <TextBlock FontSize="25" Padding="5" Text="Order: "/>
-            <TextBlock FontSize="25" Height ="30" Text ="{Binding Path=OrderNumber, StringFormat=0}"/>
+            <TextBlock FontSize="25" Height ="30" Text ="{Binding Path=OrderNumber}"/>
         </StackPanel>
 
-        <StackPanel Grid.Column ="0" Grid.Row = "1">
-            <Border BorderBrush ="Black" BorderThickness="2" ></Border>
-            <ListBox  Name ="OrderSummaryPreview" FontSize="25" Height="820" ItemsSource = "{Binding Path=Items, StringFormat=c}"/>
+        <StackPanel Grid.Column="0" Grid.Row="1">
+            <Border BorderBrush ="Black" BorderThickness="2"/>
+            <ListBox ItemsSource="{Binding Path=Items}" Height="820" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <TextBlock FontSize="25" Text="{Binding}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <Border BorderBrush ="Black" BorderThickness="2"/>
+            <ListBox ItemsSource="{Binding Path=Items}" Height="820" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <TextBlock FontSize="25" Text="{Binding Path=Price, StringFormat=c}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+
 
         <StackPanel Grid.Column ="0" Grid.Row = "2">
             <Border BorderBrush ="Black" BorderThickness="2"></Border>
             <TextBox FontSize="25"  Height ="40" Text="Subtotal:"/>
-        </StackPanel>
-
-        <StackPanel Grid.Column ="0" Grid.Row = "2">
-            <Border BorderBrush ="Black" BorderThickness="2"></Border>
-            <TextBox FontSize="25"  Height ="40" Text="Subtotal:"/>
-        </StackPanel>
-
-        <StackPanel Grid.Column ="1" Grid.Row = "1">
-            <Border BorderBrush ="Black" BorderThickness="2"></Border>
         </StackPanel>
 
         <StackPanel Grid.Row = "2" Grid.Column="1">
             <Border BorderBrush ="Black" BorderThickness="2"></Border>
             <TextBox FontSize="25" Height ="40" Text="{Binding Path=Subtotal, StringFormat=c}"/>
         </StackPanel>
-
     </Grid>
 </UserControl>
+
+    
