@@ -11,19 +11,22 @@ namespace CowboyCafe.Data
 
         private List<IOrderItem> items = new List<IOrderItem>();
 
-        public IEnumerable<IOrderItem> Items
-        {
-            get
-            {
-                return items;
-            }
-        }
+        public IEnumerable<IOrderItem> Items => items.ToArray();
 
         public double Subtotal
         {
             get
             {
-                return 0;
+                double totalCost = 0;
+                foreach(IOrderItem i in items)
+                {
+                    totalCost += i.Price;
+                }
+                return totalCost;
+            }
+            set
+            { 
+                ///
             }
         }
         

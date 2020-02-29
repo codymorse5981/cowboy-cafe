@@ -27,18 +27,19 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl
     {
-        private Order OrderList = new Order();
+        public Order OrderList;
         public OrderControl()
         {
             InitializeComponent();
+            OrderList = new Order();
+            this.DataContext = OrderList;
         }
         /// <summary>
         /// Adds Cowpoke Chili to List View
         /// </summary>
         private void CowpokeChili_Click(object sender, RoutedEventArgs e)
         {
-            OrderList.Add(new CowpokeChili());
-            
+            OrderList.Add(new CowpokeChili());  
         }
 
         /// <summary>
@@ -151,6 +152,11 @@ namespace PointOfSale
         private void CowboyCoffee_Click(object sender, RoutedEventArgs e)
         {
             OrderList.Add(new CowboyCoffee());
+        }
+
+        private void OrderSummaryControl_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

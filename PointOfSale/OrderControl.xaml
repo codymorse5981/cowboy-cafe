@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="1000" d:DesignWidth="1200">
+             d:DesignHeight="1100" d:DesignWidth="1350">
     <UserControl.Resources>
 
         <Style TargetType="Button">
@@ -68,13 +68,25 @@
             <ColumnDefinition>
             </ColumnDefinition>
             <ColumnDefinition/>
-            <ColumnDefinition Width="450">
+            <ColumnDefinition Width="500">
             </ColumnDefinition>
             <ColumnDefinition Width="100">
             </ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="910"/>
+        </Grid.RowDefinitions>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/Cafe.jpg" Stretch="UniformToFill"></ImageBrush>
+        </Grid.Background>
         
-        <StackPanel Grid.Column= "0">
+        <StackPanel Grid.ColumnSpan= "3" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <local:MenuItemSelectionControl></local:MenuItemSelectionControl>
+        </StackPanel>
+
+        <StackPanel Grid.Column= "0" Grid.Row="1">
             <TextBlock Style ="{StaticResource TextHeader}">Entree</TextBlock>
             <Button Click="CowpokeChili_Click">Cowpoke Chili</Button>
             <Button Click="RustlersRibs_Click">Rustler's Ribs</Button>
@@ -85,7 +97,7 @@
             <Button Click="AngryChicken_Click">Angry Chicken</Button>
         </StackPanel>
 
-        <StackPanel Grid.Column= "1">
+        <StackPanel Grid.Column= "1" Grid.Row="1">
             <TextBlock Style ="{StaticResource TextHeader}">Side</TextBlock>
             <Button Click="ChiliFries_Click">Chili Cheese Fries</Button>
             <Button Click="CornDodgers_Click">Corn Dodgers</Button>
@@ -93,7 +105,7 @@
             <Button Click="BakedBeans_Click">Baked Beans</Button>
         </StackPanel>
 
-        <StackPanel Grid.Column= "2">
+        <StackPanel Grid.Column= "2" Grid.Row="1">
             <TextBlock Style ="{StaticResource TextHeader}">Drink</TextBlock>
             <Button Click="JerkedSoda_Click">Jerked Soda</Button>
             <Button Click="TexasTea_Click" FontFamily="Times New Roman">Texas Tea</Button>
@@ -101,8 +113,8 @@
             <Button Click="Water_Click">Water</Button>
         </StackPanel>
 
-        <StackPanel Grid.Column= "3">
-            <local:OrderSummaryControl Padding="6" Margin="15" Height ="900" Width="410"></local:OrderSummaryControl>
+        <StackPanel Grid.Column= "3" Grid.Row="1">
+            <local:OrderSummaryControl Padding="6" Height ="850" Width="500" Loaded="OrderSummaryControl_Loaded"></local:OrderSummaryControl>
         </StackPanel>
     </Grid>
 </UserControl>
