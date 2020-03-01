@@ -48,7 +48,7 @@ namespace CowboyCafe.DataTests
         // Get the Price - Needs to be right
         // (For the items we've added)
         [Theory]
-        [InlineData(new double[] { 0 })]
+        [InlineData(new double[] { 0})]
         [InlineData(new double[] { 10,15,18 })]
         [InlineData(new double[] { 20,-4,3.6,8})]
         [InlineData(new double[] { -100, -5 })]
@@ -58,6 +58,7 @@ namespace CowboyCafe.DataTests
             double total = 0;
             foreach (var price in prices)
             {
+                total += price;
                 order.Add(new MockOrderItem()
                 {
                     Price = price
