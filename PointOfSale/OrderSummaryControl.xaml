@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="500">
 
+
     <Grid Name="OrderSummaryGrid" Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition  Width="375"/>
@@ -17,15 +18,21 @@
             <RowDefinition MinHeight="750"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        
+
+        <Border Grid.Column="0" Grid.Row="0" BorderBrush="Black" BorderThickness="2"/>
+        <Border Grid.Column="0" Grid.Row="1" BorderBrush="Black" BorderThickness="2"/>
+        <Border Grid.Column="0" Grid.Row="2" BorderBrush="Black" BorderThickness="2"/>
+        <Border Grid.Column="1" Grid.Row="0" BorderBrush="Black" BorderThickness="2"/>
+        <Border Grid.Column="1" Grid.Row="1" BorderBrush="Black" BorderThickness="2"/>
+        <Border Grid.Column="1" Grid.Row="2" BorderBrush="Black" BorderThickness="2"/>
+
         <StackPanel Grid.Column ="0" Grid.Row = "0" Orientation="Horizontal">           
-            <TextBlock FontSize="25" Padding="5" Text="Order: "/>
+            <TextBlock FontSize="25" Padding="5" Text="Order: " />
             <TextBlock FontSize="25" Height ="30" Text ="{Binding Path=OrderNumber}"/>
         </StackPanel>
 
         <StackPanel Grid.Column="0" Grid.Row="1">
-            <Border BorderBrush ="Black" BorderThickness="2"/>
-            <ListBox ItemsSource="{Binding Path=Items}" Height="820" >
+            <ListBox ItemsSource="{Binding Path=Items}" Height="820" BorderBrush="Black" BorderThickness="2">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -37,8 +44,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <Border BorderBrush ="Black" BorderThickness="2"/>
-            <ListBox ItemsSource="{Binding Path=Items}" Height="820" >
+            <ListBox ItemsSource="{Binding Path=Items}" Height="820" BorderBrush ="Black" BorderThickness="2" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -56,8 +62,8 @@
         </StackPanel>
 
         <StackPanel Grid.Row = "2" Grid.Column="1">
-            <Border BorderBrush ="Black" BorderThickness="2"></Border>
-            <TextBox FontSize="25" Height ="40" Text="{Binding Path=Subtotal, StringFormat=c}"/>
+            <Border BorderBrush="Black" BorderThickness="1.5"/>
+            <TextBox FontSize="25" Height ="100" BorderBrush ="Black" BorderThickness="2" Text="{Binding Path=Subtotal, StringFormat=c}"/>
         </StackPanel>
     </Grid>
 </UserControl>
