@@ -12,12 +12,12 @@ namespace CowboyCafe.Data
 {
     public class Order : INotifyPropertyChanged
     {
-        private static uint lastOrderNumber = 0;
+        private static uint lastOrderNumber = 1;
 
         /// <summary>
         /// Instantiates new list.
         /// </summary>
-        private List<IOrderItem> items;
+        private List<IOrderItem> items = new List<IOrderItem>();
 
         /// <summary>
         /// Instantiates items list to an enumerable.
@@ -27,11 +27,6 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Order instantiation.
         /// </summary>
-        public Order()
-        {
-            items = new List<IOrderItem>();
-            lastOrderNumber++;
-        }
 
         /// <summary>
         /// Generates subtotal
@@ -56,7 +51,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Gets/Sets the last order number
         /// </summary>
-        public uint OrderNumber => lastOrderNumber;
+        public uint OrderNumber => lastOrderNumber++;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -69,7 +64,6 @@ namespace CowboyCafe.Data
             items.Add(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("OrderNumber"));
         }
 
         /// <summary>
@@ -81,7 +75,6 @@ namespace CowboyCafe.Data
             items.Remove(item);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("OrderNumber"));
         }
     }
 }

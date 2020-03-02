@@ -44,13 +44,13 @@
 
     <Grid Name="MenuGrid">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="600"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="100px"/>
-            <RowDefinition/>
+            <RowDefinition Height="125px"/>
+            <RowDefinition Height="1200"/>
         </Grid.RowDefinitions>
         
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
@@ -59,12 +59,12 @@
             <Button Name="CompleteOrderButton">Complete Order</Button>
         </StackPanel>
 
-        <StackPanel Grid.Column= "2" Grid.Row="1">
-            <local:OrderSummaryControl x:Name ="OrderSummary" Padding="6" Height ="850" Width="500"></local:OrderSummaryControl>
+        <StackPanel Grid.Column= "1" Grid.Row="1">
+            <local:OrderSummaryControl x:Name ="OrderSummary" Padding="6" MinHeight ="850" Width="500"></local:OrderSummaryControl>
         </StackPanel>
 
         <StackPanel Grid.Column= "0" Grid.Row="1">
-            <local:MenuItemSelectionControl Padding="6" Height ="850" Width="500"></local:MenuItemSelectionControl>
+            <local:MenuItemSelectionControl Padding="6" Height ="900" Width="800"></local:MenuItemSelectionControl>
         </StackPanel>
 
         <Grid.Background>
