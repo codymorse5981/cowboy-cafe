@@ -24,32 +24,139 @@ namespace PointOfSale
     /// </summary>
     public partial class MenuItemSelectionControl : UserControl
     {
+        
         /// <summary>
-        /// Instantiations for WPF button clicks\
+        /// Order variable for class
+        /// </summary>
+        public Order OrderList;
+
+        /// <summary>
+        /// Constructor for OrderControl
         /// </summary>
         public MenuItemSelectionControl()
         {
             InitializeComponent();
-            CompleteOrderButton.Click += CompleteOrderButtonClicked;
-            CancelOrderButton.Click += CancelOrderButtonClicked;
-            ItemSelectButton.Click += ItemSelectButtonClicked;
+            OrderList = new Order();
+            this.DataContext = OrderList;
+        }
+        /// <summary>
+        /// Adds Cowpoke Chili to List 
+        /// </summary>
+        private void CowpokeChili_Click(object sender, RoutedEventArgs e)
+        {
+            OrderList.Add(new CowpokeChili());
         }
 
-        public void CompleteOrderButtonClicked(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Adds Rustler's Ribs to List 
+        /// </summary>
+        private void RustlersRibs_Click(object sender, RoutedEventArgs e)
         {
-            /// Creates new order
-            this.DataContext = new Order();
+            OrderList.Add(new RustlersRibs());
         }
 
-        public void CancelOrderButtonClicked(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Adds Pecos Pulled Pork to List
+        /// </summary>
+        private void PecosPork_Click(object sender, RoutedEventArgs e)
         {
-            /// Creates new order
-            this.DataContext = new Order();
+            OrderList.Add(new PecosPulledPork());
         }
 
-        public void ItemSelectButtonClicked(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Adds Trail Burger to List
+        /// </summary>
+        private void TrailBurger_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException("Needs to Still be implemented.");
+            OrderList.Add(new TrailBurger());
+        }
+
+        /// <summary>
+        /// Adds Dakota Double Burger to List
+        /// </summary>
+        private void DakotaBurger_Click(object sender, RoutedEventArgs e)
+        {
+            OrderList.Add(new DakotaDoubleBurger());
+        }
+
+        /// <summary>
+        /// Adds Texas Triple Burger to List
+        /// </summary>
+        private void TexasBurger_Click(object sender, RoutedEventArgs e)
+        {
+            OrderList.Add(new TexasTripleBurger());
+        }
+
+        /// <summary>
+        /// Adds Angry Chicken to List
+        /// </summary>
+        private void AngryChicken_Click(object sender, RoutedEventArgs e)
+        {
+            OrderList.Add(new AngryChicken());
+        }
+
+        /// <summary>
+        /// Adds Chili Cheese Fries to List
+        /// </summary>
+        private void ChiliFries_Click(object sender, RoutedEventArgs e)
+        {
+            OrderList.Add(new ChiliCheeseFries());
+        }
+
+        /// <summary>
+        /// Adds Corn Dodgers to List 
+        /// </summary>
+        private void CornDodgers_Click(object sender, RoutedEventArgs e)
+        {
+            OrderList.Add(new CornDodgers());
+        }
+
+        /// <summary>
+        /// Adds Pan de Campo to List
+        /// </summary>
+        private void PanDeCampo_Click(object sender, RoutedEventArgs e)
+        {
+            OrderList.Add(new PanDeCampo());
+        }
+
+        /// <summary>
+        /// Adds Baked Beans to List
+        /// </summary>
+        private void BakedBeans_Click(object sender, RoutedEventArgs e)
+        {
+            OrderList.Add(new BakedBeans());
+        }
+
+        /// <summary>
+        /// Adds Jerked Soda to List 
+        /// </summary>
+        private void JerkedSoda_Click(object sender, RoutedEventArgs e)
+        {
+            OrderList.Add(new JerkedSoda());
+        }
+
+        /// <summary>
+        /// Adds Texas Tea to List
+        /// </summary>
+        private void TexasTea_Click(object sender, RoutedEventArgs e)
+        {
+            OrderList.Add(new TexasTea());
+        }
+
+        /// <summary>
+        /// Adds Water to List 
+        /// </summary>
+        private void Water_Click(object sender, RoutedEventArgs e)
+        {
+            OrderList.Add(new Water());
+        }
+
+        /// <summary>
+        /// Adds Cowboy Coffee to List 
+        /// </summary>
+        private void CowboyCoffee_Click(object sender, RoutedEventArgs e)
+        {
+            OrderList.Add(new CowboyCoffee());
         }
     }
 }

@@ -12,7 +12,7 @@ namespace CowboyCafe.Data
 {
     public class Order : INotifyPropertyChanged
     {
-        private uint lastOrderNumber = 0;
+        private static uint lastOrderNumber = 0;
 
         /// <summary>
         /// Instantiates new list.
@@ -31,7 +31,6 @@ namespace CowboyCafe.Data
         {
             items = new List<IOrderItem>();
             lastOrderNumber++;
-
         }
 
         /// <summary>
@@ -54,22 +53,10 @@ namespace CowboyCafe.Data
             }
         }
 
-        
-
         /// <summary>
         /// Gets/Sets the last order number
         /// </summary>
-        public uint OrderNumber
-        {
-            get
-            {
-                return lastOrderNumber;
-            }
-            set
-            {
-                ///
-            }
-        }
+        public uint OrderNumber => lastOrderNumber;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -83,7 +70,6 @@ namespace CowboyCafe.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("OrderNumber"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
         }
 
         /// <summary>
@@ -96,7 +82,6 @@ namespace CowboyCafe.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("OrderNumber"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
         }
     }
 }
