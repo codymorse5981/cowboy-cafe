@@ -1,6 +1,6 @@
 ﻿/* Author: Cody Morse
- * Class: TrailBurger.cs
- * Description: Handles Trail Burger entree class
+ * Class: DakotaDoubleBurger.cs
+ * Description: Handles Dakota Double Burger entree class.
   */
 
 using System;
@@ -9,9 +9,9 @@ using System.Collections.Generic;
 namespace CowboyCafe.Data
 {
     /// <summary>
-    /// A class representing the Trailburger entree
+    /// A class representing the Dakota Double burger entree
     /// </summary>
-    public class TrailBurger: Entree
+    public class DakotaDoubleBurger: Entree
     {
         private bool bun = true;
         /// <summary>
@@ -63,6 +63,36 @@ namespace CowboyCafe.Data
             set { cheese = value; }
         }
 
+        private bool tomato = true;
+        /// <summary>
+        /// If the burger is topped with tomato
+        /// </summary>
+        public bool Tomato
+        {
+            get { return tomato; }
+            set { tomato = value; }
+        }
+
+        private bool lettuce = true;
+        /// <summary>
+        /// If the burger is topped with lettuce
+        /// </summary>
+        public bool Lettuce
+        {
+            get { return lettuce; }
+            set { lettuce = value; }
+        }
+
+        private bool mayo = true;
+        /// <summary>
+        /// If the burger is topped with mayo
+        /// </summary>
+        public bool Mayo
+        {
+            get { return mayo; }
+            set { mayo = value; }
+        }
+
         /// <summary>
         /// The price of the burger
         /// </summary>
@@ -70,7 +100,7 @@ namespace CowboyCafe.Data
         {
             get
             {
-                return 4.50;
+                return 5.20;
             }
         }
 
@@ -81,8 +111,56 @@ namespace CowboyCafe.Data
         {
             get
             {
-                return 288;
+                return 464;
             }
+        }
+
+        public void HoldBun()
+        {
+            this.Bun = false;
+            ///NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+        public void HoldKetchup()
+        {
+            this.Ketchup = false;
+            ///NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+        public void HoldMustard()
+        {
+            this.Mustard = false;
+            //NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+        public void HoldPickle()
+        {
+            this.Pickle = false;
+            //NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+        public void HoldCheese()
+        {
+            this.Cheese = false;
+            ///NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+        public void HoldTomato()
+        {
+            this.Tomato = false;
+            //NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+        public void HoldLettuce()
+        {
+            this.Lettuce = false;
+            ///NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+        public void HoldMayo()
+        {
+            this.Mayo = false;
+            //NotifyOfPropertyChanged("SpecialInstructions");
         }
 
         /// <summary>
@@ -99,6 +177,9 @@ namespace CowboyCafe.Data
                 if (!mustard) instructions.Add("hold mustard");
                 if (!pickle) instructions.Add("hold pickle");
                 if (!cheese) instructions.Add("hold cheese");
+                if (!tomato) instructions.Add("hold tomato");
+                if (!lettuce) instructions.Add("hold lettuce");
+                if (!mayo) instructions.Add("hold mayo");
 
                 return instructions;
             }
@@ -109,8 +190,9 @@ namespace CowboyCafe.Data
         /// </summary>
         public override string ToString()
         {
-            return "Trail Burger";
+            return "Dakota Double Burger";
         }
+
     }
 }
 

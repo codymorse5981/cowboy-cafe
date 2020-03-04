@@ -1,6 +1,6 @@
 ﻿/* Author: Cody Morse
- * Class: DakotaDoubleBurger.cs
- * Description: Handles Dakota Double Burger entree class.
+ * Class: TexasTripleBurger.cs
+ * Description: Handles Texas Triple Burger entree class
   */
 
 using System;
@@ -9,9 +9,9 @@ using System.Collections.Generic;
 namespace CowboyCafe.Data
 {
     /// <summary>
-    /// A class representing the Dakota Double burger entree
+    /// A class representing the Texas Triple burger entree
     /// </summary>
-    public class DakotaDoubleBurger: Entree
+    public class TexasTripleBurger: Entree
     {
         private bool bun = true;
         /// <summary>
@@ -93,6 +93,26 @@ namespace CowboyCafe.Data
             set { mayo = value; }
         }
 
+        private bool bacon = true;
+        /// <summary>
+        /// If the burger is topped with bacon
+        /// </summary>
+        public bool Bacon
+        {
+            get { return bacon; }
+            set { bacon = value; }
+        }
+
+        private bool egg = true;
+        /// <summary>
+        /// If the burger is topped with egg
+        /// </summary>
+        public bool Egg
+        {
+            get { return egg; }
+            set { egg = value; }
+        }
+
         /// <summary>
         /// The price of the burger
         /// </summary>
@@ -100,7 +120,7 @@ namespace CowboyCafe.Data
         {
             get
             {
-                return 5.20;
+                return 6.45;
             }
         }
 
@@ -111,8 +131,69 @@ namespace CowboyCafe.Data
         {
             get
             {
-                return 464;
+                return 698;
             }
+        }
+
+
+        public void HoldBun()
+        {
+            this.Bun = false;
+            ///NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+        public void HoldKetchup()
+        {
+            this.Ketchup = false;
+            ///NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+        public void HoldMustard()
+        {
+            this.Mustard = false;
+            //NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+        public void HoldPickle()
+        {
+            this.Pickle = false;
+            //NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+        public void HoldCheese()
+        {
+            this.Cheese = false;
+            ///NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+        public void HoldTomato()
+        {
+            this.Tomato = false;
+            //NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+        public void HoldLettuce()
+        {
+            this.Lettuce = false;
+            ///NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+        public void HoldMayo()
+        {
+            this.Mayo = false;
+            //NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+        public void HoldBacon()
+        {
+            this.Egg = false;
+            ///NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+        public void HoldEgg()
+        {
+            this.Egg = false;
+            //NotifyOfPropertyChanged("SpecialInstructions");
         }
 
         /// <summary>
@@ -132,7 +213,9 @@ namespace CowboyCafe.Data
                 if (!tomato) instructions.Add("hold tomato");
                 if (!lettuce) instructions.Add("hold lettuce");
                 if (!mayo) instructions.Add("hold mayo");
-
+                if (!bacon) instructions.Add("hold bacon");
+                if (!egg) instructions.Add("hold egg");
+               
                 return instructions;
             }
         }
@@ -142,9 +225,8 @@ namespace CowboyCafe.Data
         /// </summary>
         public override string ToString()
         {
-            return "Dakota Double Burger";
+            return "Texas Triple Burger";
         }
-
     }
 }
 

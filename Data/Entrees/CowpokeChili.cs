@@ -76,6 +76,30 @@ namespace CowboyCafe.Data
             }
         }
 
+        public void HoldCheese()
+        {
+            this.Cheese = false;
+            ///NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+        public void HoldSourCream()
+        {
+            this.SourCream = false;
+            //NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+        public void HoldGreenOnions()
+        {
+            this.GreenOnions = false;
+            ///NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+        public void HoldTortillaStrips()
+        {
+            this.TortillaStrips = false;
+            //NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
         /// <summary>
         /// Special instructions for the preparation of the chili
         /// </summary>

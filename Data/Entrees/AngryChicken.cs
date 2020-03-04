@@ -1,21 +1,20 @@
 ﻿/* Author: Cody Morse
- * Class: PecosPulledPork.cs
- * Description: Handles Pecos Pulled Pork class
+ * Class: AngryChicken.cs
+ * Description: Handles Angry Chicken entree class
   */
-
 using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
-    /// A class representing the Pecos Pulled Pork entree
+    /// A class representing the Angry Chicken entree
     /// </summary>
-    public class PecosPulledPork: Entree
+    public class AngryChicken: Entree
     {
         private bool bread = true;
         /// <summary>
-        /// If the pulled pork comes with side of bread
+        /// If the chicken comes with side of bread
         /// </summary>
         public bool Bread
         {
@@ -25,7 +24,7 @@ namespace CowboyCafe.Data
 
         private bool pickle = true;
         /// <summary>
-        /// If the pulled pork comes with side of pickles
+        /// If the chicken is comes with side of pickles
         /// </summary>
         public bool Pickle
         {
@@ -34,29 +33,42 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// The price of the pulled pork
+        /// The price of the chicken
         /// </summary>
         public override double Price
         {
             get
             {
-                return 5.88;
+                return 5.99;
             }
         }
 
         /// <summary>
-        /// The calories of the pulled pork
+        /// The calories of the chicken
         /// </summary>
         public override uint Calories
         {
             get
             {
-                return 528;
+                return 190;
             }
         }
 
+        public void HoldBread()
+        {
+            this.Bread = false;
+            ///NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+        public void HoldPickle()
+        {
+            this.Pickle = false;
+            //NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+
         /// <summary>
-        /// Special instructions for the preparation of the pulled pork
+        /// Special instructions for the preparation of the chicken
         /// </summary>
         public override List<string> SpecialInstructions
         {
@@ -76,8 +88,9 @@ namespace CowboyCafe.Data
         /// </summary>
         public override string ToString()
         {
-            return "Pecos Pulled Pork";
+            return "Angry Chicken";
         }
+
     }
 }
 

@@ -1,6 +1,6 @@
 ﻿/* Author: Cody Morse
- * Class: TexasTripleBurger.cs
- * Description: Handles Texas Triple Burger entree class
+ * Class: TrailBurger.cs
+ * Description: Handles Trail Burger entree class
   */
 
 using System;
@@ -9,9 +9,9 @@ using System.Collections.Generic;
 namespace CowboyCafe.Data
 {
     /// <summary>
-    /// A class representing the Texas Triple burger entree
+    /// A class representing the Trailburger entree
     /// </summary>
-    public class TexasTripleBurger: Entree
+    public class TrailBurger: Entree
     {
         private bool bun = true;
         /// <summary>
@@ -63,56 +63,6 @@ namespace CowboyCafe.Data
             set { cheese = value; }
         }
 
-        private bool tomato = true;
-        /// <summary>
-        /// If the burger is topped with tomato
-        /// </summary>
-        public bool Tomato
-        {
-            get { return tomato; }
-            set { tomato = value; }
-        }
-
-        private bool lettuce = true;
-        /// <summary>
-        /// If the burger is topped with lettuce
-        /// </summary>
-        public bool Lettuce
-        {
-            get { return lettuce; }
-            set { lettuce = value; }
-        }
-
-        private bool mayo = true;
-        /// <summary>
-        /// If the burger is topped with mayo
-        /// </summary>
-        public bool Mayo
-        {
-            get { return mayo; }
-            set { mayo = value; }
-        }
-
-        private bool bacon = true;
-        /// <summary>
-        /// If the burger is topped with bacon
-        /// </summary>
-        public bool Bacon
-        {
-            get { return bacon; }
-            set { bacon = value; }
-        }
-
-        private bool egg = true;
-        /// <summary>
-        /// If the burger is topped with egg
-        /// </summary>
-        public bool Egg
-        {
-            get { return egg; }
-            set { egg = value; }
-        }
-
         /// <summary>
         /// The price of the burger
         /// </summary>
@@ -120,7 +70,7 @@ namespace CowboyCafe.Data
         {
             get
             {
-                return 6.45;
+                return 4.50;
             }
         }
 
@@ -131,9 +81,39 @@ namespace CowboyCafe.Data
         {
             get
             {
-                return 698;
+                return 288;
             }
         }
+
+        public void HoldBun()
+        {
+            this.Bun = false;
+            ///NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+        public void HoldKetchup()
+        {
+            this.Ketchup = false;
+            ///NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+        public void HoldMustard()
+        {
+            this.Mustard = false;
+            //NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+        public void HoldPickle()
+        {
+            this.Pickle = false;
+            //NotifyOfPropertyChanged("SpecialInstructions");
+        }
+
+        public void HoldCheese()
+        {
+            this.Cheese = false;
+            ///NotifyOfPropertyChanged("SpecialInstructions");
+        }  
 
         /// <summary>
         /// Special instructions for the preparation of the burger
@@ -149,12 +129,7 @@ namespace CowboyCafe.Data
                 if (!mustard) instructions.Add("hold mustard");
                 if (!pickle) instructions.Add("hold pickle");
                 if (!cheese) instructions.Add("hold cheese");
-                if (!tomato) instructions.Add("hold tomato");
-                if (!lettuce) instructions.Add("hold lettuce");
-                if (!mayo) instructions.Add("hold mayo");
-                if (!bacon) instructions.Add("hold bacon");
-                if (!egg) instructions.Add("hold egg");
-               
+
                 return instructions;
             }
         }
@@ -164,7 +139,7 @@ namespace CowboyCafe.Data
         /// </summary>
         public override string ToString()
         {
-            return "Texas Triple Burger";
+            return "Trail Burger";
         }
     }
 }
