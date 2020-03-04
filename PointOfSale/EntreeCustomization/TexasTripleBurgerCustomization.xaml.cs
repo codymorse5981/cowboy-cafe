@@ -32,7 +32,7 @@ namespace PointOfSale.EntreeCustomization
             }
         }
 
-        private void OnBunClick(object sender, RoutedEventArgs arsg)
+        private void OnBunClick(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
@@ -43,7 +43,7 @@ namespace PointOfSale.EntreeCustomization
             }
         }
 
-        private void OnKetchupClick(object sender, RoutedEventArgs arsg)
+        private void OnKetchupClick(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
@@ -53,7 +53,7 @@ namespace PointOfSale.EntreeCustomization
                 }
             }
         }
-        private void OnMustardClick(object sender, RoutedEventArgs arsg)
+        private void OnMustardClick(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
@@ -64,7 +64,7 @@ namespace PointOfSale.EntreeCustomization
             }
         }
 
-        private void OnPickleClick(object sender, RoutedEventArgs arsg)
+        private void OnPickleClick(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
@@ -75,7 +75,7 @@ namespace PointOfSale.EntreeCustomization
             }
         }
 
-        private void OnCheeseClick(object sender, RoutedEventArgs arsg)
+        private void OnCheeseClick(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
@@ -85,7 +85,7 @@ namespace PointOfSale.EntreeCustomization
                 }
             }
         }
-        private void OnTomatoClick(object sender, RoutedEventArgs arsg)
+        private void OnTomatoClick(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
@@ -96,7 +96,7 @@ namespace PointOfSale.EntreeCustomization
             }
         }
 
-        private void OnLettuceClick(object sender, RoutedEventArgs arsg)
+        private void OnLettuceClick(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
@@ -107,7 +107,7 @@ namespace PointOfSale.EntreeCustomization
             }
         }
 
-        private void OnMayoClick(object sender, RoutedEventArgs arsg)
+        private void OnMayoClick(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
@@ -118,7 +118,7 @@ namespace PointOfSale.EntreeCustomization
             }
         }
 
-        private void OnBaconClick(object sender, RoutedEventArgs arsg)
+        private void OnBaconClick(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
@@ -129,7 +129,7 @@ namespace PointOfSale.EntreeCustomization
             }
         }
 
-        private void OnEggClick(object sender, RoutedEventArgs arsg)
+        private void OnEggClick(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
@@ -142,7 +142,11 @@ namespace PointOfSale.EntreeCustomization
 
         public void OnBackClick(object sender, RoutedEventArgs args)
         {
-
+            var orderControl = this.FindAncestor<OrderControl>();
+            if (DataContext is Order order)
+            {
+                orderControl.SwapScreen(new MenuItemSelectionControl()); ;
+            }
         }
     }
 }

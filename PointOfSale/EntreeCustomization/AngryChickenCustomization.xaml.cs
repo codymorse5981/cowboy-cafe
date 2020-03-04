@@ -32,7 +32,7 @@ namespace PointOfSale.EntreeCustomization
             }
         }
 
-        private void OnBreadClick(object sender, RoutedEventArgs arsg)
+        private void OnBreadClick(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
@@ -43,7 +43,7 @@ namespace PointOfSale.EntreeCustomization
             }
         }
 
-        private void OnPickleClick(object sender, RoutedEventArgs arsg)
+        private void OnPickleClick(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
@@ -55,7 +55,11 @@ namespace PointOfSale.EntreeCustomization
         }
         public void OnBackClick(object sender, RoutedEventArgs args)
         {
-
+            var orderControl = this.FindAncestor<OrderControl>();
+            if (DataContext is Order order)
+            {
+                orderControl.SwapScreen(new MenuItemSelectionControl()); ;
+            }
         }
     }
 }

@@ -54,31 +54,22 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Text="Customize Cowpoke Chili" FontSize="20" Grid.ColumnSpan="2" TextAlignment="Center" VerticalAlignment="Center"/>
-        <Button Name="CheeseButton"
-                Click="OnCheeseClick"
-                Grid.Row="1"
-                Grid.Column="0">
-            Hold Cheese
-        </Button>
-        <Button Name="SourCreamButton"
-                Click="OnSourCreamClick"
-                Grid.Row="1"
-                Grid.Column="1">
-            Hold Sour Cream
-        </Button>
-        <Button Name="GreenOnionsButton"
-                Click="OnGreenOnionsClick"
-                Grid.Row="2"
-                Grid.Column="0">
-            Hold Green Onions
-        </Button>
-        <Button Name="TortillaStripsButton"
-                Click="OnTortillaStripsClick"
-                Grid.Row="2"
-                Grid.Column="1">
-            Hold Green Onions
-        </Button>
-        
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
+
+
+            <Label FontSize ="25" >Hold Cheese</Label>
+            <CheckBox IsChecked="{Binding Path = Cheese}"></CheckBox>
+
+            <Label FontSize ="25" >Sour Cream</Label>
+            <CheckBox IsChecked="{Binding Path = SourCream}"></CheckBox>
+
+            <Label FontSize ="25" >Green Onions</Label>
+            <CheckBox IsChecked="{Binding Path = GreenOnions}"></CheckBox>
+
+            <Label FontSize ="25" >Tortilla Strips</Label>
+            <CheckBox IsChecked="{Binding Path = TortillaStrips}"></CheckBox>
+        </StackPanel>
+  
         <Button Name="BackButton"
                 Click="OnBackClick"
                 Height=" 100"

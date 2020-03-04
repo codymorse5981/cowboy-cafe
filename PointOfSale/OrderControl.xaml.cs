@@ -34,8 +34,14 @@ namespace PointOfSale
             CompleteOrderButton.Click += CompleteOrderButtonClicked;
             CancelOrderButton.Click += CancelOrderButtonClicked;
             ItemSelectButton.Click += ItemSelectButtonClicked;
+
+
         }
 
+        public void SwapScreen(UIElement element)
+        {
+            Container.Child = element;
+        }
         public void CompleteOrderButtonClicked(object sender, RoutedEventArgs e)
         {
             /// Creates new order           

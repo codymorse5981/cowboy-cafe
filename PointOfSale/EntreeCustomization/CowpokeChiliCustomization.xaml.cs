@@ -25,60 +25,49 @@ namespace PointOfSale.EntreeCustomization
             InitializeComponent();
             if (DataContext is Order order)
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is CowpokeChili chili)
-                {
-                    c = chili;
-                }
+
+                ///    c = chili;
             }
         }
 
-        private void OnCheeseClick(object sender, RoutedEventArgs arsg)
+        private void OnCheeseClick(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is CowpokeChili chili)
-                {
-                    chili.HoldCheese();
-                }
+                ///chili.HoldCheese();
+
             }
         }
 
-        private void OnSourCreamClick(object sender, RoutedEventArgs arsg)
+        private void OnSourCreamClick(object sender, RoutedEventArgs args)
         {
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is CowpokeChili chili)
-                {
-                    chili.HoldSourCream();
-                }
-            }
+                    ///chili.HoldSourCream();
         }
 
         private void OnGreenOnionsClick(object sender, RoutedEventArgs arsg)
         {
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is CowpokeChili chili)
-                {
-                    chili.HoldGreenOnions();
-                }
-            }
+            ///if (DataContext is Order order)
+            ///{
+            ///
+            ///        chili.HoldGreenOnions();
+            ///
+            ///}
         }
 
         private void OnTortillaStripsClick(object sender, RoutedEventArgs arsg)
         {
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is CowpokeChili chili)
-                {
-                    c.HoldTortillaStrips();
-                }
-            }
+            ///if (DataContext is Order order)
+            ///{
+
         }
 
         public void OnBackClick(object sender, RoutedEventArgs args)
         {
-
+            var orderControl = this.FindAncestor<OrderControl>();
+            if (DataContext is Order order)
+            {
+                orderControl.SwapScreen(new MenuItemSelectionControl()); ;
+            }
         }
     }
 }

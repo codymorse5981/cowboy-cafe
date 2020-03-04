@@ -43,9 +43,9 @@
 
     <Grid Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="200"/>
-            <RowDefinition Height="210"/>
+            <RowDefinition MaxHeight="40"/>
+            <RowDefinition MaxHeight="200"/>
+            <RowDefinition MaxHeight="210"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
