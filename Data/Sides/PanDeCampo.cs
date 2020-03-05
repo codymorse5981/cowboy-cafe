@@ -6,14 +6,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class representing a side of pan de campo
     /// </summary>
-    public class PanDeCampo : Side
+    public class PanDeCampo : Side, INotifyPropertyChanged
     {
+
         /// <summary>
         /// Gets the price of the side
         /// </summary>

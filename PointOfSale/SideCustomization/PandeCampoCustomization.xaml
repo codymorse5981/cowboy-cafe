@@ -52,6 +52,7 @@
 
         </Grid.ColumnDefinitions>
 
+        <TextBox Grid.ColumnSpan="1" Grid.RowSpan="3"></TextBox>
         <TextBlock Text="Customize Pan de Campo" FontSize="20" Grid.ColumnSpan="2" TextAlignment="Center" VerticalAlignment="Center"/>
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
 

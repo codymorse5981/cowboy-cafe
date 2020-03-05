@@ -13,7 +13,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A base class representing a entree
     /// </summary>
-    public abstract class Entree :IOrderItem, INotifyPropertyChanged
+    public abstract class Entree :IOrderItem,INotifyPropertyChanged
     {
         /// <summary>
         /// Gets the calories of the entree
@@ -31,10 +31,12 @@ namespace CowboyCafe.Data
         public abstract List<string> SpecialInstructions { get; }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        /// public event PropertyChangedEventHandler PropertyChanged;
         // Notifying of property changes
-        protected void NotifyOfPropertyChange(string property)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
-        }
+        ///protected void NotifyOfPropertyChange(string property)
+        ///{
+        ///    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+        ///}
     }
 }

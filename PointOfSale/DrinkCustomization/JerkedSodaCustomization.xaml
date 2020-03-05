@@ -54,6 +54,7 @@
 
         </Grid.ColumnDefinitions>
 
+        <TextBox Grid.ColumnSpan="1" Grid.RowSpan="5"></TextBox>
         <TextBlock Text="Customize Jerked Soda" FontSize="20" Grid.ColumnSpan="2" TextAlignment="Center" VerticalAlignment="Center"/>
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
 
@@ -69,8 +70,6 @@
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center">
             <TextBlock VerticalAlignment="Center" FontSize="25" Padding="20">Flavor:</TextBlock>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-
-
                 <RadioButton IsChecked="{Binding Path = Flavor}" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="1" Content="BirchBeer" FontSize="25"></RadioButton>
 
                 <RadioButton IsChecked="{Binding Path = Flavor}" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="1" Content="CreamSoda" FontSize="25"></RadioButton>

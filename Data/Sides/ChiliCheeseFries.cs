@@ -6,13 +6,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class representing a side of chili cheese fries
     /// </summary>
-    public class ChiliCheeseFries : Side
+    public class ChiliCheeseFries : Side, INotifyPropertyChanged
     {
         /// <summary>
         /// Gets the price of the side
