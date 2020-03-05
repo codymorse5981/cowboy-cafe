@@ -19,73 +19,12 @@ namespace PointOfSale.EntreeCustomization
     /// </summary>
     public partial class TrailerBurgerCustomization : UserControl
     {
-        private TrailBurger t;
         public TrailerBurgerCustomization()
         {
-            InitializeComponent();
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is TrailBurger trailBurger)
-                {
-                    t = trailBurger;
-                }
-            }
+            InitializeComponent();           
         }
 
-        private void OnBunClick(object sender, RoutedEventArgs args)
-        {
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is TrailBurger trailBurger)
-                {
-                    trailBurger.HoldBun();
-                }
-            }
-        }
-
-        private void OnKetchupClick(object sender, RoutedEventArgs args)
-        {
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is TrailBurger trailBurger)
-                {
-                    trailBurger.HoldKetchup();
-                }
-            }
-        }
-        private void OnMustardClick(object sender, RoutedEventArgs args)
-        {
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is TrailBurger trailBurger)
-                {
-                    trailBurger.HoldMustard();
-                }
-            }
-        }
-
-        private void OnPickleClick(object sender, RoutedEventArgs args)
-        {
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is TrailBurger trailBurger)
-                {
-                    trailBurger.HoldPickle();
-                }
-            }
-        }
-
-        private void OnCheeseClick(object sender, RoutedEventArgs args)
-        {
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is TrailBurger trailBurger)
-                {
-                    trailBurger.HoldCheese();
-                }
-            }
-        }
-
+        
         public void OnBackClick(object sender, RoutedEventArgs args)
         {
             var orderControl = this.FindAncestor<OrderControl>();

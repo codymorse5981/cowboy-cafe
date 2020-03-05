@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale.EntreeCustomization"
              mc:Ignorable="d" 
-             d:DesignHeight="370" d:DesignWidth="800">
+             d:DesignHeight="290" d:DesignWidth="800">
     <UserControl.Resources>
         <Style TargetType="Button">
             <Setter Property="Width" Value="300"/>
@@ -41,40 +41,38 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid Background="White">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="160"/>
-            <RowDefinition Height="170"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <TextBlock Text="Customize Pecos Pulled Pork" FontSize="20" Grid.ColumnSpan="2" TextAlignment="Center" VerticalAlignment="Center"/>
-        <Button Name="BreadButton"
-                Click="OnBreadClick"
-                Grid.Row="1"
-                Grid.Column="0">
-            Hold Bread
-        </Button>
-        <Button Name="PickleButton"
-                Click="OnPickleClick"
-                Grid.Row="1"
-                Grid.Column="1">
-            Hold Pickle
-        </Button>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
+            <TextBlock VerticalAlignment="Center" FontSize="25" Padding="20">Options:</TextBlock>
+            
+            <CheckBox IsChecked="{Binding Path = Bread}" VerticalAlignment="Center" Margin="10"></CheckBox>
+            <Label FontSize ="25" >Bread</Label>
+
+            <CheckBox IsChecked="{Binding Path = Pickle}" VerticalAlignment="Center" Margin="10"></CheckBox>
+            <Label FontSize ="25" >Pickle</Label>
+        </StackPanel>
+
         <Button Name="BackButton"
                 Click="OnBackClick"
                 Height=" 100"
                 Width="300"
-                Grid.Row="2"
-                Grid.ColumnSpan="2">
+                Grid.Row="3"
+                Grid.Column="0">
             Done Customizing
         </Button>
 
-        <Border Grid.ColumnSpan="2" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="3"/>
         <Border Grid.ColumnSpan="2" Grid.RowSpan="3" BorderBrush="Black" BorderThickness="3"/>
+        <Border Grid.ColumnSpan="2" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="3"/>
     </Grid>
 </UserControl>
+

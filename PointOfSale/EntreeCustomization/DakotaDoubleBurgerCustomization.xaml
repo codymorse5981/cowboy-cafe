@@ -5,11 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale.EntreeCustomization"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="800">
+             d:DesignHeight="340" d:DesignWidth="800">
     <UserControl.Resources>
         <Style TargetType="Button">
             <Setter Property="Width" Value="300"/>
-            <Setter Property="Height" Value="80"/>
+            <Setter Property="Height" Value="100"/>
             <Setter Property="FontStyle" Value="Normal"/>
             <Setter Property="FontFamily" Value="Times New Roman"/>
             <Setter Property="FontSize" Value="20"/>
@@ -41,84 +41,63 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid Background="White">
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Customize Dakota Double Burger" FontSize="20" Grid.ColumnSpan="2" TextAlignment="Center" VerticalAlignment="Center"/>
-        <Button Name="BunButton"
-                Click="OnBunClick"
-                Grid.Row="1"
-                Grid.Column="0">
-            Hold Bun
-        </Button>
-        <Button Name="KetchupButton"
-                Click="OnKetchupClick"
-                Grid.Row="1"
-                Grid.Column="1">
-            Hold Ketchup
-        </Button>
-        <Button Name="MustardButton"
-                Click="OnMustardClick"
-                Grid.Row="2"
-                Grid.Column="0">
-            Hold Mustard
-        </Button>
-        <Button Name="PickleButton"
-                Click="OnPickleClick"
-                Grid.Row="2"
-                Grid.Column="1">
-            Hold Pickles
-        </Button>
+        <TextBlock Text="DakotaDoubleBurger" FontSize="20" Grid.ColumnSpan="2" TextAlignment="Center" VerticalAlignment="Center"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
 
-        <Button Name="CheeseButton"
-                Click="OnCheeseClick"
-                Grid.Row="3"
-                Grid.Column="0">
-            Hold Cheese
-        </Button>
+            <TextBlock VerticalAlignment="Center" FontSize="25" Padding="20">Options:</TextBlock>
+            
+            <CheckBox IsChecked="{Binding Path = Bun}" VerticalAlignment="Center" Margin="10"></CheckBox>
+            <Label FontSize ="25" >Bun</Label>
 
-        <Button Name="TomatoButton"
-                Click="OnTomatoClick"
-                Grid.Row="3"
-                Grid.Column="1">
-            Hold Tomatoes
-        </Button>
+            <CheckBox IsChecked="{Binding Path = Ketchup}" VerticalAlignment="Center" Margin="10"></CheckBox>
+            <Label FontSize ="25" >Ketchup</Label>
 
-        <Button Name="LettuceButton"
-                Click="OnLettuceClick"
-                Grid.Row="4"
-                Grid.Column="0">
-            Hold Lettuce
-        </Button>
 
-        <Button Name="MayoButton"
-                Click="OnMayoClick"
-                Grid.Row="4"
-                Grid.Column="1">
-            Hold Mayo
-        </Button>
-        
+            <CheckBox IsChecked="{Binding Path = Mustard}" VerticalAlignment="Center" Margin="10"></CheckBox>
+            <Label FontSize ="25" >Mustard</Label>
+
+            <CheckBox IsChecked="{Binding Path = Pickles}" VerticalAlignment="Center" Margin="10"></CheckBox>
+            <Label FontSize ="25" >Pickles</Label>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center">
+            <CheckBox IsChecked="{Binding Path = Cheese}" VerticalAlignment="Center" Margin="10"></CheckBox>
+            <Label FontSize ="25" >Cheese</Label>
+
+            <CheckBox IsChecked="{Binding Path = Tomatoes}" VerticalAlignment="Center" Margin="10"></CheckBox>
+            <Label FontSize ="25" >Tomatoes</Label>
+
+            <CheckBox IsChecked="{Binding Path = Lettuce}" VerticalAlignment="Center" Margin="10"></CheckBox>
+            <Label FontSize ="25" >Lettuce</Label>
+
+            <CheckBox IsChecked="{Binding Path = Mayo}" VerticalAlignment="Center" Margin="10"></CheckBox>
+            <Label FontSize ="25" >Mayo</Label>
+
+        </StackPanel>
+
         <Button Name="BackButton"
                 Click="OnBackClick"
-                Height="80"
+                Height=" 100"
                 Width="300"
-                Grid.Row="5"
-                Grid.ColumnSpan="2">
+                Grid.Row="3"
+                Grid.Column="0">
             Done Customizing
         </Button>
 
-        <Border Grid.ColumnSpan="2" Grid.RowSpan="5" BorderBrush="Black" BorderThickness="3"/>
-        <Border Grid.ColumnSpan="2" Grid.RowSpan="6" BorderBrush="Black" BorderThickness="3"/>
+        <Border Grid.ColumnSpan="1" Grid.RowSpan="3" BorderBrush="Black" BorderThickness="3"/>
+        <Border Grid.ColumnSpan="1" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="3"/>
     </Grid>
 </UserControl>
+

@@ -15,14 +15,22 @@ using CowboyCafe.Data;
 namespace PointOfSale.DrinkCustomization
 {
     /// <summary>
-    /// Interaction logic for FlavorSelect.xaml
+    /// Interaction logic for JerkedSodaCustomization.xaml
     /// </summary>
-    public partial class FlavorSelect : UserControl
+    public partial class JerkedSodaCustomization : UserControl
     {
-        private Drink soda;
-        public FlavorSelect()
+        public JerkedSodaCustomization()
         {
             InitializeComponent();
+        }
+
+        public void OnBackClick(object sender, RoutedEventArgs args)
+        {
+            var orderControl = this.FindAncestor<OrderControl>();
+            if (DataContext is Order order)
+            {
+                orderControl.SwapScreen(new MenuItemSelectionControl()); ;
+            }
         }
     }
 }

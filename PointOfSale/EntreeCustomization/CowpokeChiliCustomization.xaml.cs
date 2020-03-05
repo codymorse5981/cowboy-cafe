@@ -19,46 +19,9 @@ namespace PointOfSale.EntreeCustomization
     /// </summary>
     public partial class CowpokeChiliCustomization : UserControl
     {
-        private CowpokeChili c;
         public CowpokeChiliCustomization()
         {
             InitializeComponent();
-            if (DataContext is Order order)
-            {
-
-                ///    c = chili;
-            }
-        }
-
-        private void OnCheeseClick(object sender, RoutedEventArgs args)
-        {
-            if (DataContext is Order order)
-            {
-                ///chili.HoldCheese();
-
-            }
-        }
-
-        private void OnSourCreamClick(object sender, RoutedEventArgs args)
-        {
-                    ///chili.HoldSourCream();
-        }
-
-        private void OnGreenOnionsClick(object sender, RoutedEventArgs arsg)
-        {
-            ///if (DataContext is Order order)
-            ///{
-            ///
-            ///        chili.HoldGreenOnions();
-            ///
-            ///}
-        }
-
-        private void OnTortillaStripsClick(object sender, RoutedEventArgs arsg)
-        {
-            ///if (DataContext is Order order)
-            ///{
-
         }
 
         public void OnBackClick(object sender, RoutedEventArgs args)

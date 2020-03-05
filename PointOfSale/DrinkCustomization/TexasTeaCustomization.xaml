@@ -5,8 +5,91 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale.DrinkCustomization"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="350" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="FontStyle" Value="Normal"/>
+            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Background" Value="Tan"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border"
+                   BorderThickness="4"
+                   Padding="4,2"
+                   BorderBrush="SandyBrown"
+                   CornerRadius="5"
+                   Background="{TemplateBinding Background}">
+                            <Grid >
+                                <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center" >
+                                    <ContentPresenter.RenderTransform>
+                                        <TranslateTransform X="1.0" Y="1.0" />
+                                    </ContentPresenter.RenderTransform>
+                                </ContentPresenter>
+                                <ContentPresenter HorizontalAlignment="Center"
+                               VerticalAlignment="Center" Name="content"/>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="200"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Customize Texas Tea" FontSize="20" Grid.ColumnSpan="2" TextAlignment="Center" VerticalAlignment="Center"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
+
+            <TextBlock VerticalAlignment="Center" FontSize="25" Padding="20">Size:</TextBlock>
+
+            <RadioButton IsChecked="{Binding Path = Size}" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="10" Content="Large" FontSize="25"></RadioButton>
+
+            <RadioButton IsChecked="{Binding Path = Size}" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="10" Content="Medium" FontSize="25"></RadioButton>
+
+            <RadioButton IsChecked="{Binding Path = Size}" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="10" Content="Small" FontSize="25"></RadioButton>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center">
+
+            <TextBlock VerticalAlignment="Center" FontSize="25" Padding="20">Options:</TextBlock>
+
+            <CheckBox IsChecked="{Binding Path = Sweet}" VerticalAlignment="Center" Margin="10"></CheckBox>
+            <Label FontSize ="25" >Sweet</Label>
+
+            <CheckBox IsChecked="{Binding Path = Lemon}" VerticalAlignment="Center" Margin="10"></CheckBox>
+            <Label FontSize ="25" >Lemon</Label>
+
+            <CheckBox IsChecked="{Binding Path = Ice}" VerticalAlignment="Center" Margin="10"></CheckBox>
+            <Label FontSize ="25" >Ice</Label>
+
+        </StackPanel>
+
+        <Button Name="BackButton"
+                Click="OnBackClick"
+                Height=" 100"
+                Width="300"
+                Grid.Row="3"
+                Grid.ColumnSpan="2">
+            Done Customizing
+        </Button>
+
+        <Border Grid.ColumnSpan="2" Grid.RowSpan="3" BorderBrush="Black" BorderThickness="3"/>
+        <Border Grid.ColumnSpan="2" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="3"/>
     </Grid>
 </UserControl>

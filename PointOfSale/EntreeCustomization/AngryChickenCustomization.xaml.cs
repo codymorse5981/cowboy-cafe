@@ -19,39 +19,9 @@ namespace PointOfSale.EntreeCustomization
     /// </summary>
     public partial class AngryChickenCustomization : UserControl
     {
-        private AngryChicken c;
         public AngryChickenCustomization()
         {
-            InitializeComponent();
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is AngryChicken chicken)
-                {
-                    c = chicken;
-                }
-            }
-        }
-
-        private void OnBreadClick(object sender, RoutedEventArgs args)
-        {
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is AngryChicken chicken)
-                {
-                    chicken.HoldBread();
-                }
-            }
-        }
-
-        private void OnPickleClick(object sender, RoutedEventArgs args)
-        {
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is AngryChicken chicken)
-                {
-                    chicken.HoldPickle();
-                }
-            }
+            InitializeComponent();          
         }
         public void OnBackClick(object sender, RoutedEventArgs args)
         {

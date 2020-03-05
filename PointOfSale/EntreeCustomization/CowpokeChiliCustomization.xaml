@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale.EntreeCustomization"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="290" d:DesignWidth="800">
     <UserControl.Resources>
         <Style TargetType="Button">
             <Setter Property="Width" Value="300"/>
@@ -41,34 +41,39 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid Background="White">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="150"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition/>
+
         </Grid.ColumnDefinitions>
 
         <TextBlock Text="Customize Cowpoke Chili" FontSize="20" Grid.ColumnSpan="2" TextAlignment="Center" VerticalAlignment="Center"/>
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
 
+            <TextBlock VerticalAlignment="Center" FontSize="25" Padding="20">Options:</TextBlock>
 
+            <CheckBox IsChecked="{Binding Path = Cheese}" VerticalAlignment="Center" Margin="10"></CheckBox>
             <Label FontSize ="25" >Hold Cheese</Label>
-            <CheckBox IsChecked="{Binding Path = Cheese}"></CheckBox>
 
+            <CheckBox IsChecked="{Binding Path = SourCream}" VerticalAlignment="Center" Margin="10"></CheckBox>
             <Label FontSize ="25" >Sour Cream</Label>
-            <CheckBox IsChecked="{Binding Path = SourCream}"></CheckBox>
-
-            <Label FontSize ="25" >Green Onions</Label>
-            <CheckBox IsChecked="{Binding Path = GreenOnions}"></CheckBox>
-
-            <Label FontSize ="25" >Tortilla Strips</Label>
-            <CheckBox IsChecked="{Binding Path = TortillaStrips}"></CheckBox>
         </StackPanel>
+        
+         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center">
+            <CheckBox IsChecked="{Binding Path = GreenOnions}" VerticalAlignment="Center" Margin="10"></CheckBox>
+            <Label FontSize ="25" >Green Onions</Label>
+
+            <CheckBox IsChecked="{Binding Path = TortillaStrips}" VerticalAlignment="Center" Margin="10"></CheckBox>
+            <Label FontSize ="25" >Tortilla Strips</Label>
+         </StackPanel>
+            
+        
   
         <Button Name="BackButton"
                 Click="OnBackClick"
@@ -76,6 +81,7 @@
                 Width="300"
                 Grid.Row="3"
                 Grid.ColumnSpan="2">
+                
             Done Customizing
         </Button>
 

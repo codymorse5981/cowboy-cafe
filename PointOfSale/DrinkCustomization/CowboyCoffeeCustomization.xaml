@@ -5,10 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale.DrinkCustomization"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="350" d:DesignWidth="800">
     <UserControl.Resources>
         <Style TargetType="Button">
-            <Setter Property="Width" Value="350"/>
+            <Setter Property="Width" Value="300"/>
             <Setter Property="Height" Value="100"/>
             <Setter Property="FontStyle" Value="Normal"/>
             <Setter Property="FontFamily" Value="Times New Roman"/>
@@ -41,21 +41,56 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid Background="White">
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition MaxHeight="40"/>
-            <RowDefinition MaxHeight="200"/>
-            <RowDefinition MaxHeight="210"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition/>
+
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Customize Angry Chicken" FontSize="20" Grid.ColumnSpan="2" TextAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Text="Customize Cowboy Coffee" FontSize="20" Grid.ColumnSpan="2" TextAlignment="Center" VerticalAlignment="Center"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
 
+            <TextBlock VerticalAlignment="Center" FontSize="25" Padding="20">Size:</TextBlock>
 
-        <Border Grid.ColumnSpan="2" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="3"/>
+            <RadioButton IsChecked="{Binding Path = Size}" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="10" Content="Large" FontSize="25"></RadioButton>
+
+            <RadioButton IsChecked="{Binding Path = Size}" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="10" Content="Medium" FontSize="25"></RadioButton>
+
+            <RadioButton IsChecked="{Binding Path = Size}" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="10" Content="Small" FontSize="25"></RadioButton>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center">
+
+            <TextBlock  VerticalAlignment="Center" FontSize="25" Padding="20">Options:</TextBlock>
+            
+            <CheckBox IsChecked="{Binding Path = Decaf}" VerticalAlignment="Center" Margin="10"></CheckBox>
+            <Label FontSize ="25" >Decaf</Label>
+
+            <CheckBox IsChecked="{Binding Path = RoomForCream}" VerticalAlignment="Center" Margin="10"></CheckBox>
+            <Label FontSize ="25" >Cream</Label>
+
+            <CheckBox IsChecked="{Binding Path = Ice}" VerticalAlignment="Center" Margin="10"></CheckBox>
+            <Label FontSize ="25" >Ice</Label>
+
+        </StackPanel>
+
+        <Button Name="BackButton"
+                Click="OnBackClick"
+                Height=" 100"
+                Width="300"
+                Grid.Row="3"
+                Grid.ColumnSpan="2">
+            Done Customizing
+        </Button>
+
         <Border Grid.ColumnSpan="2" Grid.RowSpan="3" BorderBrush="Black" BorderThickness="3"/>
+        <Border Grid.ColumnSpan="2" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="3"/>
     </Grid>
 </UserControl>
+

@@ -21,8 +21,9 @@ namespace CowboyCafe.Data
         public bool Decaf
         {
             get { return decaf; }
-            set { decaf = value; }
+            set { decaf = value; } 
         }
+
 
         /// <summary>
         /// Gets the flavor of the cowboy coffee
@@ -53,7 +54,6 @@ namespace CowboyCafe.Data
                     default:
                         throw new NotImplementedException();
                 }
-
             }
         }
 
@@ -94,8 +94,7 @@ namespace CowboyCafe.Data
                         return 7;
                     default:
                         throw new NotImplementedException();
-                }
-
+                }  
             }
         }
 

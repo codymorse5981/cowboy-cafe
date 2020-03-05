@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
@@ -13,12 +14,14 @@ namespace CowboyCafe.Data
     /// A class representing a side of baked beans
     /// </summary>
     public class BakedBeans : Side
-    {
+    {    
+
         /// <summary>
         /// Gets the price of the side
         /// </summary>
         public override double Price
         {
+
             get
             {
                 switch (Size)
@@ -31,10 +34,14 @@ namespace CowboyCafe.Data
                         return 1.99;
                     default:
                         throw new NotImplementedException();
+
                 }
+
 
             }
         }
+    
+        
 
         /// <summary>
         /// Gets the calories of the side

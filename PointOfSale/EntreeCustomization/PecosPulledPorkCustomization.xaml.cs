@@ -19,38 +19,9 @@ namespace PointOfSale.EntreeCustomization
     /// </summary>
     public partial class PecosPulledPorkCustomization : UserControl
     {
-        private PecosPulledPork p;
         public PecosPulledPorkCustomization()
         {
-            InitializeComponent();
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is PecosPulledPork pecosPulled)
-                {
-                    p = pecosPulled;
-                }
-            }
-        }
-        private void OnBreadClick(object sender, RoutedEventArgs args)
-        {
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is PecosPulledPork pecosPulled)
-                {
-                    pecosPulled.HoldBread();
-                }
-            }
-        }
-
-        private void OnPickleClick(object sender, RoutedEventArgs args)
-        {
-            if (DataContext is Order order)
-            {
-                if (CollectionViewSource.GetDefaultView(order.Items).CurrentItem is PecosPulledPork pecosPulled)
-                {
-                    pecosPulled.HoldPickle();
-                }
-            }
+            InitializeComponent();           
         }
         
         public void OnBackClick(object sender, RoutedEventArgs args)
