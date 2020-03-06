@@ -25,7 +25,7 @@ namespace CowboyCafe.Data
         {
             get { return decaf; }
             set { decaf = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Decaf"));
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstruction"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             } 
         }
 
@@ -38,7 +38,7 @@ namespace CowboyCafe.Data
         {
             get { return cream; }
             set { cream = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("RoomForCream"));
-                           PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstruction"));
+                           PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
             }
         }
 

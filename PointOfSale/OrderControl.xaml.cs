@@ -35,7 +35,6 @@ namespace PointOfSale
             CancelOrderButton.Click += CancelOrderButtonClicked;
             ItemSelectButton.Click += ItemSelectButtonClicked;
 
-
         }
 
         public void SwapScreen(UIElement element)
