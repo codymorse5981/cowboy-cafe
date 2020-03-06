@@ -17,9 +17,9 @@ namespace PointOfSale.EntreeCustomization
     /// <summary>
     /// Interaction logic for TrailBurgerCustomization.xaml
     /// </summary>
-    public partial class TrailerBurgerCustomization : UserControl
+    public partial class TrailBurgerCustomization : UserControl
     {
-        public TrailerBurgerCustomization()
+        public TrailBurgerCustomization()
         {
             InitializeComponent();           
         }

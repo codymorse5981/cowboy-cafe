@@ -13,7 +13,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing a side of baked beans
     /// </summary>
-    public class BakedBeans : Side, INotifyPropertyChanged
+    public class BakedBeans : Side
     {
         /// <summary>
         /// Gets the price of the side
@@ -40,8 +40,6 @@ namespace CowboyCafe.Data
             }
         }
     
-        
-
         /// <summary>
         /// Gets the calories of the side
         /// </summary>
@@ -73,6 +71,7 @@ namespace CowboyCafe.Data
         }
 
         public override List<string> SpecialInstructions { get; }
+
     }
 }
 

@@ -13,7 +13,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing a side of pan de campo
     /// </summary>
-    public class PanDeCampo : Side, INotifyPropertyChanged
+    public class PanDeCampo : Side
     {
 
         /// <summary>

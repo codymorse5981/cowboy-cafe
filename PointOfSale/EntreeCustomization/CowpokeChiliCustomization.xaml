@@ -60,7 +60,7 @@
             <TextBlock VerticalAlignment="Center" FontSize="25" Padding="20">Options:</TextBlock>
 
             <CheckBox IsChecked="{Binding Path = Cheese}" VerticalAlignment="Center" Margin="10"></CheckBox>
-            <Label FontSize ="25" >Hold Cheese</Label>
+            <Label FontSize ="25" >Cheese</Label>
 
             <CheckBox IsChecked="{Binding Path = SourCream}" VerticalAlignment="Center" Margin="10"></CheckBox>
             <Label FontSize ="25" >Sour Cream</Label>

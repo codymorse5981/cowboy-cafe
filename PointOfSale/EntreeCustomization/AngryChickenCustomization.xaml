@@ -59,10 +59,10 @@
             <TextBlock VerticalAlignment="Center" FontSize="25" Padding="20">Options:</TextBlock>
             
             <CheckBox IsChecked="{Binding Path = Bread}" VerticalAlignment="Center" Margin="10"></CheckBox>
-            <Label FontSize ="25" >Hold Bread</Label>
+            <Label FontSize ="25" >Bread</Label>
 
             <CheckBox IsChecked="{Binding Path = Pickle}" VerticalAlignment="Center" Margin="10"></CheckBox>
-            <Label FontSize ="25" >Hold Pickle</Label>
+            <Label FontSize ="25" >Pickle</Label>
         </StackPanel>
 
         <Button Name="BackButton"

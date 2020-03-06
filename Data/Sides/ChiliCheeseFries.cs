@@ -13,7 +13,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing a side of chili cheese fries
     /// </summary>
-    public class ChiliCheeseFries : Side, INotifyPropertyChanged
+    public class ChiliCheeseFries : Side
     {
         /// <summary>
         /// Gets the price of the side

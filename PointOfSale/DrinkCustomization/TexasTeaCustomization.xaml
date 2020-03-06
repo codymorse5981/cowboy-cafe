@@ -46,6 +46,7 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -53,25 +54,22 @@
 
         </Grid.ColumnDefinitions>
 
-        <TextBox Grid.ColumnSpan="1" Grid.RowSpan="4"></TextBox>
+        <TextBox Grid.ColumnSpan="1" Grid.RowSpan="5"></TextBox>
         <TextBlock Text="Customize Texas Tea" FontSize="20" Grid.ColumnSpan="2" TextAlignment="Center" VerticalAlignment="Center"/>
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
 
             <TextBlock VerticalAlignment="Center" FontSize="25" Padding="20">Size:</TextBlock>
 
-            <RadioButton IsChecked="{Binding Path = Size}" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="10" Content="Large" FontSize="25"></RadioButton>
+            <RadioButton IsChecked="{Binding Path = Size}" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="10" Content="Small" FontSize="25"></RadioButton>
 
             <RadioButton IsChecked="{Binding Path = Size}" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="10" Content="Medium" FontSize="25"></RadioButton>
 
-            <RadioButton IsChecked="{Binding Path = Size}" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="10" Content="Small" FontSize="25"></RadioButton>
+            <RadioButton IsChecked="{Binding Path = Size}" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="10" Content="Large" FontSize="25"></RadioButton>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center">
 
             <TextBlock VerticalAlignment="Center" FontSize="25" Padding="20">Options:</TextBlock>
-
-            <CheckBox IsChecked="{Binding Path = Sweet}" VerticalAlignment="Center" Margin="10"></CheckBox>
-            <Label FontSize ="25" >Sweet</Label>
 
             <CheckBox IsChecked="{Binding Path = Lemon}" VerticalAlignment="Center" Margin="10"></CheckBox>
             <Label FontSize ="25" >Lemon</Label>
@@ -81,16 +79,25 @@
 
         </StackPanel>
 
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center">
+
+            <TextBlock  VerticalAlignment="Center" FontSize="25" Padding="20">Tea Type:</TextBlock>
+
+            <CheckBox IsChecked="{Binding Path = Sweet}" VerticalAlignment="Center" Margin="10"></CheckBox>
+            <Label FontSize ="25" >Sweet</Label>
+
+        </StackPanel>
+
         <Button Name="BackButton"
                 Click="OnBackClick"
                 Height=" 100"
                 Width="300"
-                Grid.Row="3"
+                Grid.Row="4"
                 Grid.ColumnSpan="2">
             Done Customizing
         </Button>
 
-        <Border Grid.ColumnSpan="2" Grid.RowSpan="3" BorderBrush="Black" BorderThickness="3"/>
         <Border Grid.ColumnSpan="2" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="3"/>
+        <Border Grid.ColumnSpan="2" Grid.RowSpan="5" BorderBrush="Black" BorderThickness="3"/>
     </Grid>
 </UserControl>

@@ -13,9 +13,8 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing a texas tea drink
     /// </summary>
-    public class TexasTea: Drink, INotifyPropertyChanged
+    public class TexasTea: Drink
     {
-        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// If there is sweetener in the texas tea
@@ -24,8 +23,8 @@ namespace CowboyCafe.Data
         public bool Sweet
         {
             get { return sweet; }
-            set { sweet = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sweet"));
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            set { sweet = value;
+                NotifyOfPropertyChange("Sweet");
             }
         }
 
@@ -36,8 +35,8 @@ namespace CowboyCafe.Data
         public bool Lemon
         {
             get { return lemon; }
-            set { lemon = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            set { lemon = value;
+                NotifyOfPropertyChange("Lemon");
             }
         }
 
@@ -81,8 +80,8 @@ namespace CowboyCafe.Data
         public override bool Ice
         {
             get { return ice; }
-            set { ice = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            set { ice = value;
+                NotifyOfPropertyChange("Ice");
             }
         }
 
