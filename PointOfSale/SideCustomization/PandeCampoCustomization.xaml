@@ -4,9 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale.SideCustomization"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:local1="clr-namespace:CowboyCafe.Data;assembly=CowboyCafe.Data"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="800">
     <UserControl.Resources>
+
+        <ObjectDataProvider x:Key="dataFromEnum" MethodName="GetValues"
+                        ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local1:Size"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+
         <Style TargetType="Button">
             <Setter Property="Width" Value="300"/>
             <Setter Property="Height" Value="100"/>
@@ -58,11 +68,9 @@
 
             <TextBlock VerticalAlignment="Center" FontSize="25" Padding="20">Size:</TextBlock>
 
-            <RadioButton IsChecked="{Binding Path = Size}" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="10" Content="Small" FontSize="25"></RadioButton>
 
-            <RadioButton IsChecked="{Binding Path = Size}" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="10" Content="Medium" FontSize="25"></RadioButton>
-
-            <RadioButton IsChecked="{Binding Path = Size}" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="10" Content="Large" FontSize="25"></RadioButton>
+            <ComboBox SelectedValue ="{Binding Path=Size}" Height="40" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="150"
+              ItemsSource="{Binding Source={StaticResource dataFromEnum}}"/>
         </StackPanel>
 
         <Button Name="BackButton"

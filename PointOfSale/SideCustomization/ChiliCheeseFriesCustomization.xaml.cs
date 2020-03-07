@@ -11,6 +11,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using System.Drawing;
+using System.IO;
+using System.Resources;
 
 namespace PointOfSale.SideCustomization
 {
@@ -29,7 +32,7 @@ namespace PointOfSale.SideCustomization
             var orderControl = this.FindAncestor<OrderControl>();
             if (DataContext is Order order)
             {
-                orderControl.SwapScreen(new MenuItemSelectionControl()); ;
+                orderControl.SwapScreen(new MenuItemSelectionControl());
             }
         }
     }

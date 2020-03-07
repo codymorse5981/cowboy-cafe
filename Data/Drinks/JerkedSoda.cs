@@ -134,9 +134,7 @@ namespace CowboyCafe.Data
             else
             {
                 return Size + " " + "Sarsparilla Jerked Soda";
-            }
-
-           ;
+            }         
         }
     }
 }

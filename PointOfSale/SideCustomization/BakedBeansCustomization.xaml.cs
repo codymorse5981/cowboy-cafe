@@ -26,11 +26,12 @@ namespace PointOfSale.SideCustomization
 
         public void OnBackClick(object sender, RoutedEventArgs args)
         {
+            
+
             var orderControl = this.FindAncestor<OrderControl>();
-            if (DataContext is Order order)
-            {
-                orderControl.SwapScreen(new MenuItemSelectionControl()); ;
-            }
+
+            FrameworkElement screen = this.Parent as FrameworkElement;
+            orderControl.SwapScreen(screen);
         }
     }
 }

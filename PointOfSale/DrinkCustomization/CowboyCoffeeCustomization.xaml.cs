@@ -32,5 +32,11 @@ namespace PointOfSale.DrinkCustomization
                 orderControl.SwapScreen(new MenuItemSelectionControl()); ;
             }
         }
+
+        private void ComboBox_Changed(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = sender as ComboBox;
+            Enum Size = selectedItem.SelectedItem as Enum;
+        }
     }
 }
