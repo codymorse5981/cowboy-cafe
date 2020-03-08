@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: ExtensionMethods.cs
+ * Description: Handles ExtensionMethods class
+  */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

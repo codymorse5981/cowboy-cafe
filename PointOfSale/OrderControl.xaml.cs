@@ -19,14 +19,23 @@ using CowboyCafe.Data;
 using System.Drawing;
 using System.IO;
 using System.Resources;
+using System.ComponentModel;
 
 namespace PointOfSale
 {
     /// <summary>
     /// Interaction logic for OrderControl.xaml
     /// </summary>
-    public partial class OrderControl : UserControl
+    public partial class OrderControl : UserControl, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Notifier of Property Changes 
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Initializes event handlers and new order
+        /// </summary>
         public OrderControl()
         {
             InitializeComponent();
@@ -34,28 +43,50 @@ namespace PointOfSale
             CompleteOrderButton.Click += CompleteOrderButtonClicked;
             CancelOrderButton.Click += CancelOrderButtonClicked;
             ItemSelectButton.Click += ItemSelectButtonClicked;
-
         }
 
+        /// <summary>
+        /// Handles screen swapping... Swaps with customization method
+        /// </summary>
+        /// <param name="element">Customization method screen to swap to</param>
         public void SwapScreen(FrameworkElement element)
         {
-            Container.Child = element;
+            if (element != null)
+            {
+                Container.Child = element;
+            }
         }
+
+        /// <summary>
+        /// Initializes a new order upon click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void CompleteOrderButtonClicked(object sender, RoutedEventArgs e)
         {
             /// Creates new order           
             this.DataContext = new Order();
         }
 
+        /// <summary>
+        /// Initializes a new order upon click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void CancelOrderButtonClicked(object sender, RoutedEventArgs e)
         {
             /// Creates new order
             this.DataContext = new Order();
         }
 
+        /// <summary>
+        /// Returns to main menu screen to select another item.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void ItemSelectButtonClicked(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException("Needs to Still be implemented.");
+            Container.Child = new MenuItemSelectionControl();
         }
     }
 }

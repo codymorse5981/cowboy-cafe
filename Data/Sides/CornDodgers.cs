@@ -67,6 +67,9 @@ namespace CowboyCafe.Data
             return Size + " Corn Dodgers";
         }
 
+        /// <summary>
+        /// Special instruction list (empty)
+        /// </summary>
         public override List<string> SpecialInstructions { get; }
     }
 }

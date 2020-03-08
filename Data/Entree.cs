@@ -15,7 +15,9 @@ namespace CowboyCafe.Data
     /// </summary>
     public abstract class Entree :IOrderItem, INotifyPropertyChanged
     {
-
+        /// <summary>
+        /// Event handler for properties changing.
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
@@ -36,7 +38,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Helper method for notifying changed
         /// </summary>
-        /// <param name="propertyName"></param>
+        /// <param name="propertyName">Property for notifying</param>
         private protected void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

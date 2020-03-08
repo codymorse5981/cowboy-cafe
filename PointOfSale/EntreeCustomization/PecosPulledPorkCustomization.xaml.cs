@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: PecosPulledPorkCustomization.cs
+ * Description: Handles PecosPulledPorkCustomization class
+  */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -22,15 +27,6 @@ namespace PointOfSale.EntreeCustomization
         public PecosPulledPorkCustomization()
         {
             InitializeComponent();           
-        }
-        
-        public void OnBackClick(object sender, RoutedEventArgs args)
-        {
-            var orderControl = this.FindAncestor<OrderControl>();
-            if (DataContext is Order order)
-            {
-                orderControl.SwapScreen(new MenuItemSelectionControl()); ;
-            }
         }
     }
 }

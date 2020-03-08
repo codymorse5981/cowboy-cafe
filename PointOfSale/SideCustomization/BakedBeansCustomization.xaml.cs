@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: BakedBeanCustomization.cs
+ * Description: Handles BakedBeansCustomization class
+  */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -22,16 +27,6 @@ namespace PointOfSale.SideCustomization
         public BakedBeansCustomization()
         {
             InitializeComponent();
-        }
-
-        public void OnBackClick(object sender, RoutedEventArgs args)
-        {
-            
-
-            var orderControl = this.FindAncestor<OrderControl>();
-
-            FrameworkElement screen = this.Parent as FrameworkElement;
-            orderControl.SwapScreen(screen);
         }
     }
 }

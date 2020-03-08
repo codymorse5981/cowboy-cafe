@@ -35,13 +35,13 @@ namespace PointOfSale
             InitializeComponent();
 
         }
-
-
         void AddItemAndOpenCustomizationScreen(IOrderItem item, FrameworkElement screen)
         {
             // Order to add item to
             var order = DataContext as Order;
             if (order == null) throw new Exception("DataContext expected to be order");
+
+            order.Add(item);
 
             // May not need customized
             if (screen != null)
@@ -53,8 +53,7 @@ namespace PointOfSale
                 // Add item to customization screen
                 screen.DataContext = item;
                 orderControl.SwapScreen(screen);
-            }
-            order.Add(item);
+            }           
         }
         /// <summary>
         /// Adds Cowpoke Chili to List 
@@ -68,10 +67,7 @@ namespace PointOfSale
         /// </summary>
         private void RustlersRibs_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Order order)
-            {
-                order.Add(new RustlersRibs());
-            }
+            AddItemAndOpenCustomizationScreen(new RustlersRibs(), null);
         }
 
         /// <summary>

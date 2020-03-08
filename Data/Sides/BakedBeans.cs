@@ -20,7 +20,6 @@ namespace CowboyCafe.Data
         /// </summary>
         public override double Price
         {
-
             get
             {
                 switch (Size)
@@ -35,8 +34,6 @@ namespace CowboyCafe.Data
                         throw new NotImplementedException();
 
                 }
-
-
             }
         }
     
@@ -70,6 +67,10 @@ namespace CowboyCafe.Data
             return Size + " Baked Beans";
         }
 
+
+        /// <summary>
+        /// Special instruction list (empty)
+        /// </summary>
         public override List<string> SpecialInstructions { get; }
 
     }

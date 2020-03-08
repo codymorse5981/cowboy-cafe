@@ -68,6 +68,10 @@ namespace CowboyCafe.Data
             return Size + " Pan de Campo";
         }
 
+
+        /// <summary>
+        /// Special instruction list (empty)
+        /// </summary>
         public override List<string> SpecialInstructions { get; }
     }
 }

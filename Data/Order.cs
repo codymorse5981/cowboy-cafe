@@ -61,11 +61,14 @@ namespace CowboyCafe.Data
         /// <param name="item">Item to add into list</param>
         public void Add(IOrderItem item)
         {
+            items.Add(item);
+            OnItemPropertyChanged(this, new PropertyChangedEventArgs("Price"));
+
             if (item is INotifyPropertyChanged notifier)
             {
                 notifier.PropertyChanged += OnItemPropertyChanged;
             }
-            items.Add(item);
+            
         }
 
         /// <summary>
@@ -74,12 +77,19 @@ namespace CowboyCafe.Data
         /// <param name="item">Item to add into list</param>
         public void Remove(IOrderItem item)
         {
+            items.Remove(item);
+            OnItemPropertyChanged(this, new PropertyChangedEventArgs("Price"));
             if (item is INotifyPropertyChanged notifier)
             {
-                notifier.PropertyChanged += OnItemPropertyChanged;
+                notifier.PropertyChanged -= OnItemPropertyChanged;
             }
         }
 
+        /// <summary>
+        /// When item property changes this updates the list and instructions.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnItemPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));

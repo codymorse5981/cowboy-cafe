@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: CowboyCoffeeCustomization.cs
+ * Description: Handles CowboyCoffeeCustomization class
+  */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -22,21 +27,6 @@ namespace PointOfSale.DrinkCustomization
         public CowboyCoffeeCustomization()
         {
             InitializeComponent();
-        }
-
-        public void OnBackClick(object sender, RoutedEventArgs args)
-        {
-            var orderControl = this.FindAncestor<OrderControl>();
-            if (DataContext is Order order)
-            {
-                orderControl.SwapScreen(new MenuItemSelectionControl()); ;
-            }
-        }
-
-        private void ComboBox_Changed(object sender, SelectionChangedEventArgs e)
-        {
-            var selectedItem = sender as ComboBox;
-            Enum Size = selectedItem.SelectedItem as Enum;
         }
     }
 }

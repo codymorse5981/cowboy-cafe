@@ -2,7 +2,6 @@
  * Class: ChiliCheeseFries.cs
  * Description: Handles chili cheese fries side class
   */
-
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -66,6 +65,9 @@ namespace CowboyCafe.Data
             return Size + " Chili Cheese Fries";
         }
 
+        /// <summary>
+        /// Special instruction list (empty)
+        /// </summary>
         public override List<string> SpecialInstructions { get; }
     }
 

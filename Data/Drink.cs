@@ -2,7 +2,6 @@
  * Class: Drink.cs
  * Description: Handles Drink classes (abstract)
   */
-
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,6 +14,9 @@ namespace CowboyCafe.Data
     /// </summary>
     public abstract class Drink : IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Event handler for properties changing.
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         private Size size;
@@ -58,7 +60,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Helper method for notifying changed
         /// </summary>
-        /// <param name="propertyName"></param>
+        /// <param name="propertyName">Property for notifying</param>
         private protected void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

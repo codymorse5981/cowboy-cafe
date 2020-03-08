@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale.EntreeCustomization"
              mc:Ignorable="d" 
-             d:DesignHeight="390" d:DesignWidth="800">
+             d:DesignHeight="200" d:DesignWidth="800">
     <UserControl.Resources>
         <Style TargetType="Button">
             <Setter Property="Width" Value="300"/>
@@ -43,17 +43,16 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="200"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <TextBox Grid.ColumnSpan="1" Grid.RowSpan="5"></TextBox>
+        <TextBox Grid.ColumnSpan="1" Grid.RowSpan="4"></TextBox>
         <TextBlock Text="Customize Texas Triple Burger" FontSize="20" Grid.ColumnSpan="2" TextAlignment="Center" VerticalAlignment="Center"/>
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
             <TextBlock VerticalAlignment="Center" FontSize="25" Padding="20">Options:</TextBlock>
@@ -68,7 +67,7 @@
             <CheckBox IsChecked="{Binding Path = Mustard}" VerticalAlignment="Center" Margin="10"></CheckBox>
             <Label FontSize ="25" >Mustard</Label>
 
-            <CheckBox IsChecked="{Binding Path = Pickles}" VerticalAlignment="Center" Margin="10"></CheckBox>
+            <CheckBox IsChecked="{Binding Path = Pickle}" VerticalAlignment="Center" Margin="10"></CheckBox>
             <Label FontSize ="25" >Pickles</Label>
 
         </StackPanel>
@@ -77,8 +76,8 @@
             <CheckBox IsChecked="{Binding Path = Cheese}" VerticalAlignment="Center" Margin="10"></CheckBox>
             <Label FontSize ="25" >Cheese</Label>
 
-            <CheckBox IsChecked="{Binding Path = Tomatoes}" VerticalAlignment="Center" Margin="10"></CheckBox>
-            <Label FontSize ="25" >Tomatoes</Label>
+            <CheckBox IsChecked="{Binding Path = Tomato}" VerticalAlignment="Center" Margin="10"></CheckBox>
+            <Label FontSize ="25" >Tomato</Label>
 
             <CheckBox IsChecked="{Binding Path = Lettuce}" VerticalAlignment="Center" Margin="10"></CheckBox>
             <Label FontSize ="25" >Lettuce</Label>
@@ -96,16 +95,6 @@
 
         </StackPanel>
 
-        <Button Name="BackButton"
-                Click="OnBackClick"
-                Height=" 100"
-                Width="300"
-                Grid.Row="4"
-                Grid.Column="0">
-            Done Customizing
-        </Button>
-
         <Border Grid.ColumnSpan="1" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="3"/>
-        <Border Grid.ColumnSpan="1" Grid.RowSpan="5" BorderBrush="Black" BorderThickness="3"/>
     </Grid>
 </UserControl>

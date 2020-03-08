@@ -1,5 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+/* Author: Cody Morse
+ * Class: ChiliCheeseFriesCustomization.cs
+ * Description: Handles ChiliCheeseFriesCustomization class
+  */
+
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,15 +30,6 @@ namespace PointOfSale.SideCustomization
         public ChiliCheeseFriesCustomization()
         {
             InitializeComponent();
-        }
-
-        public void OnBackClick(object sender, RoutedEventArgs args)
-        {
-            var orderControl = this.FindAncestor<OrderControl>();
-            if (DataContext is Order order)
-            {
-                orderControl.SwapScreen(new MenuItemSelectionControl());
-            }
         }
     }
 }
