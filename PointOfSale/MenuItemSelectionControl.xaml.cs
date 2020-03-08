@@ -35,7 +35,7 @@ namespace PointOfSale
             InitializeComponent();
 
         }
-        void AddItemAndOpenCustomizationScreen(IOrderItem item, FrameworkElement screen)
+        private void AddItemAndOpenCustomizationScreen(IOrderItem item, FrameworkElement screen)
         {
             // Order to add item to
             var order = DataContext as Order;
