@@ -63,7 +63,7 @@
         </StackPanel>
 
         <StackPanel Grid.Column= "1" Grid.Row="1">
-            <local:OrderSummaryControl x:Name ="OrderSummary" Padding="6" MinHeight ="850" Width="500"></local:OrderSummaryControl>
+            <local:OrderSummaryControl x:Name ="OrderSummary" Padding="6" MinHeight ="700" Width="500"></local:OrderSummaryControl>
         </StackPanel>
 
 

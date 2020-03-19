@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="900" d:DesignWidth="500">
+             d:DesignHeight="700" d:DesignWidth="500">
 
 
     <Grid Name="OrderSummaryGrid" Background="White">
@@ -15,7 +15,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
-            <RowDefinition MinHeight="750"/>
+            <RowDefinition MinHeight="620"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
@@ -31,7 +31,7 @@
         </StackPanel>
 
         <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
-            <ListBox ItemsSource="{Binding Path=Items}" Height="820" BorderBrush="Black" BorderThickness="2" Padding="5" HorizontalContentAlignment="Stretch">
+            <ListBox ItemsSource="{Binding Path=Items}" Height="620" BorderBrush="Black" BorderThickness="2" Padding="5" HorizontalContentAlignment="Stretch">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>

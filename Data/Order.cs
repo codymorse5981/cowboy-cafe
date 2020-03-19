@@ -25,8 +25,9 @@ namespace CowboyCafe.Data
         public IEnumerable<IOrderItem> Items => items.ToArray();
 
         /// <summary>
-        /// Order instantiation.
+        /// Instantiating variable for subtotal
         /// </summary>
+        private double subtotal = 0;
 
         /// <summary>
         /// Generates subtotal
@@ -35,12 +36,12 @@ namespace CowboyCafe.Data
         {
             get
             {
-                double totalCost = 0;
+                double subtotal = 0;
                 foreach (IOrderItem i in items)
                 {
-                    totalCost += i.Price;
+                    subtotal += i.Price;
                 }
-                return totalCost;
+                return subtotal;
             }
             set
             {
