@@ -15,7 +15,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using CowboyCafe.Data;
+using System.Drawing;
+using System.IO;
+using System.Resources;
+using System.ComponentModel;
+using PointOfSale;
+    
 namespace PointOfSale
 {
     /// <summary>
@@ -26,6 +32,16 @@ namespace PointOfSale
         public OrderSummaryControl()
         {
             InitializeComponent();
+        }
+
+        public void OnItemSelection(object sender, SelectionChangedEventArgs args)
+        {
+            var orderControl = this.FindAncestor<OrderControl>().DataContext as OrderControl;
+            var choseItem = (ListBox)sender;
+            var item = choseItem.SelectedItem;
+           
+            var screen = item as FrameworkElement;
+            orderControl?.SwapScreen(screen);
         }
     }
 }

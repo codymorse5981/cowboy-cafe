@@ -66,6 +66,7 @@ namespace PointOfSale
         {
             /// Creates new order           
             this.DataContext = new Order();
+            SwapScreen(new MenuItemSelectionControl());
         }
 
         /// <summary>
@@ -77,6 +78,7 @@ namespace PointOfSale
         {
             /// Creates new order
             this.DataContext = new Order();
+            SwapScreen(new MenuItemSelectionControl());
         }
 
         /// <summary>
@@ -86,7 +88,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void ItemSelectButtonClicked(object sender, RoutedEventArgs e)
         {
-            Container.Child = new MenuItemSelectionControl();
+            SwapScreen(new MenuItemSelectionControl());
         }
     }
 }
