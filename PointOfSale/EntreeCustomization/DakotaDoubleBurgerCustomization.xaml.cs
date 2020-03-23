@@ -28,5 +28,12 @@ namespace PointOfSale.EntreeCustomization
         {
             InitializeComponent();           
         }
+
+        private DakotaDoubleBurger doubleBurger;
+        public DakotaDoubleBurgerCustomization(DakotaDoubleBurger d)
+        {
+            doubleBurger = d;
+            InitializeComponent();
+        }
     }
 }

@@ -28,5 +28,12 @@ namespace PointOfSale.DrinkCustomization
         {
             InitializeComponent();
         }
+
+        private JerkedSoda soda;
+        public JerkedSodaCustomization(JerkedSoda s)
+        {
+            soda = s;
+            InitializeComponent();
+        }
     }
 }

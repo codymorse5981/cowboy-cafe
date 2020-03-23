@@ -28,5 +28,12 @@ namespace PointOfSale.SideCustomization
         {
             InitializeComponent();
         }
+
+        private BakedBeans beans;
+        public BakedBeansCustomization(BakedBeans b)
+        {
+            beans = b;
+            InitializeComponent();
+        }
     }
 }

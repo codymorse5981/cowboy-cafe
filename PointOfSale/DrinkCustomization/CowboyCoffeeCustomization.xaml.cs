@@ -28,5 +28,12 @@ namespace PointOfSale.DrinkCustomization
         {
             InitializeComponent();
         }
+
+        private CowboyCoffee coffee;
+        public CowboyCoffeeCustomization(CowboyCoffee c)
+        {
+            coffee = c;
+            InitializeComponent();
+        }
     }
 }

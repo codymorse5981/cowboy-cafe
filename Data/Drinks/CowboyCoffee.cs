@@ -15,7 +15,6 @@ namespace CowboyCafe.Data
     /// </summary>
     public class CowboyCoffee : Drink
     {
-
         private bool decaf = false;
         /// <summary>
         /// If the coffee is decaf
@@ -27,7 +26,6 @@ namespace CowboyCafe.Data
                 NotifyOfPropertyChange("Decaf");
             } 
         }
-
 
         /// <summary>
         /// Gets the flavor of the cowboy coffee

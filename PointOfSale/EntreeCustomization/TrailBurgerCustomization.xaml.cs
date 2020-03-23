@@ -28,5 +28,12 @@ namespace PointOfSale.EntreeCustomization
         {
             InitializeComponent();           
         }
+
+        private TrailBurger trailBurger;
+        public TrailBurgerCustomization(TrailBurger t)
+        {
+            trailBurger = t;
+            InitializeComponent();
+        }
     }
 }

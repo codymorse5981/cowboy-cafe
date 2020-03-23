@@ -30,9 +30,7 @@ namespace PointOfSale
         {
             InitializeComponent();
 
-            var data = new Order();
-
-            this.DataContext = data;
+            Order order = (Order)DataContext;
         }
     }
 }

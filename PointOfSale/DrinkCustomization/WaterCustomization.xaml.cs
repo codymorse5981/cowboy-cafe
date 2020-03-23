@@ -28,5 +28,12 @@ namespace PointOfSale.DrinkCustomization
         {
             InitializeComponent();
         }
+
+        private Water water;
+        public WaterCustomization(Water w)
+        {
+            water = w;
+            InitializeComponent();
+        }
     }
 }

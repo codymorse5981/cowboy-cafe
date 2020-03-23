@@ -28,5 +28,12 @@ namespace PointOfSale.EntreeCustomization
         {
             InitializeComponent();
         }
+
+        private CowpokeChili chili;
+        public CowpokeChiliCustomization(CowpokeChili c)
+        {
+            chili = c;
+            InitializeComponent();
+        }
     }
 }

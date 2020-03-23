@@ -31,5 +31,12 @@ namespace PointOfSale.SideCustomization
         {
             InitializeComponent();
         }
+
+        private ChiliCheeseFries chiliFries;
+        public ChiliCheeseFriesCustomization(ChiliCheeseFries c)
+        {
+            chiliFries = c;
+            InitializeComponent();
+        }
     }
 }

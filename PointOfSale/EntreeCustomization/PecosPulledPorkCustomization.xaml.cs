@@ -28,5 +28,12 @@ namespace PointOfSale.EntreeCustomization
         {
             InitializeComponent();           
         }
+
+        private PecosPulledPork pulledPork;
+        public PecosPulledPorkCustomization(PecosPulledPork p)
+        {
+            pulledPork = p;
+            InitializeComponent();
+        }
     }
 }
