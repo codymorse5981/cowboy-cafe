@@ -41,84 +41,244 @@ namespace PointOfSale
 
         public void OnItemSelection(object sender, SelectionChangedEventArgs args)
         {
-            var orderControl = this.FindAncestor<OrderControl>();
-            IOrderItem item = (IOrderItem)((ListBox)sender).SelectedItem;
+            FrameworkElement screen;
+            OrderControl orderControl = null;
+
+            var orderItem = orderList.SelectedItem;
+
             // Entrees ---------------------------------------------------------------------
-            if (orderList.SelectedItem is AngryChicken angryChicken)
+            if (orderList.SelectedItem is IOrderItem item)
             {
-                orderControl.DataContext = item;
-                orderControl?.SwapScreen(new AngryChickenCustomization(angryChicken));
-            }
-            else if (orderList.SelectedItem is CowpokeChili cowpokeChili)
-            {
-                orderControl.DataContext = item;
-                orderControl?.SwapScreen(new CowpokeChiliCustomization(cowpokeChili));
-            }
-            else if (orderList.SelectedItem is DakotaDoubleBurger dakotaDouble)
-            {
-                orderControl.DataContext = item;
-                orderControl?.SwapScreen(new DakotaDoubleBurgerCustomization(dakotaDouble));
-            }
-            else if (orderList.SelectedItem is PecosPulledPork pecosPulledPork)
-            {
-                orderControl.DataContext = item;
-                orderControl?.SwapScreen(new PecosPulledPorkCustomization(pecosPulledPork));
-            }
-            else if (orderList.SelectedItem is TexasTripleBurger texasTriple)
-            {
-                orderControl.DataContext = item;
-                orderControl?.SwapScreen(new TexasTripleBurgerCustomization(texasTriple));
-            }
-            else if (orderList.SelectedItem is TrailBurger trailBurger)
-            {
-                orderControl.DataContext = item;
-                orderControl?.SwapScreen(new TrailBurgerCustomization(trailBurger));
-            }
+                if (item is AngryChicken angryChicken)
+                {
 
-            // Sides ---------------------------------------------------------------------
-            else if (orderList.SelectedItem is BakedBeans bakedBeans)
-            {
-                orderControl?.SwapScreen(new BakedBeansCustomization(bakedBeans));
-            }
-            else if (orderList.SelectedItem is ChiliCheeseFries chiliCheeseFries)
-            {
-                orderControl?.SwapScreen(new ChiliCheeseFriesCustomization(chiliCheeseFries));
-            }
-            else if (orderList.SelectedItem is CornDodgers cornDodgers)
-            {
-                orderControl?.SwapScreen(new CornDodgersCustomization(cornDodgers));
-            }
-            else if (orderList.SelectedItem is PanDeCampo panDeCampo)
-            {
-                orderControl?.SwapScreen(new PandeCampoCustomization(panDeCampo));
-            }
+                    screen = new AngryChickenCustomization(angryChicken);
+                    if (screen != null)
+                    {
+                        // Need ancestor to load customization screen
+                        orderControl = this.FindAncestor<OrderControl>();
 
-            // Drinks ---------------------------------------------------------------------
-            else if (orderList.SelectedItem is CowboyCoffee cowboyCoffee)
-            {
-                orderControl?.SwapScreen(new CowboyCoffeeCustomization(cowboyCoffee));
-                
-            }
-            else if (orderList.SelectedItem is JerkedSoda jerkedSoda)
-            {
-                orderControl?.SwapScreen(new JerkedSodaCustomization(jerkedSoda));
-            }
-            else if (orderList.SelectedItem is TexasTea texasTea)
-            {
-                orderControl?.SwapScreen(new TexasTeaCustomization(texasTea));
-            }
-            else if (orderList.SelectedItem is Water water)
-            {
-                orderControl?.SwapScreen(new WaterCustomization(water));
-            }
+                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
 
-            // All else ---------------------------------------------------------------------
-            else
-            {
-                orderControl?.SwapScreen(new MenuItemSelectionControl());
+                        // Add item to customization screen
+                        screen.DataContext = angryChicken;
+                        orderControl.SwapScreen(screen);
+                    }
+                }
+                else if (orderList.SelectedItem is CowpokeChili cowpokeChili)
+                {
+                    screen = new CowpokeChiliCustomization(cowpokeChili);
+                    if (screen != null)
+                    {
+                        // Need ancestor to load customization screen
+                        orderControl = this.FindAncestor<OrderControl>();
+
+                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
+
+                        // Add item to customization screen
+                        screen.DataContext = cowpokeChili;
+                        orderControl.SwapScreen(screen);
+                    }
+                }
+                else if (orderList.SelectedItem is DakotaDoubleBurger dakotaDouble)
+                {
+                    screen = new DakotaDoubleBurgerCustomization(dakotaDouble);
+                    if (screen != null)
+                    {
+                        // Need ancestor to load customization screen
+                        orderControl = this.FindAncestor<OrderControl>();
+
+                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
+
+                        // Add item to customization screen
+                        screen.DataContext = dakotaDouble;
+                        orderControl.SwapScreen(screen);
+                    }
+                }
+                else if (orderList.SelectedItem is PecosPulledPork pecosPulledPork)
+                {
+                    screen = new PecosPulledPorkCustomization(pecosPulledPork);
+                    if (screen != null)
+                    {
+                        // Need ancestor to load customization screen
+                        orderControl = this.FindAncestor<OrderControl>();
+
+                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
+
+                        // Add item to customization screen
+                        screen.DataContext = pecosPulledPork;
+                        orderControl.SwapScreen(screen);
+                    }
+                }
+                else if (orderList.SelectedItem is TexasTripleBurger texasTriple)
+                {
+                    screen = new TexasTripleBurgerCustomization(texasTriple);
+                    if (screen != null)
+                    {
+                        // Need ancestor to load customization screen
+                        orderControl = this.FindAncestor<OrderControl>();
+
+                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
+
+                        // Add item to customization screen
+                        screen.DataContext = texasTriple;
+                        orderControl.SwapScreen(screen);
+                    }
+                }
+                else if (orderList.SelectedItem is TrailBurger trailBurger)
+                {
+                    screen = new TrailBurgerCustomization(trailBurger);
+                    if (screen != null)
+                    {
+                        // Need ancestor to load customization screen
+                        orderControl = this.FindAncestor<OrderControl>();
+
+                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
+
+                        // Add item to customization screen
+                        screen.DataContext = trailBurger;
+                        orderControl.SwapScreen(screen);
+                    }
+                }
+
+                // Sides ---------------------------------------------------------------------
+                else if (orderList.SelectedItem is BakedBeans bakedBeans)
+                {
+                    screen = new BakedBeansCustomization(bakedBeans);
+                    if (screen != null)
+                    {
+                        // Need ancestor to load customization screen
+                        orderControl = this.FindAncestor<OrderControl>();
+
+                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
+
+                        // Add item to customization screen
+                        screen.DataContext = bakedBeans;
+                        orderControl.SwapScreen(screen);
+                    }
+                }
+                else if (orderList.SelectedItem is ChiliCheeseFries chiliCheeseFries)
+                {
+                    screen = new ChiliCheeseFriesCustomization(chiliCheeseFries);
+                    if (screen != null)
+                    {
+                        // Need ancestor to load customization screen
+                        orderControl = this.FindAncestor<OrderControl>();
+
+                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
+
+                        // Add item to customization screen
+                        screen.DataContext = chiliCheeseFries;
+                        orderControl.SwapScreen(screen);
+                    }
+                }
+                else if (orderList.SelectedItem is CornDodgers cornDodgers)
+                {
+                    screen = new CornDodgersCustomization(cornDodgers);
+                    if (screen != null)
+                    {
+                        // Need ancestor to load customization screen
+                        orderControl = this.FindAncestor<OrderControl>();
+
+                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
+
+                        // Add item to customization screen
+                        screen.DataContext = cornDodgers;
+                        orderControl.SwapScreen(screen);
+                    }
+                }
+                else if (orderList.SelectedItem is PanDeCampo panDeCampo)
+                {
+                    screen = new PandeCampoCustomization(panDeCampo);
+                    if (screen != null)
+                    {
+                        // Need ancestor to load customization screen
+                        orderControl = this.FindAncestor<OrderControl>();
+
+                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
+
+                        // Add item to customization screen
+                        screen.DataContext = panDeCampo;
+                        orderControl.SwapScreen(screen);
+                    }
+                }
+
+                // Drinks ---------------------------------------------------------------------
+                else if (orderList.SelectedItem is CowboyCoffee cowboyCoffee)
+                {
+                    screen = new CowboyCoffeeCustomization(cowboyCoffee);
+                    if (screen != null)
+                    {
+                        // Need ancestor to load customization screen
+                        orderControl = this.FindAncestor<OrderControl>();
+
+                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
+
+                        // Add item to customization screen
+                        screen.DataContext = cowboyCoffee;
+                        orderControl.SwapScreen(screen);
+                    }
+
+                }
+                else if (orderList.SelectedItem is JerkedSoda jerkedSoda)
+                {
+                    screen = new JerkedSodaCustomization(jerkedSoda);
+                    if (screen != null)
+                    {
+                        // Need ancestor to load customization screen
+                        orderControl = this.FindAncestor<OrderControl>();
+
+                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
+
+                        // Add item to customization screen
+                        screen.DataContext = jerkedSoda;
+                        orderControl.SwapScreen(screen);
+                    }
+                }
+                else if (orderList.SelectedItem is TexasTea texasTea)
+                {
+                    screen = new TexasTeaCustomization(texasTea);
+                    if (screen != null)
+                    {
+                        // Need ancestor to load customization screen
+                        orderControl = this.FindAncestor<OrderControl>();
+
+                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
+
+                        // Add item to customization screen
+                        screen.DataContext = texasTea;
+                        orderControl.SwapScreen(screen);
+                    }
+                }
+                else if (orderList.SelectedItem is Water water)
+                {
+                    screen = new WaterCustomization(water);
+                    if (screen != null)
+                    {
+                        // Need ancestor to load customization screen
+                        orderControl = this.FindAncestor<OrderControl>();
+
+                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
+
+                        // Add item to customization screen
+                        screen.DataContext = water;
+                        orderControl.SwapScreen(screen);
+                    }
+                }
+
+                // All else ---------------------------------------------------------------------
+                else
+                {
+                    // Need ancestor to load customization screen
+                    orderControl = this.FindAncestor<OrderControl>();
+
+                    if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
+
+                    // Add item to customization screen
+                    orderControl?.SwapScreen(new MenuItemSelectionControl());
+                }
             }
         }
-
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)

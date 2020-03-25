@@ -33,6 +33,7 @@ namespace PointOfSale.EntreeCustomization
         public AngryChickenCustomization(AngryChicken c)
         {
             chicken = c;
+            //this.DataContext = this;
             InitializeComponent();
         }
     }
