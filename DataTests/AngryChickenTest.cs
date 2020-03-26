@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using Xunit;
 using CowboyCafe.Data;
+using System.ComponentModel;
 
 namespace CowboyCafe.DataTests
 {
-    public class AngryChickenTest
+    public class AngryChickenTests
     {
         [Fact]
         public void DefaultPriceShouldBeCorrect()

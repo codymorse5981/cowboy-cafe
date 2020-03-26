@@ -3,30 +3,15 @@
  * Description: Handles OrderControlSummary class for application (WPF)
   */
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using CowboyCafe.Data;
-using System.Drawing;
-using System.IO;
-using System.Resources;
-using System.ComponentModel;
-using PointOfSale;
 using PointOfSale.DrinkCustomization;
 using PointOfSale.EntreeCustomization;
 using PointOfSale.SideCustomization;
-using System.Collections.ObjectModel;
+using System;
+using System.Windows;
+using System.Windows.Controls;
 
-    
+
 namespace PointOfSale
 {
     /// <summary>
@@ -39,27 +24,29 @@ namespace PointOfSale
             InitializeComponent();  
         }
 
+        /// <summary>
+        /// Allows customization of selected item from summary control
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void OnItemSelection(object sender, SelectionChangedEventArgs args)
         {
             FrameworkElement screen;
             OrderControl orderControl = null;
 
-            var orderItem = orderList.SelectedItem;
+            // Need ancestor to load customization screen
+            orderControl = this.FindAncestor<OrderControl>();
+
+            if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
 
             // Entrees ---------------------------------------------------------------------
             if (orderList.SelectedItem is IOrderItem item)
             {
                 if (item is AngryChicken angryChicken)
                 {
-
                     screen = new AngryChickenCustomization(angryChicken);
                     if (screen != null)
                     {
-                        // Need ancestor to load customization screen
-                        orderControl = this.FindAncestor<OrderControl>();
-
-                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
-
                         // Add item to customization screen
                         screen.DataContext = angryChicken;
                         orderControl.SwapScreen(screen);
@@ -70,11 +57,6 @@ namespace PointOfSale
                     screen = new CowpokeChiliCustomization(cowpokeChili);
                     if (screen != null)
                     {
-                        // Need ancestor to load customization screen
-                        orderControl = this.FindAncestor<OrderControl>();
-
-                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
-
                         // Add item to customization screen
                         screen.DataContext = cowpokeChili;
                         orderControl.SwapScreen(screen);
@@ -85,11 +67,6 @@ namespace PointOfSale
                     screen = new DakotaDoubleBurgerCustomization(dakotaDouble);
                     if (screen != null)
                     {
-                        // Need ancestor to load customization screen
-                        orderControl = this.FindAncestor<OrderControl>();
-
-                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
-
                         // Add item to customization screen
                         screen.DataContext = dakotaDouble;
                         orderControl.SwapScreen(screen);
@@ -100,11 +77,6 @@ namespace PointOfSale
                     screen = new PecosPulledPorkCustomization(pecosPulledPork);
                     if (screen != null)
                     {
-                        // Need ancestor to load customization screen
-                        orderControl = this.FindAncestor<OrderControl>();
-
-                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
-
                         // Add item to customization screen
                         screen.DataContext = pecosPulledPork;
                         orderControl.SwapScreen(screen);
@@ -115,10 +87,6 @@ namespace PointOfSale
                     screen = new TexasTripleBurgerCustomization(texasTriple);
                     if (screen != null)
                     {
-                        // Need ancestor to load customization screen
-                        orderControl = this.FindAncestor<OrderControl>();
-
-                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
 
                         // Add item to customization screen
                         screen.DataContext = texasTriple;
@@ -130,11 +98,6 @@ namespace PointOfSale
                     screen = new TrailBurgerCustomization(trailBurger);
                     if (screen != null)
                     {
-                        // Need ancestor to load customization screen
-                        orderControl = this.FindAncestor<OrderControl>();
-
-                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
-
                         // Add item to customization screen
                         screen.DataContext = trailBurger;
                         orderControl.SwapScreen(screen);
@@ -147,11 +110,6 @@ namespace PointOfSale
                     screen = new BakedBeansCustomization(bakedBeans);
                     if (screen != null)
                     {
-                        // Need ancestor to load customization screen
-                        orderControl = this.FindAncestor<OrderControl>();
-
-                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
-
                         // Add item to customization screen
                         screen.DataContext = bakedBeans;
                         orderControl.SwapScreen(screen);
@@ -162,11 +120,6 @@ namespace PointOfSale
                     screen = new ChiliCheeseFriesCustomization(chiliCheeseFries);
                     if (screen != null)
                     {
-                        // Need ancestor to load customization screen
-                        orderControl = this.FindAncestor<OrderControl>();
-
-                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
-
                         // Add item to customization screen
                         screen.DataContext = chiliCheeseFries;
                         orderControl.SwapScreen(screen);
@@ -177,11 +130,6 @@ namespace PointOfSale
                     screen = new CornDodgersCustomization(cornDodgers);
                     if (screen != null)
                     {
-                        // Need ancestor to load customization screen
-                        orderControl = this.FindAncestor<OrderControl>();
-
-                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
-
                         // Add item to customization screen
                         screen.DataContext = cornDodgers;
                         orderControl.SwapScreen(screen);
@@ -192,11 +140,6 @@ namespace PointOfSale
                     screen = new PandeCampoCustomization(panDeCampo);
                     if (screen != null)
                     {
-                        // Need ancestor to load customization screen
-                        orderControl = this.FindAncestor<OrderControl>();
-
-                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
-
                         // Add item to customization screen
                         screen.DataContext = panDeCampo;
                         orderControl.SwapScreen(screen);
@@ -209,11 +152,6 @@ namespace PointOfSale
                     screen = new CowboyCoffeeCustomization(cowboyCoffee);
                     if (screen != null)
                     {
-                        // Need ancestor to load customization screen
-                        orderControl = this.FindAncestor<OrderControl>();
-
-                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
-
                         // Add item to customization screen
                         screen.DataContext = cowboyCoffee;
                         orderControl.SwapScreen(screen);
@@ -225,11 +163,6 @@ namespace PointOfSale
                     screen = new JerkedSodaCustomization(jerkedSoda);
                     if (screen != null)
                     {
-                        // Need ancestor to load customization screen
-                        orderControl = this.FindAncestor<OrderControl>();
-
-                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
-
                         // Add item to customization screen
                         screen.DataContext = jerkedSoda;
                         orderControl.SwapScreen(screen);
@@ -240,11 +173,6 @@ namespace PointOfSale
                     screen = new TexasTeaCustomization(texasTea);
                     if (screen != null)
                     {
-                        // Need ancestor to load customization screen
-                        orderControl = this.FindAncestor<OrderControl>();
-
-                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
-
                         // Add item to customization screen
                         screen.DataContext = texasTea;
                         orderControl.SwapScreen(screen);
@@ -254,12 +182,7 @@ namespace PointOfSale
                 {
                     screen = new WaterCustomization(water);
                     if (screen != null)
-                    {
-                        // Need ancestor to load customization screen
-                        orderControl = this.FindAncestor<OrderControl>();
-
-                        if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
-
+                    {                       
                         // Add item to customization screen
                         screen.DataContext = water;
                         orderControl.SwapScreen(screen);
@@ -269,16 +192,18 @@ namespace PointOfSale
                 // All else ---------------------------------------------------------------------
                 else
                 {
-                    // Need ancestor to load customization screen
-                    orderControl = this.FindAncestor<OrderControl>();
-
-                    if (orderControl == null) throw new Exception("An ancestor of OrderControl expected");
-
                     // Add item to customization screen
                     orderControl?.SwapScreen(new MenuItemSelectionControl());
                 }
+                orderList.SelectedItem = null;
             }
         }
+
+        /// <summary>
+        /// Deletes specific item bound to summary control listbox item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
