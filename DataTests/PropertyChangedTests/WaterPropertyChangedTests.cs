@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: WaterPropertyChangedTests.cs
+ * Description: Tests for water properties.
+*/
+
+using System;
 using System.Collections.Generic;
 using Xunit;
 using CowboyCafe.Data;
@@ -41,7 +46,7 @@ namespace CowboyCafe.DataTests.PropertyChangedTests
             var water = new Water();
             Assert.PropertyChanged(water, "Lemon", () =>
             {
-                water.Lemon = false;
+                water.Lemon = true;
             });
         }
 
@@ -55,7 +60,7 @@ namespace CowboyCafe.DataTests.PropertyChangedTests
             var water = new Water();
             Assert.PropertyChanged(water, "SpecialInstructions", () =>
             {
-                water.Lemon = false;
+                water.Lemon = true;
             });
         }
 
@@ -73,21 +78,51 @@ namespace CowboyCafe.DataTests.PropertyChangedTests
         }
 
         /// <summary>
-        /// Checks size property if Property changed
+        /// Checks size property if Property changed for size
         /// </summary>
         /// <param name="size">Size of the item</param>
-        /// <param name="propertyName">Name of property</param>
         [Theory]
-        [InlineData(Size.Large, "ToString")]
-        [InlineData(Size.Medium, "ToString")]
-        [InlineData(Size.Small, "ToString")]
-        [InlineData(Size.Large, "Price")]
-        [InlineData(Size.Medium, "Price")]
-        [InlineData(Size.Small, "Price")]
-        public void WaterSizeChangeShouldNotifyPropertyChanged(Size size, string propertyName)
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void WaterSizeChangeShouldNotifyPropertyChanged(Size size)
         {
             Water water = new Water();
-            Assert.PropertyChanged(water, propertyName, () =>
+            Assert.PropertyChanged(water, "Size", () =>
+            {
+                water.Size = size;
+            });
+        }
+
+        /// <summary>
+        /// Checks size property if Property changed for Price
+        /// </summary>
+        /// <param name="size">Size of the item</param>
+        [Theory]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void WaterCoffeeSizeChangeShouldNotifyPropertyChangedForPrice(Size size)
+        {
+            Water water = new Water();
+            Assert.PropertyChanged(water, "Price", () =>
+            {
+                water.Size = size;
+            });
+        }
+
+        /// <summary>
+        /// Checks size property if Property changed for Calories
+        /// </summary>
+        /// <param name="size">Size of the item</param>
+        [Theory]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void WaterSizeChangeShouldNotifyPropertyChangedForCalories(Size size)
+        {
+            Water water = new Water();
+            Assert.PropertyChanged(water, "Calories", () =>
             {
                 water.Size = size;
             });

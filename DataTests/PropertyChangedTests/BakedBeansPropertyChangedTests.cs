@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: BakedBeansPropertyChangedTests.cs
+ * Description: Tests for baked beans properties.
+*/
+
+using System;
 using System.Collections.Generic;
 using Xunit;
 using CowboyCafe.Data;
@@ -18,23 +23,52 @@ namespace CowboyCafe.DataTests.PropertyChangedTests
             Assert.IsAssignableFrom<INotifyPropertyChanged>(beans);
         }
 
-
         /// <summary>
-        /// Checks size property if Property changed
+        /// Checks size property if Property changed for size
         /// </summary>
         /// <param name="size">Size of the item</param>
-        /// <param name="propertyName">Name of property</param>
         [Theory]
-        [InlineData(Size.Large, "Description")]
-        [InlineData(Size.Medium, "Description")]
-        [InlineData(Size.Small, "Description")]
-        [InlineData(Size.Large, "Price")]
-        [InlineData(Size.Medium, "Price")]
-        [InlineData(Size.Small, "Price")]
-        public void BakedBeansSizeChangeShouldNotifyPropertyChanged(Size size, string propertyName)
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void BakedBeansSizeChangeShouldNotifyPropertyChanged(Size size)
         {
             BakedBeans beans = new BakedBeans();
-            Assert.PropertyChanged(beans, propertyName, () =>
+            Assert.PropertyChanged(beans, "Size", () =>
+            {
+                beans.Size = size;
+            });
+        }
+
+        /// <summary>
+        /// Checks size property if Property changed for Price
+        /// </summary>
+        /// <param name="size">Size of the item</param>
+        [Theory]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void BakedBeansSizeChangeShouldNotifyPropertyChangedForPrice(Size size)
+        {
+            BakedBeans beans = new BakedBeans();
+            Assert.PropertyChanged(beans, "Price", () =>
+            {
+                beans.Size = size;
+            });
+        }
+
+        /// <summary>
+        /// Checks size property if Property changed for Calories
+        /// </summary>
+        /// <param name="size">Size of the item</param>
+        [Theory]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void BakedBeansSizeChangeShouldNotifyPropertyChangedForCalories(Size size)
+        {
+            BakedBeans beans = new BakedBeans();
+            Assert.PropertyChanged(beans, "Calories", () =>
             {
                 beans.Size = size;
             });

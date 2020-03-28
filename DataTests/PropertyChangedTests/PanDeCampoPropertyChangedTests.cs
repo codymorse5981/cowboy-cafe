@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: PanDeCampoPropertyChangedTests.cs
+ * Description: Tests for pan de campo properties.
+*/
+
+using System;
 using System.Collections.Generic;
 using Xunit;
 using CowboyCafe.Data;
@@ -19,21 +24,51 @@ namespace CowboyCafe.DataTests.PropertyChangedTests
         }
 
         /// <summary>
-        /// Checks size property if Property changed
+        /// Checks size property if Property changed for size
         /// </summary>
         /// <param name="size">Size of the item</param>
-        /// <param name="propertyName">Name of property</param>
         [Theory]
-        [InlineData(Size.Large, "Description")]
-        [InlineData(Size.Medium, "Description")]
-        [InlineData(Size.Small, "Description")]
-        [InlineData(Size.Large, "Price")]
-        [InlineData(Size.Medium, "Price")]
-        [InlineData(Size.Small, "Price")]
-        public void PanDeCampoSizeChangeShouldNotifyPropertyChanged(Size size, string propertyName)
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void PanDeCampoFriesSizeChangeShouldNotifyPropertyChanged(Size size)
         {
             PanDeCampo pan = new PanDeCampo();
-            Assert.PropertyChanged(pan, propertyName, () =>
+            Assert.PropertyChanged(pan, "Size", () =>
+            {
+                pan.Size = size;
+            });
+        }
+
+        /// <summary>
+        /// Checks size property if Property changed for Price
+        /// </summary>
+        /// <param name="size">Size of the item</param>
+        [Theory]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void PanDeCampoSizeChangeShouldNotifyPropertyChangedForPrice(Size size)
+        {
+            PanDeCampo pan = new PanDeCampo();
+            Assert.PropertyChanged(pan, "Price", () =>
+            {
+                pan.Size = size;
+            });
+        }
+
+        /// <summary>
+        /// Checks size property if Property changed for Calories
+        /// </summary>
+        /// <param name="size">Size of the item</param>
+        [Theory]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void PanDeCampoSizeChangeShouldNotifyPropertyChangedForCalories(Size size)
+        {
+            PanDeCampo pan = new PanDeCampo();
+            Assert.PropertyChanged(pan, "Calories", () =>
             {
                 pan.Size = size;
             });

@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: CowpokeChiliPropertyChangedTests.cs
+ * Description: Tests for cowpoke chili properties.
+*/
+
+using System;
 using System.Collections.Generic;
 using Xunit;
 using CowboyCafe.Data;

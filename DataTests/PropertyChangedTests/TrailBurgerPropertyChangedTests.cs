@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: TrailBurgerPropertyChangedTests.cs
+ * Description: Tests for Trail Burger properties.
+*/
+
+using System;
 using System.Collections.Generic;
 using Xunit;
 using CowboyCafe.Data;

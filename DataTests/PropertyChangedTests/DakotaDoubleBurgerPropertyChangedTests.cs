@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: DakotaDoubleBurgerPropertyChangedTests.cs
+ * Description: Tests for Dakota Double Burger properties.
+*/
+
+using System;
 using System.Collections.Generic;
 using Xunit;
 using CowboyCafe.Data;

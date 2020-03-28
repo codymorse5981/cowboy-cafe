@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: CowboyCoffeePropertyChangedTests.cs
+ * Description: Tests for cowboy coffee properties.
+*/
+
+using System;
 using System.Collections.Generic;
 using Xunit;
 using CowboyCafe.Data;
@@ -16,6 +21,57 @@ namespace CowboyCafe.DataTests.PropertyChangedTests
         {
             var coffee = new CowboyCoffee();
             Assert.IsAssignableFrom<INotifyPropertyChanged>(coffee);
+        }
+
+        /// <summary>
+        /// Checks size property if Property changed for size
+        /// </summary>
+        /// <param name="size">Size of the item</param>
+        [Theory]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void CowboyCoffeeSizeChangeShouldNotifyPropertyChanged(Size size)
+        {
+            CowboyCoffee coffee = new CowboyCoffee();
+            Assert.PropertyChanged(coffee, "Size", () =>
+            {
+                coffee.Size = size;
+            });
+        }
+
+        /// <summary>
+        /// Checks size property if Property changed for Price
+        /// </summary>
+        /// <param name="size">Size of the item</param>
+        [Theory]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void CowboyCoffeeSizeChangeShouldNotifyPropertyChangedForPrice(Size size)
+        {
+            CowboyCoffee coffee = new CowboyCoffee();
+            Assert.PropertyChanged(coffee, "Price", () =>
+            {
+                coffee.Size = size;
+            });
+        }
+
+        /// <summary>
+        /// Checks size property if Property changed for Calories
+        /// </summary>
+        /// <param name="size">Size of the item</param>
+        [Theory]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void CowboyCoffeeSizeChangeShouldNotifyPropertyChangedForCalories(Size size)
+        {
+            CowboyCoffee coffee = new CowboyCoffee();
+            Assert.PropertyChanged(coffee, "Calories", () =>
+            {
+                coffee.Size = size;
+            });
         }
 
         /// <summary>
@@ -66,7 +122,7 @@ namespace CowboyCafe.DataTests.PropertyChangedTests
             var coffee = new CowboyCoffee();
             Assert.PropertyChanged(coffee, "SpecialInstructions", () =>
             {
-                coffee.Decaf = false;
+                coffee.Decaf = true;
             });
         }
 
@@ -79,7 +135,7 @@ namespace CowboyCafe.DataTests.PropertyChangedTests
             var coffee = new CowboyCoffee();
             Assert.PropertyChanged(coffee, "SpecialInstructions", () =>
             {
-                coffee.RoomForCream = false;
+                coffee.RoomForCream = true;
             });
         }
 
@@ -92,28 +148,7 @@ namespace CowboyCafe.DataTests.PropertyChangedTests
             var coffee = new CowboyCoffee();
             Assert.PropertyChanged(coffee, "SpecialInstructions", () =>
             {
-                coffee.Ice = false;
-            });
-        }
-
-        /// <summary>
-        /// Checks size property if Property changed
-        /// </summary>
-        /// <param name="size">Size of the item</param>
-        /// <param name="propertyName">Name of property</param>
-        [Theory]
-        [InlineData(Size.Large, "Description")]
-        [InlineData(Size.Medium, "Description")]
-        [InlineData(Size.Small, "Description")]
-        [InlineData(Size.Large, "Price")]
-        [InlineData(Size.Medium, "Price")]
-        [InlineData(Size.Small, "Price")]
-        public void CowboyCoffeeSizeChangeShouldNotifyPropertyChanged(Size size, string propertyName)
-        {
-            CowboyCoffee coffee = new CowboyCoffee();
-            Assert.PropertyChanged(coffee, propertyName, () =>
-            {
-                coffee.Size = size;
+                coffee.Ice = true;
             });
         }
     }

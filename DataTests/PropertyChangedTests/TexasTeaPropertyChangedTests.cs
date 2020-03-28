@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: TexasTeaPropertyChangedTests.cs
+ * Description: Tests for Texas Tea properties.
+*/
+
+using System;
 using System.Collections.Generic;
 using Xunit;
 using CowboyCafe.Data;
@@ -53,7 +58,7 @@ namespace CowboyCafe.DataTests.PropertyChangedTests
             var tea = new TexasTea();
             Assert.PropertyChanged(tea, "Lemon", () =>
             {
-                tea.Lemon = false;
+                tea.Lemon = true;
             });
         }
 
@@ -79,7 +84,7 @@ namespace CowboyCafe.DataTests.PropertyChangedTests
             var tea = new TexasTea();
             Assert.PropertyChanged(tea, "SpecialInstructions", () =>
             {
-                tea.Lemon = false;
+                tea.Lemon = true;
             });
         }
 
@@ -95,23 +100,53 @@ namespace CowboyCafe.DataTests.PropertyChangedTests
                 tea.Ice = false;
             });
         }
-
+  
         /// <summary>
-        /// Checks size property if Property changed
+        /// Checks price property if Property changed
         /// </summary>
         /// <param name="size">Size of the item</param>
-        /// <param name="propertyName">Name of property</param>
         [Theory]
-        [InlineData(Size.Large, "Description")]
-        [InlineData(Size.Medium, "Description")]
-        [InlineData(Size.Small, "Description")]
-        [InlineData(Size.Large, "Price")]
-        [InlineData(Size.Medium, "Price")]
-        [InlineData(Size.Small, "Price")]
-        public void TexasTeaSizeChangeShouldNotifyPropertyChanged(Size size, string propertyName)
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void TexasTeaSizeChangeShouldNotifyPropertyChanged(Size size)
         {
             TexasTea tea = new TexasTea();
-            Assert.PropertyChanged(tea, propertyName, () =>
+            Assert.PropertyChanged(tea, "Size", () =>
+            {
+                tea.Size = size;
+            });
+        }
+
+        /// <summary>
+        /// Checks calories property if Property changed
+        /// </summary>
+        /// <param name="size">Size of the item</param>
+        [Theory]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void TexasTeaCaloriesChangeShouldNotifyPropertyChanged(Size size)
+        {
+            TexasTea tea = new TexasTea();
+            Assert.PropertyChanged(tea, "Calories", () =>
+            {
+                tea.Size = size;
+            });
+        }
+
+        /// <summary>
+        /// Checks price property if Property changed
+        /// </summary>
+        /// <param name="size">Size of the item</param>
+        [Theory]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Small)]
+        public void TexasTeaPriceChangeShouldNotifyPropertyChanged(Size size)
+        {
+            TexasTea tea = new TexasTea();
+            Assert.PropertyChanged(tea, "Price", () =>
             {
                 tea.Size = size;
             });
