@@ -148,7 +148,7 @@ namespace CowboyCafe.DataTests.PropertyChangedTests
             var coffee = new CowboyCoffee();
             Assert.PropertyChanged(coffee, "SpecialInstructions", () =>
             {
-                coffee.Ice = true;
+                coffee.Ice = false;
             });
         }
     }
