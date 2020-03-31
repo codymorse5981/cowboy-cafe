@@ -20,6 +20,7 @@ using System.Drawing;
 using System.IO;
 using System.Resources;
 using System.ComponentModel;
+using CashRegister;
 
 namespace PointOfSale
 {
@@ -64,9 +65,15 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void CompleteOrderButtonClicked(object sender, RoutedEventArgs e)
         {
-            /// Creates new order           
-            this.DataContext = new Order();
-            SwapScreen(new MenuItemSelectionControl());
+            var transactionControl = new TransactionControl();
+            transactionControl.DataContext = this.DataContext;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("OrderNumber"));
+            SwapScreen(transactionControl);
+            
+
+            /// Creates new order     
+            //this.DataContext = new Order();
+            // SwapScreen(new MenuItemSelectionControl());
         }
 
         /// <summary>

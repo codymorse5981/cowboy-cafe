@@ -17,6 +17,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="CashRegister">
+      <HintPath>..\CashRegister.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Images\Cafe.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
