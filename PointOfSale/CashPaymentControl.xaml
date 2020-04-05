@@ -74,7 +74,9 @@
             <local:BillControl QuantityInDrawer="{Binding Path=Register.Hundreds}" QuantityGiven="{Binding Path=cashGiven.Hundreds}" Denomination="Hundred" />
         </StackPanel>
 
-        <TextBlock Grid.Row="2" Margin="10,10,10,10" TextAlignment="Center" FontSize="20" FontWeight="Bold" >
+        <TextBlock Grid.Row="3" Grid.Column="1" Margin="10,10,10,10" TextAlignment="Center" FontSize="20" FontWeight="Bold" TextWrapping="Wrap">*Changed Generated may not be exact due to precision of rounding</TextBlock>
+        
+        <TextBlock TextWrapping="Wrap" Grid.Row="2" Margin="10,10,10,10" TextAlignment="Center" FontSize="20" FontWeight="Bold" >
             <Run Text="Total Paid: "/>
             <Run Text="{Binding Path=cashGiven.TotalValueGiven, Mode=OneWay, StringFormat=C}"/>
         </TextBlock>
@@ -84,7 +86,7 @@
             <Run Text="{Binding Path=Total, Mode=OneWay, StringFormat=C}"/>
         </TextBlock>
 
-        <TextBox Name="changeInfo" Grid.Row="4" Grid.Column="0" FontSize="20" FontWeight="Bold" Height="290" Width="300" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBox Name="changeInfo" Grid.Row="4" Grid.Column="0" FontSize="20" FontWeight="Bold" Height="290" Width="300" HorizontalContentAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible"/>
         <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left">
             <Button Click="OnCalculateChange" Grid.Row="0" Grid.Column="1" Name="ChangeButton">Calculate Change</Button>
             <Button Click="OnDone" IsEnabled="False" Name="DoneButton">Done</Button>

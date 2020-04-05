@@ -57,13 +57,15 @@ namespace PointOfSale
             if (money.cashGiven.TotalValueGiven < money.Total)
             {
                 //parent.MessageBox.Text = "Error: Not Enough Money for Transaction";
-                changeInfo.Text = "Error: \nNot Enough Money for Transaction";
+                //parent.MessageBox.Text = $"Change To Give:\n{money.CalculateChangeToGiveBack(total)}";
+                changeInfo.Text = $"Error: \n{"Not Enough Money for Transaction"}";
             }
             else
             {
                 //parent.Transaction.AmountPaid = money.cashGiven.TotalValueGiven;
                 //parent.MessageBox.Text = $"Change To Give:\n{money.CalculateChangeToGiveBack(total)}";
-                changeInfo.Text = $"Change To Give:\n{money.CalculateChangeToGiveBack(money.Total)}";
+                changeInfo.Text = $"Change To Give: " + (money.cashGiven.TotalValueGiven - money.Total).ToString("C") +
+                                  $"\nChange To Give (Quantity):\n{money.CalculateChangeToGiveBack(money.Total)}";
                 DoneButton.IsEnabled = true;
                 ChangeButton.IsEnabled = false;
             }

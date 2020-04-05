@@ -97,8 +97,8 @@ namespace CowboyCafe.Data
         /// <returns>Number of this denomination</returns>
         private int DetermineChangeAmounts(int numberOfChangeAvailable, double valueOfDenomination, StringBuilder changeAmounts, ref double changeToGiveBack, string[] denominationName)
         {
-            int neededAmount = (int)(changeToGiveBack / valueOfDenomination);
-            int specificNumber = Math.Min(numberOfChangeAvailable, neededAmount);
+            int neededAmount = (int)Math.Round((changeToGiveBack / valueOfDenomination), MidpointRounding.ToZero);
+            int specificNumber = (Math.Min(numberOfChangeAvailable, neededAmount));
 
             if (specificNumber == 1) changeAmounts.AppendLine(specificNumber + " " + denominationName[0]);
             if (specificNumber > 1) changeAmounts.AppendLine(specificNumber + " " + denominationName[1]);
