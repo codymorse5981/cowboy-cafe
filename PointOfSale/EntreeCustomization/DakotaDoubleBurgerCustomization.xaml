@@ -5,8 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale.EntreeCustomization"
              mc:Ignorable="d" 
-             d:DesignHeight="150" d:DesignWidth="800">
+             d:DesignHeight="200" d:DesignWidth="800">
     <UserControl.Resources>
+        <Style TargetType="CheckBox">
+            <Setter Property="LayoutTransform">
+                <Setter.Value>
+                    <ScaleTransform ScaleX="1.2" ScaleY="1.2" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
         <Style TargetType="Button">
             <Setter Property="Width" Value="300"/>
             <Setter Property="Height" Value="100"/>
@@ -44,8 +52,8 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -56,35 +64,25 @@
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
 
             <TextBlock VerticalAlignment="Center" FontSize="25" Padding="20">Options:</TextBlock>
+
+            <CheckBox IsChecked="{Binding Path = Bun}" Margin="10" VerticalContentAlignment="Center"  VerticalAlignment="Center" FontSize="25" Content="Bun"></CheckBox>
             
-            <CheckBox IsChecked="{Binding Path = Bun}" VerticalAlignment="Center" Margin="10"></CheckBox>
-            <Label FontSize ="25" >Bun</Label>
+            <CheckBox IsChecked="{Binding Path = Ketchup}" Margin="10" VerticalContentAlignment="Center"  VerticalAlignment="Center" FontSize="25" Content="Ketchup"></CheckBox>
 
-            <CheckBox IsChecked="{Binding Path = Ketchup}" VerticalAlignment="Center" Margin="10"></CheckBox>
-            <Label FontSize ="25" >Ketchup</Label>
+            <CheckBox IsChecked="{Binding Path = Mustard}" Margin="10" VerticalContentAlignment="Center"  VerticalAlignment="Center" FontSize="25" Content="Mustard"></CheckBox>
 
-
-            <CheckBox IsChecked="{Binding Path = Mustard}" VerticalAlignment="Center" Margin="10"></CheckBox>
-            <Label FontSize ="25" >Mustard</Label>
-
-            <CheckBox IsChecked="{Binding Path = Pickle}" VerticalAlignment="Center" Margin="10"></CheckBox>
-            <Label FontSize ="25" >Pickle</Label>
+            <CheckBox IsChecked="{Binding Path = Pickle}" Margin="10" VerticalContentAlignment="Center"  VerticalAlignment="Center" FontSize="25" Content="Pickle"></CheckBox>
 
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center">
-            <CheckBox IsChecked="{Binding Path = Cheese}" VerticalAlignment="Center" Margin="10"></CheckBox>
-            <Label FontSize ="25" >Cheese</Label>
+            <CheckBox IsChecked="{Binding Path = Cheese}" Margin="10" VerticalContentAlignment="Center"  VerticalAlignment="Center" FontSize="25" Content="Cheese"></CheckBox>
 
-            <CheckBox IsChecked="{Binding Path = Tomato}" VerticalAlignment="Center" Margin="10"></CheckBox>
-            <Label FontSize ="25" >Tomato</Label>
+            <CheckBox IsChecked="{Binding Path = Tomato}" Margin="10" VerticalContentAlignment="Center"  VerticalAlignment="Center" FontSize="25" Content="Tomato"></CheckBox>
 
-            <CheckBox IsChecked="{Binding Path = Lettuce}" VerticalAlignment="Center" Margin="10"></CheckBox>
-            <Label FontSize ="25" >Lettuce</Label>
+            <CheckBox IsChecked="{Binding Path = Lettuce}" Margin="10" VerticalContentAlignment="Center"  VerticalAlignment="Center" FontSize="25" Content="Lettuce"></CheckBox>
 
-            <CheckBox IsChecked="{Binding Path = Mayo}" VerticalAlignment="Center" Margin="10"></CheckBox>
-            <Label FontSize ="25" >Mayo</Label>
-
+            <CheckBox IsChecked="{Binding Path = Mayo}" Margin="10" VerticalContentAlignment="Center"  VerticalAlignment="Center" FontSize="25" Content="Mayo"></CheckBox>
         </StackPanel>
 
         <Border Grid.ColumnSpan="1" Grid.RowSpan="3" BorderBrush="Black" BorderThickness="3"/>

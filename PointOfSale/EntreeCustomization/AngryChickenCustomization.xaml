@@ -5,8 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale.EntreeCustomization"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="800">
+             d:DesignHeight="125" d:DesignWidth="800">
     <UserControl.Resources>
+        <Style TargetType="CheckBox">
+            <Setter Property="LayoutTransform">
+                <Setter.Value>
+                    <ScaleTransform ScaleX="1.2" ScaleY="1.2" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
         <Style TargetType="Button">
             <Setter Property="Width" Value="300"/>
             <Setter Property="Height" Value="100"/>
@@ -44,7 +52,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -57,11 +65,9 @@
 
             <TextBlock VerticalAlignment="Center" FontSize="25" Padding="20">Options:</TextBlock>
 
-            <CheckBox IsChecked="{Binding Path = Bread}" VerticalAlignment="Center" Margin="10"></CheckBox>
-            <Label FontSize ="25" >Bread</Label>
+            <CheckBox IsChecked="{Binding Path = Bread}" Margin="10" VerticalContentAlignment="Center"  VerticalAlignment="Center" FontSize="25" Content="Bread"></CheckBox>
 
-            <CheckBox IsChecked="{Binding Path = Pickle}" VerticalAlignment="Center" Margin="10"></CheckBox>
-            <Label FontSize ="25" >Pickle</Label>
+            <CheckBox IsChecked="{Binding Path = Pickle}" Margin="10" VerticalContentAlignment="Center"  VerticalAlignment="Center" FontSize="25" Content="Pickle"></CheckBox>
         </StackPanel>
 
         <Border Grid.ColumnSpan="2" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="3"/>

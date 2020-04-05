@@ -12,7 +12,20 @@ namespace CowboyCafe.Data
 {
     public class Order : INotifyPropertyChanged
     {
-        private static uint lastOrderNumber = 1;
+        /// <summary>
+        /// Order instantiation
+        /// </summary>
+        public Order()
+        {
+            lastOrderNumber++;
+        }
+
+        /// <summary>
+        /// Tax rate for location of transaction
+        /// </summary>
+        public const double TaxRate = 0.16;
+
+        private static uint lastOrderNumber = 0;
 
         /// <summary>
         /// Instantiates new list.
@@ -27,7 +40,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Instantiating variable for subtotal
         /// </summary>
-        private double subtotal = 0;
+        private double subtotal;
 
         /// <summary>
         /// Generates subtotal
@@ -36,7 +49,7 @@ namespace CowboyCafe.Data
         {
             get
             {
-                double subtotal = 0;
+                subtotal = 0;
                 foreach (IOrderItem i in items)
                 {
                     subtotal += i.Price;
@@ -52,7 +65,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Gets/Sets the last order number
         /// </summary>
-        public uint OrderNumber => lastOrderNumber++;
+        public uint OrderNumber => lastOrderNumber;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -69,7 +82,10 @@ namespace CowboyCafe.Data
             {
                 notifier.PropertyChanged += OnItemPropertyChanged;
             }
-            
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+
         }
 
         /// <summary>
@@ -84,6 +100,9 @@ namespace CowboyCafe.Data
             {
                 notifier.PropertyChanged -= OnItemPropertyChanged;
             }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
         }
 
         /// <summary>
@@ -98,7 +117,8 @@ namespace CowboyCafe.Data
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Subtotal"));
             }
-            
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+
         }
     }
 }

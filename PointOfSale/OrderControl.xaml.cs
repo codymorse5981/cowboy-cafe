@@ -29,6 +29,7 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl, INotifyPropertyChanged
     {
+
         /// <summary>
         /// Notifier of Property Changes 
         /// </summary>
@@ -40,7 +41,9 @@ namespace PointOfSale
         public OrderControl()
         {
             InitializeComponent();
-            this.DataContext = new Order();
+
+            var order = new Order();
+            this.DataContext = order;
             CompleteOrderButton.Click += CompleteOrderButtonClicked;
             CancelOrderButton.Click += CancelOrderButtonClicked;
             ItemSelectButton.Click += ItemSelectButtonClicked;
@@ -59,22 +62,32 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Initializes a new order upon click event
+        /// Handles screen swapping... Swaps with customization method
+        /// </summary>
+        /// <param name="element">Customization method screen to swap to</param>
+        public void SwapOrderControlScreen(FrameworkElement element)
+        {
+            if (element != null)
+            {
+                OrderControlBorder.Child = element;
+            }
+        }
+
+        /// <summary>
+        /// Initializes a new order upon click event and completes the order
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         public void CompleteOrderButtonClicked(object sender, RoutedEventArgs e)
         {
-            var transactionControl = new TransactionControl();
-            transactionControl.DataContext = this.DataContext;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("OrderNumber"));
-            SwapScreen(transactionControl);
-            
+            if (DataContext is Order order)
+            {
+                SwapOrderControlScreen(new TransactionControl(order));
+            }
+            CompleteOrderButton.IsEnabled = false;
+            ItemSelectButton.IsEnabled = false;
 
-            /// Creates new order     
-            //this.DataContext = new Order();
-            // SwapScreen(new MenuItemSelectionControl());
-        }
+        }   
 
         /// <summary>
         /// Initializes a new order upon click event
@@ -86,6 +99,8 @@ namespace PointOfSale
             /// Creates new order
             this.DataContext = new Order();
             SwapScreen(new MenuItemSelectionControl());
+            CompleteOrderButton.IsEnabled = true;
+            ItemSelectButton.IsEnabled = true;
         }
 
         /// <summary>
@@ -96,6 +111,7 @@ namespace PointOfSale
         public void ItemSelectButtonClicked(object sender, RoutedEventArgs e)
         {
             SwapScreen(new MenuItemSelectionControl());
+            CompleteOrderButton.IsEnabled = true;
         }
     }
 }
