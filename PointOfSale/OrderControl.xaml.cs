@@ -29,6 +29,10 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Original Window
+        /// </summary>
+        MainWindow Window;
 
         /// <summary>
         /// Notifier of Property Changes 
@@ -62,18 +66,6 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Handles screen swapping... Swaps with customization method
-        /// </summary>
-        /// <param name="element">Customization method screen to swap to</param>
-        public void SwapOrderControlScreen(FrameworkElement element)
-        {
-            if (element != null)
-            {
-                OrderControlBorder.Child = element;
-            }
-        }
-
-        /// <summary>
         /// Initializes a new order upon click event and completes the order
         /// </summary>
         /// <param name="sender"></param>
@@ -82,7 +74,8 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                SwapOrderControlScreen(new TransactionControl(order));
+                Window = this.FindAncestor<MainWindow>();
+                Window.SwapScreen(new TransactionControl(order));
             }
             CompleteOrderButton.IsEnabled = false;
             ItemSelectButton.IsEnabled = false;

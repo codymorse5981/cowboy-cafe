@@ -40,8 +40,9 @@ namespace CowboyCafe.Data
                 totalGiven += 50.00 * Fifties;
                 totalGiven += 20.00 * Twenties;
                 totalGiven += 10.00 * Tens;
-                totalGiven += 5.00 * Fives;
+                totalGiven += 5.00 * Fives;               
                 totalGiven += 2.00 * Twos;
+                totalGiven += 1.00 * Ones;
                 totalGiven += 1.00 * Dollars;
                 totalGiven += 0.50 * HalfDollars;
                 totalGiven += 0.25 * Quarters;

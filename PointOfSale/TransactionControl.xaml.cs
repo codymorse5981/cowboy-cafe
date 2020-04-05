@@ -30,6 +30,9 @@ namespace PointOfSale
         // The data for this transaction. The order
         public CurrentOrder currentOrder { get; private set; }
 
+        // For screen switching
+        MainWindow Window;
+
         /// <summary>
         /// Initialize the TransactionControl
         /// </summary>
@@ -50,9 +53,9 @@ namespace PointOfSale
         private void CashPayment_Click(object sender, RoutedEventArgs e)
         {
             currentOrder.payment = PaymentType.Cash;
-            var orderControl = this.FindAncestor<OrderControl>();
+            Window = this.FindAncestor<MainWindow>();
             FrameworkElement screen = new CashPaymentControl(currentOrder.Total);
-            orderControl.SwapOrderControlScreen(screen);
+            Window.SwapScreen(screen);
         }
         
         /// <summary>
@@ -95,11 +98,11 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void CancelTransaction_Click(object sender, RoutedEventArgs e)
         {
-            var currentOrderInfo = this.FindAncestor<OrderControl>();
+            Window = this.FindAncestor<MainWindow>();
             OrderControl newOrderControl = new OrderControl();
             newOrderControl.CompleteOrderButton.IsEnabled = true;
             newOrderControl.ItemSelectButton.IsEnabled = true;
-            currentOrderInfo.SwapOrderControlScreen(newOrderControl);
+            Window.SwapScreen(newOrderControl);
         }
 
         /// <summary>
@@ -111,13 +114,16 @@ namespace PointOfSale
             ReceiptPrinter receiptPrint = new ReceiptPrinter();
             receiptPrint.Print(ReceiptBuilder());
 
-            var currentOrderInfo = this.FindAncestor<OrderControl>();
-            OrderControl newOrderControl = new OrderControl();
-            
-            currentOrderInfo.SwapOrderControlScreen(newOrderControl);
+            MessageBox.Show("Transaction Complete, returning for next order");
+
+            OrderControl newOrderControl = new OrderControl();          
+            Window = this.FindAncestor<MainWindow>();
+            Window.SwapScreen(newOrderControl);
+
             newOrderControl.CompleteOrderButton.IsEnabled = true;
             newOrderControl.ItemSelectButton.IsEnabled = true;
-            MessageBox.Show("Transaction Complete, returning for next order");
+            
+
         }
 
         /// <summary>

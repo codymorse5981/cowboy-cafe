@@ -31,11 +31,6 @@ namespace PointOfSale
         TransactionControl transaction;
 
         /// <summary>
-        /// The total cost of this current transaction
-        /// </summary>
-        private double total;
-
-        /// <summary>
         /// Handler that takes care of register and customer money
         /// </summary>
         private Handler money;
@@ -49,8 +44,7 @@ namespace PointOfSale
 
             money = new Handler();
             DataContext = money;
-            //transaction = this.FindAncestor<TransactionControl>();
-            this.total = total;
+            money.Total = total;
         }
 
         /// <summary>
@@ -60,13 +54,16 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void OnCalculateChange(object sender, RoutedEventArgs e)
         {
-            if (money.cashGiven.TotalValueGiven < total)
+            if (money.cashGiven.TotalValueGiven < money.Total)
             {
-                MessageBox.Show("Error: Not Enough Money for Transaction");
+                //parent.MessageBox.Text = "Error: Not Enough Money for Transaction";
+                changeInfo.Text = "Error: \nNot Enough Money for Transaction";
             }
             else
             {
-                MessageBox.Show($"Change To Give:\n{money.CalculateChangeToGiveBack(total)}");
+                //parent.Transaction.AmountPaid = money.cashGiven.TotalValueGiven;
+                //parent.MessageBox.Text = $"Change To Give:\n{money.CalculateChangeToGiveBack(total)}";
+                changeInfo.Text = $"Change To Give:\n{money.CalculateChangeToGiveBack(money.Total)}";
                 DoneButton.IsEnabled = true;
                 ChangeButton.IsEnabled = false;
             }
@@ -79,10 +76,8 @@ namespace PointOfSale
         /// <param name="e">Routed Event Args</param>
         private void OnDone(object sender, RoutedEventArgs e)
         {
-            if (transaction != null)
-            {
-                transaction.FinishCurrentTransaction();
-            }
+            transaction = this.FindAncestor<TransactionControl>();
+            transaction.FinishCurrentTransaction();
         }
     }
 }

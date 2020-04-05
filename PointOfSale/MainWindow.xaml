@@ -6,9 +6,7 @@
         xmlns:local="clr-namespace:PointOfSale"
         mc:Ignorable="d"
         Title="Cowboy Cafe" Height="950" Width="1350">
-
-
-    <Grid>
-        <local:OrderControl></local:OrderControl>
-    </Grid>
+    <ContentControl Name="Screen">
+        <local:OrderControl/>
+    </ContentControl>
 </Window>

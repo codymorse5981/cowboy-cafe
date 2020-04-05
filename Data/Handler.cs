@@ -21,12 +21,19 @@ namespace CowboyCafe.Data
         public CashGiven cashGiven { get; private set; } = new CashGiven();
 
         /// <summary>
+        /// The total amount
+        /// </summary>
+        public double Total { get; set; }
+
+        /// <summary>
         /// Add the hand to the register and calculate how much change we need to give.
         /// </summary>
         /// <param name="total">Total amount required to complete transaction</param>
         /// <returns>String of bill/coin values to return back to customer</returns>
         public string CalculateChangeToGiveBack(double total)
         {
+            Total = total;
+
             double changeToGiveBack = cashGiven.TotalValueGiven - total;
 
             Register.Pennies += cashGiven.Pennies;
@@ -35,6 +42,7 @@ namespace CowboyCafe.Data
             Register.Quarters += cashGiven.Quarters;
             Register.HalfDollars += cashGiven.HalfDollars;
             Register.Dollars += cashGiven.Dollars;
+            Register.Ones += cashGiven.Ones;
             Register.Twos += cashGiven.Twos;
             Register.Fives += cashGiven.Fives;
             Register.Tens += cashGiven.Tens;
@@ -57,10 +65,10 @@ namespace CowboyCafe.Data
                 DetermineChangeAmounts(Register.Fives, 5.00, changeAmounts, ref changeToGiveBack, new string[] { "Five", "Fives" });
             Register.Twos -= 
                 DetermineChangeAmounts(Register.Twos, 2.00, changeAmounts, ref changeToGiveBack, new string[] { "Two", "Twos" });
-            Register.Dollars -= 
-                DetermineChangeAmounts(Register.Dollars, 1.00, changeAmounts, ref changeToGiveBack, new string[] { "Dollar Coin", "Dollar Coins" });
             Register.Ones -= 
-                DetermineChangeAmounts(Register.Ones, 1.00, changeAmounts, ref changeToGiveBack, new string[] { "Ones", "Ones" });
+                DetermineChangeAmounts(Register.Ones, 1.00, changeAmounts, ref changeToGiveBack, new string[] { "One", "Ones" });          
+            Register.Dollars -= 
+                DetermineChangeAmounts(Register.Dollars, 1.00, changeAmounts, ref changeToGiveBack, new string[] { "Dollar Coin", "Dollar Coins" });            
             Register.HalfDollars -= 
                 DetermineChangeAmounts(Register.HalfDollars, 0.50, changeAmounts, ref changeToGiveBack, new string[] { "Half-Dollar", "Half-Dollars" });
             Register.Quarters -= 
@@ -92,8 +100,8 @@ namespace CowboyCafe.Data
             int neededAmount = (int)(changeToGiveBack / valueOfDenomination);
             int specificNumber = Math.Min(numberOfChangeAvailable, neededAmount);
 
-            if (specificNumber == 1) changeAmounts.AppendLine("$" + " " + specificNumber + " " + denominationName[0]);
-            if (specificNumber > 1) changeAmounts.AppendLine("$" + " " + specificNumber + " " + denominationName[1]);
+            if (specificNumber == 1) changeAmounts.AppendLine(specificNumber + " " + denominationName[0]);
+            if (specificNumber > 1) changeAmounts.AppendLine(specificNumber + " " + denominationName[1]);
 
             changeToGiveBack -= specificNumber * valueOfDenomination;
             return specificNumber;

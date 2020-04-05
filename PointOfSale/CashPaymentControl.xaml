@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="1250">
+             d:DesignHeight="950" d:DesignWidth="1350">
     <UserControl.Resources>
         <Style TargetType="Button">
             <Setter Property="Width" Value="200"/>
@@ -43,13 +43,19 @@
     
     <Grid Background="Silver">
         <Grid.RowDefinitions>
-            <RowDefinition Height="300"/>
-            <RowDefinition Height="300"/>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="120"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="275"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="4" HorizontalAlignment="Center" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="700"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="0" Margin="4" HorizontalAlignment="Center" >
             <local:CoinControl Width="175" QuantityInDrawer="{Binding Path=Register.Pennies}" QuantityGiven="{Binding Path=cashGiven.Pennies}" Denomination="Penny" />
             <local:CoinControl Width="175" QuantityInDrawer="{Binding Path=Register.Nickels}" QuantityGiven="{Binding Path=cashGiven.Nickels}" Denomination="Nickel" />
             <local:CoinControl Width="175" QuantityInDrawer="{Binding Path=Register.Dimes}" QuantityGiven="{Binding Path=cashGiven.Dimes}" Denomination="Dime" />
@@ -58,7 +64,7 @@
             <local:CoinControl Width="175" QuantityInDrawer="{Binding Path=Register.Dollars}" QuantityGiven="{Binding Path=cashGiven.Dollars}" Denomination="Dollar" />
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="4" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="1" Margin="4" HorizontalAlignment="Center">
             <local:BillControl QuantityInDrawer="{Binding Path=Register.Ones}" QuantityGiven="{Binding Path=cashGiven.Ones}" Denomination="One" />
             <local:BillControl QuantityInDrawer="{Binding Path=Register.Twos}" QuantityGiven="{Binding Path=cashGiven.Twos}" Denomination="Two" />
             <local:BillControl QuantityInDrawer="{Binding Path=Register.Fives}" QuantityGiven="{Binding Path=cashGiven.Fives}" Denomination="Five" />
@@ -68,13 +74,19 @@
             <local:BillControl QuantityInDrawer="{Binding Path=Register.Hundreds}" QuantityGiven="{Binding Path=cashGiven.Hundreds}" Denomination="Hundred" />
         </StackPanel>
 
-        <TextBlock Grid.Row="2" Margin="10,10,10,10" TextAlignment="Center" FontSize="20" FontWeight="Bold">
+        <TextBlock Grid.Row="2" Margin="10,10,10,10" TextAlignment="Center" FontSize="20" FontWeight="Bold" >
             <Run Text="Total Paid: "/>
-            <Run Text="{Binding Path=cashGiven.TotalValue, Mode=OneWay, StringFormat=C}"/>
+            <Run Text="{Binding Path=cashGiven.TotalValueGiven, Mode=OneWay, StringFormat=C}"/>
         </TextBlock>
 
-        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
-            <Button Click="OnCalculateChange" Name="ChangeButton">Calculate Change</Button>
+        <TextBlock Grid.Row="3" Margin="10,10,10,10" TextAlignment="Center" FontSize="20" FontWeight="Bold" >
+            <Run Text="Total Owed: "/>
+            <Run Text="{Binding Path=Total, Mode=OneWay, StringFormat=C}"/>
+        </TextBlock>
+
+        <TextBox Name="changeInfo" Grid.Row="4" Grid.Column="0" FontSize="20" FontWeight="Bold" Height="290" Width="300" HorizontalContentAlignment="Center" HorizontalAlignment="Center"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left">
+            <Button Click="OnCalculateChange" Grid.Row="0" Grid.Column="1" Name="ChangeButton">Calculate Change</Button>
             <Button Click="OnDone" IsEnabled="False" Name="DoneButton">Done</Button>
         </StackPanel>
     </Grid>

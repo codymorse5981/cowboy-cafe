@@ -20,14 +20,14 @@ namespace CowboyCafe.Data
         /// </summary>
         public Order Order { get; private set; }
 
-        public const double TAX_RATE = 0.16;
+        public const double TaxRate = 0.16;
 
         /// <summary>
         /// Calculate the cost added due to tax
         /// </summary>
         public double AddedTax
         {
-            get { return Math.Round(Order.Subtotal * TAX_RATE, 2); }
+            get { return Math.Round(Order.Subtotal * TaxRate, 2); }
         }
 
         /// <summary>

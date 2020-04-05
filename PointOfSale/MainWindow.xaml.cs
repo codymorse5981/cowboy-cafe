@@ -30,5 +30,14 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Swap the scren to an element
+        /// </summary>
+        /// <param name="elem">The element to swap to</param>
+        public void SwapScreen(FrameworkElement elem)
+        {
+            Screen.Content = elem;
+        }
     }
 }
