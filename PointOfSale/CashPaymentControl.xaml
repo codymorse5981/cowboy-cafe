@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
+             Loaded="ControlStart"
              mc:Ignorable="d" 
              d:DesignHeight="950" d:DesignWidth="1350">
     <UserControl.Resources>
@@ -55,7 +56,7 @@
             <ColumnDefinition Width="700"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="0" Margin="4" HorizontalAlignment="Center" >
+        <StackPanel Name="CoinControls" Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="0" Margin="4" HorizontalAlignment="Center" >
             <local:CoinControl Width="175" QuantityInDrawer="{Binding Path=Register.Pennies}" QuantityGiven="{Binding Path=cashGiven.Pennies}" Denomination="Penny" />
             <local:CoinControl Width="175" QuantityInDrawer="{Binding Path=Register.Nickels}" QuantityGiven="{Binding Path=cashGiven.Nickels}" Denomination="Nickel" />
             <local:CoinControl Width="175" QuantityInDrawer="{Binding Path=Register.Dimes}" QuantityGiven="{Binding Path=cashGiven.Dimes}" Denomination="Dime" />
@@ -64,7 +65,7 @@
             <local:CoinControl Width="175" QuantityInDrawer="{Binding Path=Register.Dollars}" QuantityGiven="{Binding Path=cashGiven.Dollars}" Denomination="Dollar" />
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="1" Margin="4" HorizontalAlignment="Center">
+        <StackPanel Name="BillControls" Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="1" Margin="4" HorizontalAlignment="Center">
             <local:BillControl QuantityInDrawer="{Binding Path=Register.Ones}" QuantityGiven="{Binding Path=cashGiven.Ones}" Denomination="One" />
             <local:BillControl QuantityInDrawer="{Binding Path=Register.Twos}" QuantityGiven="{Binding Path=cashGiven.Twos}" Denomination="Two" />
             <local:BillControl QuantityInDrawer="{Binding Path=Register.Fives}" QuantityGiven="{Binding Path=cashGiven.Fives}" Denomination="Five" />
@@ -72,9 +73,9 @@
             <local:BillControl QuantityInDrawer="{Binding Path=Register.Twenties}" QuantityGiven="{Binding Path=cashGiven.Twenties}" Denomination="Twenty" />
             <local:BillControl QuantityInDrawer="{Binding Path=Register.Fifties}" QuantityGiven="{Binding Path=cashGiven.Fifties}" Denomination="Fifty" />
             <local:BillControl QuantityInDrawer="{Binding Path=Register.Hundreds}" QuantityGiven="{Binding Path=cashGiven.Hundreds}" Denomination="Hundred" />
-        </StackPanel>
+        </StackPanel> 
 
-        <TextBlock Grid.Row="3" Grid.Column="1" Margin="10,10,10,10" TextAlignment="Center" FontSize="20" FontWeight="Bold" TextWrapping="Wrap">*Changed Generated may not be exact due to precision of rounding</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="1" Margin="10,10,10,10" TextAlignment="Center" FontSize="20" FontWeight="Bold" TextWrapping="Wrap">*Change Generated may not be exact due to precision of rounding</TextBlock>
         
         <TextBlock TextWrapping="Wrap" Grid.Row="2" Margin="10,10,10,10" TextAlignment="Center" FontSize="20" FontWeight="Bold" >
             <Run Text="Total Paid: "/>

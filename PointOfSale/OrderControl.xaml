@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
+             Loaded="ControlStart"
              d:DesignHeight="1100" d:DesignWidth="1350">
 
     <UserControl.Resources>

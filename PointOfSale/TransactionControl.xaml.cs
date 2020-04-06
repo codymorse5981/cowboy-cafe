@@ -122,8 +122,6 @@ namespace PointOfSale
 
             newOrderControl.CompleteOrderButton.IsEnabled = true;
             newOrderControl.ItemSelectButton.IsEnabled = true;
-            
-
         }
 
         /// <summary>
@@ -139,7 +137,7 @@ namespace PointOfSale
             DateTime dateTime = DateTime.Now;
             double subtotal = currentOrder.Order.Subtotal;
             double total = currentOrder.Total;
-            double tax = Math.Round((subtotal * TaxRate));
+            double tax = Math.Round((subtotal * TaxRate), 2);
             PaymentType formOfPayment = currentOrder.payment;
             double amountPaid = currentOrder.AmountPaid;
             double change = currentOrder.AmountPaid - currentOrder.Total;
@@ -147,8 +145,7 @@ namespace PointOfSale
             receipt.AppendLine("Cowboy Cafe");
             receipt.AppendLine($"Order: {orderNumber}");
             receipt.AppendLine(dateTime.ToString());
-            receipt.Append('-', printCharacterMax);
-            receipt.AppendLine();
+            receipt.Append('-', printCharacterMax); receipt.AppendLine();
             receipt.AppendLine("Items:");
 
             foreach (IOrderItem item in currentOrder.Order.Items)
@@ -180,8 +177,7 @@ namespace PointOfSale
                 }
             }
 
-            receipt.Append('-', printCharacterMax);
-            receipt.AppendLine();
+            receipt.Append('-', printCharacterMax); receipt.AppendLine();
 
             receipt.Append(' ', printCharacterMax - 15 - 9);
             receipt.Append("Subtotal:");
@@ -193,42 +189,41 @@ namespace PointOfSale
             receipt.Append(' ', 15 - tax.ToString("C").Length);
             receipt.AppendLine(tax.ToString("C"));
 
-            receipt.Append('-', printCharacterMax);
-            receipt.AppendLine();
+            receipt.Append('-', printCharacterMax); receipt.AppendLine();
 
             receipt.Append(' ', printCharacterMax - 15 - 6);
             receipt.Append("Total:");
             receipt.Append(' ', 15 - total.ToString("C").Length);
             receipt.AppendLine(total.ToString("C"));
 
-            receipt.Append('-', printCharacterMax);
-            receipt.AppendLine();
+            receipt.Append('-', printCharacterMax); receipt.AppendLine();
 
             receipt.Append("Payment Type:" + formOfPayment.ToString());
-            if (formOfPayment == PaymentType.Credit)
-            {
-                receipt.Append(' ',  19 - amountPaid.ToString("C").Length);
-            }
-            else 
-            {
-                receipt.Append(' ', 31 - amountPaid.ToString("C").Length);
-            }
+
+            if (formOfPayment == PaymentType.Credit) receipt.Append(' ',  19 - amountPaid.ToString("C").Length);
+            else receipt.Append(' ', 31 - amountPaid.ToString("C").Length);
 
             receipt.Append("Amount Paid:          " + amountPaid.ToString("C"));
-            receipt.AppendLine();
-            receipt.AppendLine();
+            receipt.AppendLine(); receipt.AppendLine();
 
             receipt.Append(' ', printCharacterMax - 15 - 8);
             receipt.Append(" Change:");
             receipt.Append(' ', 15 - tax.ToString("C").Length);
             receipt.AppendLine(change.ToString("C"));
-            receipt.AppendLine();
-            receipt.AppendLine();
-            receipt.AppendLine();
-            receipt.AppendLine();
+            receipt.AppendLine(); receipt.AppendLine(); receipt.AppendLine(); receipt.AppendLine();
 
             return receipt.ToString();
-        }    
+        }
+
+        /// <summary>
+        /// Initializes ancestor variable upon initialization
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ControlStart(object sender, RoutedEventArgs e)
+        {
+            Window = this.FindAncestor<MainWindow>();
+        }
     }
 }
 

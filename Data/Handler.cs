@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Author: Cody Morse
+ * Class: Handler.cs
+ * Description: Handles Handler money class
+  */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
@@ -80,11 +85,8 @@ namespace CowboyCafe.Data
             Register.Pennies -= 
                 DetermineChangeAmounts(Register.Pennies, 0.01, changeAmounts, ref changeToGiveBack, new string[] { "Penny", "Pennies" });
 
-            if (changeToGiveBack >= 0.01) throw new InvalidOperationException();
-            else
-            {
-                return changeAmounts.ToString();
-            }
+            if (changeToGiveBack >= 0.01) throw new InvalidOperationException(); //
+            else return changeAmounts.ToString();
         }
         /// <summary>
         /// Find the number of currency to return back to customer as change

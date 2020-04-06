@@ -94,7 +94,7 @@ namespace PointOfSale
         /// <summary>
         /// Increases the quantity of the bound coin
         /// </summary>
-        /// <param name="sender">The coinage quanity (as an int)</param>
+        /// <param name="sender">The coinage quanity</param>
         /// <param name="args">The event args</param>
         private void OnAddClicked(object sender, RoutedEventArgs args)
         {
@@ -104,7 +104,7 @@ namespace PointOfSale
         /// <summary>
         /// Decreases the quantity of the bound coin
         /// </summary>
-        /// <param name="sender">The coinage quanity (as an int)</param>
+        /// <param name="sender">The coinage quanity</param>
         /// <param name="args">The event args</param>
         private void OnRemoveClicked(object sender, RoutedEventArgs args)
         {

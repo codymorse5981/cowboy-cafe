@@ -66,6 +66,8 @@ namespace PointOfSale
                 //parent.MessageBox.Text = $"Change To Give:\n{money.CalculateChangeToGiveBack(total)}";
                 changeInfo.Text = $"Change To Give: " + (money.cashGiven.TotalValueGiven - money.Total).ToString("C") +
                                   $"\nChange To Give (Quantity):\n{money.CalculateChangeToGiveBack(money.Total)}";
+                BillControls.IsEnabled = false;
+                CoinControls.IsEnabled = false;
                 DoneButton.IsEnabled = true;
                 ChangeButton.IsEnabled = false;
             }
@@ -78,8 +80,19 @@ namespace PointOfSale
         /// <param name="e">Routed Event Args</param>
         private void OnDone(object sender, RoutedEventArgs e)
         {
-            transaction = this.FindAncestor<TransactionControl>();
+            BillControls.IsEnabled = true;
+            CoinControls.IsEnabled = true;
             transaction.FinishCurrentTransaction();
+        }
+
+        /// <summary>
+        /// Initializes ancestor variable upon initialization
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ControlStart(object sender, RoutedEventArgs e)
+        {
+            transaction = this.FindAncestor<TransactionControl>();
         }
     }
 }

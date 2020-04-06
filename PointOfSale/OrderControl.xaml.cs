@@ -79,7 +79,6 @@ namespace PointOfSale
             }
             CompleteOrderButton.IsEnabled = false;
             ItemSelectButton.IsEnabled = false;
-
         }   
 
         /// <summary>
@@ -105,6 +104,16 @@ namespace PointOfSale
         {
             SwapScreen(new MenuItemSelectionControl());
             CompleteOrderButton.IsEnabled = true;
+        }
+
+        /// <summary>
+        /// Initializes ancestor variable upon initialization
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ControlStart(object sender, RoutedEventArgs e)
+        {
+            Window = this.FindAncestor<MainWindow>();
         }
     }
 }

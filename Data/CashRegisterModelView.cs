@@ -1,6 +1,6 @@
 ﻿/* Author: Cody Morse
  * Class: CashRegisterModelView.cs
- * Description: Handles TransactionControl class
+ * Description: Handles CashRegisterModelView class
   */
 
 using System;
