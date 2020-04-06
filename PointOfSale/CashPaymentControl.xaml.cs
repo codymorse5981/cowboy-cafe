@@ -38,10 +38,11 @@ namespace PointOfSale
         /// <summary>
         /// Initialize the CashPaymentControl with order
         /// </summary>
-        public CashPaymentControl(double total)
+        public CashPaymentControl(double total, TransactionControl control)
         {
             InitializeComponent();
 
+            transaction = control;
             money = new Handler();
             DataContext = money;
             money.Total = total;
@@ -54,6 +55,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void OnCalculateChange(object sender, RoutedEventArgs e)
         {
+            transaction.currentOrder.AmountPaid = money.cashGiven.TotalValueGiven;
             if (money.cashGiven.TotalValueGiven < money.Total)
             {
                 changeInfo.Text = $"Error: \n{"Not Enough Money for Transaction"}";
@@ -79,16 +81,6 @@ namespace PointOfSale
             BillControls.IsEnabled = true;
             CoinControls.IsEnabled = true;
             transaction.FinishCurrentTransaction();
-        }
-
-        /// <summary>
-        /// Initializes ancestor variable upon initialization
-        /// </summary>
-        /// <param name="sender">Sending Object</param>
-        /// <param name="e">Routed Event Args</param>
-        private void ControlStart(object sender, RoutedEventArgs e)
-        {
-            transaction = this.FindAncestor<TransactionControl>();
         }
     }
 }

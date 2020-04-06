@@ -15,9 +15,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{AEE037AB-572C-4CE5-899D-627D5F180C8F}"
 	ProjectSection(SolutionItems) = preProject
 		Documentation\POS Milestone 5 Classes.pdf = Documentation\POS Milestone 5 Classes.pdf
-		Documentation\POS Milestone 5 Controls.pdf = Documentation\POS Milestone 5 Controls.pdf
 		Documentation\POS Milestone 5 CustomizationControls.pdf = Documentation\POS Milestone 5 CustomizationControls.pdf
 		Documentation\POS Milestone 5 OrderItems.pdf = Documentation\POS Milestone 5 OrderItems.pdf
+		Documentation\POS Milestone 5 UML Controls.pdf = Documentation\POS Milestone 5 UML Controls.pdf
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PointOfSale", "PointOfSale\PointOfSale.csproj", "{515C9A37-F933-4AA8-833F-03D9536EAD9F}"

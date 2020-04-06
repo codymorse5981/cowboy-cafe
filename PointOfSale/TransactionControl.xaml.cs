@@ -27,6 +27,8 @@ namespace PointOfSale
     /// </summary>
     public partial class TransactionControl : UserControl
     {
+        public TransactionControl control;
+
         // The data for this transaction. The order
         public CurrentOrder currentOrder { get; private set; }
 
@@ -40,7 +42,7 @@ namespace PointOfSale
         public TransactionControl(Order order)
         {
             InitializeComponent();
-
+            control = this;
             currentOrder = new CurrentOrder(order);
             DataContext = currentOrder;
         }
@@ -54,7 +56,7 @@ namespace PointOfSale
         {
             currentOrder.payment = PaymentType.Cash;
             Window = this.FindAncestor<MainWindow>();
-            FrameworkElement screen = new CashPaymentControl(currentOrder.Total);
+            FrameworkElement screen = new CashPaymentControl(currentOrder.Total, control);
             Window.SwapScreen(screen);
         }
         
@@ -98,7 +100,6 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void CancelTransaction_Click(object sender, RoutedEventArgs e)
         {
-            Window = this.FindAncestor<MainWindow>();
             OrderControl newOrderControl = new OrderControl();
             newOrderControl.CompleteOrderButton.IsEnabled = true;
             newOrderControl.ItemSelectButton.IsEnabled = true;
@@ -115,9 +116,7 @@ namespace PointOfSale
             receiptPrint.Print(ReceiptBuilder());
 
             MessageBox.Show("Transaction Complete, returning for next order");
-
             OrderControl newOrderControl = new OrderControl();          
-            Window = this.FindAncestor<MainWindow>();
             Window.SwapScreen(newOrderControl);
 
             newOrderControl.CompleteOrderButton.IsEnabled = true;
@@ -199,9 +198,9 @@ namespace PointOfSale
             receipt.Append('-', printCharacterMax); receipt.AppendLine();
 
             receipt.Append("Payment Type:" + formOfPayment.ToString());
-
+            
             if (formOfPayment == PaymentType.Credit) receipt.Append(' ',  19 - amountPaid.ToString("C").Length);
-            else receipt.Append(' ', 31 - amountPaid.ToString("C").Length);
+            else receipt.Append(' ', 21 - amountPaid.ToString("C").Length);
 
             receipt.Append("Amount Paid:          " + amountPaid.ToString("C"));
             receipt.AppendLine(); receipt.AppendLine();
