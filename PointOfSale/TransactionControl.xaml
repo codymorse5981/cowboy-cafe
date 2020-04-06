@@ -42,7 +42,7 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid Margin="5" VerticalAlignment="Top" HorizontalAlignment="Center" Name="OrderSummaryGrid" Background="White">
+    <Grid Margin="5" VerticalAlignment="Top" HorizontalAlignment="Center" Name="OrderSummaryGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition  Width="580"/>
         </Grid.ColumnDefinitions>
@@ -61,6 +61,7 @@
         <Border Grid.ColumnSpan="2" Grid.RowSpan="5" BorderBrush="Black" BorderThickness="2"/>
         <Border Grid.ColumnSpan="2" Grid.Row="5" BorderBrush="Black" BorderThickness="2"/>
 
+        <TextBlock Background="White" Grid.ColumnSpan="1" Grid.RowSpan="6"/>
 
         <StackPanel Grid.Column ="0" Grid.Row = "0" Orientation="Horizontal">
             <TextBlock Margin="5" FontSize="25" Height ="30">Your Order:</TextBlock>
@@ -109,6 +110,10 @@
             </StackPanel>
             <Button Click="CancelTransaction_Click" Margin ="20" >Cancel Transaction</Button>
         </StackPanel>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/Cafe.jpg" Stretch="UniformToFill"></ImageBrush>
+        </Grid.Background>
 
     </Grid>
 </UserControl>

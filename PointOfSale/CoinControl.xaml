@@ -41,7 +41,7 @@
         </Style>
     </UserControl.Resources>
     <Border Margin="2" BorderBrush="DarkGray" BorderThickness="1">
-        <Grid>
+        <Grid Background="Silver">
             <Grid.RowDefinitions>
                 <RowDefinition Height="6*"/>
                 <RowDefinition Height="1.5*"/>
