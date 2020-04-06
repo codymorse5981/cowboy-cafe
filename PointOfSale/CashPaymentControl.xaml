@@ -88,7 +88,7 @@
 
 
 
-        <TextBox Name="changeInfo" Margin="5" Grid.Row="4" Grid.Column="0" FontSize="20" FontWeight="Bold" Height="290" Width="300" HorizontalContentAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible"/>
+        <TextBox Name="changeInfo" Margin="5" Grid.Row="4" Grid.Column="0" FontSize="20" FontWeight="Bold" Height="290" Width="300" HorizontalContentAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap"/>
         <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center">
             <Button Click="OnCalculateChange" Grid.Row="0" Grid.Column="1" Name="ChangeButton">Calculate Change</Button>
             <Button Click="OnDone" IsEnabled="False" Name="DoneButton">Done</Button>
