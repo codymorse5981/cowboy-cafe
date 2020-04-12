@@ -64,6 +64,7 @@ namespace PointOfSale
             {
                 changeInfo.Text = $"Change To Give: " + (money.cashGiven.TotalValueGiven - money.Total).ToString("C") +
                                   $"\nChange To Give (Quantity):\n{money.CalculateChangeToGiveBack(money.Total)}";
+                MessageBox.Show($"\nChange To Give (Quantity):\n{money.CalculateChangeToGiveBack(money.Total)}");
                 BillControls.IsEnabled = false;
                 CoinControls.IsEnabled = false;
                 DoneButton.IsEnabled = true;
