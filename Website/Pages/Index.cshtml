@@ -1,34 +1,63 @@
 ﻿@page
-@model Website.Pages.IndexModel
-@{
-    ViewData["Title"] = "Cowbow Cafe Menu";
-}
-
+@model IndexModel
 @using CowboyCafe.Data
-
-<h1>Cowboy Cafe Menu</h1>
-<p>
-    We at Cowboy Cafe are proud to bring you authentic trail meals
-    from the American West. Shake off the dust on your boots and sake
-    your thirst with one of our old-fashioned hand-jerked sodas. Dip your
-    Pan de Campo into a bowl of beans. Or conquer the the mighty Texas
-    Triple Burger! You’ve had a hard ride - so take it easy with us.
-</p>
-
-<h2>Entrees</h2>
-@foreach(IOrderItem item in Menu.AllDrinks)
-{
-<div class="menu-item">
-    <h3>@item.</h3>
-    <p>
-        Price: $@item.Price.ToString("0.00")
-    </p>
-    <p>
-        Calories: @item.
-    </p>
-</div>
+@{
+    ViewData["Title"] = "Home page";
 }
 
-<h2 class="display-4">Sides</h2>
-<h2 class="display-4">Drinks</h2>
+<div class="text-center row">
+    <h1 class="display-4">Welcome To The Cowboy Cafe!</h1>
+    <p>
+        We at Cowboy Cafe are proud to bring you authentic trail meals from the American West.
+        Shake off the dust on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas.
+        Dip your Pan de Campo into a bowl of beans. Or conquer the the mighty Texas Triple Burger!
+        You’ve had a hard ride - so take it easy with us.
+    </p>
 
+    <div class="col-sm">
+        <h2><u>All Entrees</u></h2>
+        @foreach (CowboyCafe.Data.Entree singleEntree in CowboyCafe.Data.Menu.AllEntrees())
+        {
+            <div class="menu-item">
+                <span>@singleEntree<br /></span>
+                <span>Price: @string.Format("{0:C}", singleEntree.Price)<br /></span>
+                <span>Calories: @singleEntree.Calories<br /></span>
+            </div>
+            <br />
+        }
+    </div>
+
+    <div class="col-sm">
+        <h2><u>All Sides</u></h2>
+        @foreach (CowboyCafe.Data.Side singleSide in CowboyCafe.Data.Menu.AllSides())
+        {
+            @foreach (CowboyCafe.Data.Size size in Enum.GetValues(typeof(CowboyCafe.Data.Size)))
+            {
+                CowboyCafe.Data.Menu.ChangeSideSize(singleSide, size);
+                <div class="menu-item">
+                    <span>@singleSide<br /></span>
+                    <span>Price: @string.Format("{0:C}", singleSide.Price)<br /></span>
+                    <span>Calories: @singleSide.Calories<br /></span>
+                </div>
+            }
+            <br />
+        }
+    </div>
+
+    <div class="col-sm">
+        <h2><u>All Drinks</u></h2>
+        @foreach (CowboyCafe.Data.Drink singleDrink in CowboyCafe.Data.Menu.AllDrinks())
+        {
+            @foreach (CowboyCafe.Data.Size size in Enum.GetValues(typeof(CowboyCafe.Data.Size)))
+            {
+                CowboyCafe.Data.Menu.ChangeDrinkSize(singleDrink, size);
+                <div class="menu-item">
+                    <span>@singleDrink<br /></span>
+                    <span>Price: @string.Format("{0:C}", singleDrink.Price)<br /></span>
+                    <span>Calories: @singleDrink.Calories<br /></span>
+                </div>
+            }
+            <br />
+        }
+    </div>
+</div>

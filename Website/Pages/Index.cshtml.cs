@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* IndexModel.cs
+ * Author : Cody Morse
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

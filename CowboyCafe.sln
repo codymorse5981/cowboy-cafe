@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{AEE037AB-572C-4CE5-899D-627D5F180C8F}"
 	ProjectSection(SolutionItems) = preProject
-		Documentation\POS Milestone 5 Classes.pdf = Documentation\POS Milestone 5 Classes.pdf
+		Documentation\POS Milestone 5 Classes + Website Milestone 1.pdf = Documentation\POS Milestone 5 Classes + Website Milestone 1.pdf
 		Documentation\POS Milestone 5 CustomizationControls.pdf = Documentation\POS Milestone 5 CustomizationControls.pdf
 		Documentation\POS Milestone 5 OrderItems.pdf = Documentation\POS Milestone 5 OrderItems.pdf
 		Documentation\POS Milestone 5 UML Controls.pdf = Documentation\POS Milestone 5 UML Controls.pdf
@@ -22,7 +22,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PointOfSale", "PointOfSale\PointOfSale.csproj", "{515C9A37-F933-4AA8-833F-03D9536EAD9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Website", "Website\Website.csproj", "{55138885-5DCB-4339-8878-E934F1DE743D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Website", "Website\Website.csproj", "{55138885-5DCB-4339-8878-E934F1DE743D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
