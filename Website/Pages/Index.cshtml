@@ -10,7 +10,7 @@
 
     <form id="menu-index">
         <div>
-            <h1>Cowboy Cafe</h1>
+            <h1>Cowboy Cafe Menu</h1>
             <p>
                 We at Cowboy Cafe are proud to bring you authentic trail meals from the American West.
                 Shake off the dust on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas.
@@ -108,15 +108,15 @@
 
                             <h4>Type</h4>
                             <label>
-                                Entree: 
+                                Entree:
                                 <input type="checkbox" name="MenuCategory" value="Entree" checked="@Model.menuCategory.Contains("Entree")" />
                             </label>
                             <label>
-                                Side: 
+                                Side:
                                 <input type="checkbox" name="MenuCategory" value="Side" checked="@Model.menuCategory.Contains("Side")" />
                             </label>
                             <label>
-                                Drink: 
+                                Drink:
                                 <input type="checkbox" name="MenuCategory" value="Drink" checked="@Model.menuCategory.Contains("Drink")" />
                             </label>
 
@@ -130,13 +130,25 @@
                                 <input name="MaximumPrice" type="number" min="0" max="10" step="0.1" placeholder="max" value="@Model.maximumPrice" />
                             </div>
 
-                            <br/>
+                            <br />
 
                             <h4>Calories (Range)</h4>
                             <div>
                                 <input name="MinimumCalories" type="number" min="0" max="1000" step="1" placeholder="min" value="@Model.minimumCalories" />
                                 -
                                 <input name="MaximumCalories" type="number" min="0" max="1000" step="1" placeholder="max" value="@Model.maximumCalories" />
+                            </div>
+
+                            <br /><br /><br /><br />
+
+                            <div>
+                                <img class="marginauto" src="~/images/cowboy.gif" alt="centered image" width="200" height="200" />
+                            </div>
+
+                            <br /><br />
+
+                            <div>
+                                <img class="marginauto" src="~/images/drunk-cowboy-gif.gif" alt="centered image" width="200" height="200" />
                             </div>
                         </div>
                     </div>
