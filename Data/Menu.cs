@@ -10,39 +10,34 @@ namespace CowboyCafe.Data
     public static class Menu
     {
         /// <summary>
-        /// Getter for AllMenuItems
+        /// Returns All possible items
         /// </summary>
-        public static IEnumerable<IOrderItem> AllMenuItems()
+        public static IEnumerable<IOrderItem> All()
         {
-            List<IOrderItem> menuItems = new List<IOrderItem>
+            List<IOrderItem> menuItems = new List<IOrderItem>();
+            foreach(IOrderItem item in Entrees())
             {
-                new CowboyCoffee(),
-                new JerkedSoda(),
-                new TexasTea(),
-                new Water(),
+                menuItems.Add(item);
+            }
 
-                new AngryChicken(),
-                new CowpokeChili(),
-                new DakotaDoubleBurger(),
-                new PecosPulledPork(),
-                new RustlersRibs(),
-                new TexasTripleBurger(),
-                new TrailBurger(),
+            foreach (IOrderItem item in Drinks())
+            {
+                menuItems.Add(item);
+            }
 
-                new BakedBeans(),
-                new ChiliCheeseFries(),
-                new CornDodgers(),
-                new PanDeCampo()
-            };
+            foreach (IOrderItem item in Sides())
+            {
+                menuItems.Add(item);
+            }
+
             return menuItems;
 
         }
         /// <summary>
-        /// a property with a getter for AllEntrees
+        /// Returns All possible entrees
         /// </summary>
-        public static IEnumerable<IOrderItem> AllEntrees()
+        public static IEnumerable<IOrderItem> Entrees()
         {
-
             List<IOrderItem> menuEntrees = new List<IOrderItem>
             {
                 new AngryChicken(),
@@ -54,57 +49,214 @@ namespace CowboyCafe.Data
                 new TrailBurger()
             };
             return menuEntrees;
-        } 
+        }
         /// <summary>
-        /// a property with a getter for AllSides
+        /// Returns All possible sides
         /// </summary>
-        public static IEnumerable<IOrderItem> AllSides()
+        public static IEnumerable<IOrderItem> Sides()
         {
-            List<IOrderItem> menuSides = new List<IOrderItem>
+            List<IOrderItem> menuSides = new List<IOrderItem>();
+            foreach (Size size in Enum.GetValues(typeof(Size)))
             {
-                new BakedBeans(),
-                new ChiliCheeseFries(),
-                new CornDodgers(),
-                new PanDeCampo()
+                CornDodgers corn = new CornDodgers();
+                corn.Size = size;
+                menuSides.Add(corn);
+            }
 
-            };
+            foreach (Size size in Enum.GetValues(typeof(Size)))
+            {
+                ChiliCheeseFries chili = new ChiliCheeseFries();
+                chili.Size = size;
+                menuSides.Add(chili);
+            }
+
+            foreach (Size size in Enum.GetValues(typeof(Size)))
+            {
+                BakedBeans baked = new BakedBeans();
+                baked.Size = size;
+                menuSides.Add(baked);
+            }
+
+            foreach (Size size in Enum.GetValues(typeof(Size)))
+            {
+                PanDeCampo campo = new PanDeCampo();
+                campo.Size = size;
+                menuSides.Add(campo);
+            }
+
             return menuSides;
             
         }
         /// <summary>
-        /// a property with a getter for AllDrinks
+        /// Returns All possible Drinks
         /// </summary>
-        public static IEnumerable<IOrderItem> AllDrinks()
+        public static IEnumerable<IOrderItem> Drinks()
         {
-            List<IOrderItem> menuDrinks = new List<IOrderItem>
+            List<IOrderItem> menuDrinks = new List<IOrderItem>();
+
+            foreach (Size size in Enum.GetValues(typeof(Size)))
             {
-                new CowboyCoffee(),
-                new JerkedSoda(),
-                new TexasTea(),
-                new Water(),
-            };
+                JerkedSoda soda = new JerkedSoda();
+                soda.Size = size;
+                menuDrinks.Add(soda);
+            }
+
+            foreach (Size size in Enum.GetValues(typeof(Size)))
+            {
+                Water water = new Water();
+                water.Size = size;
+                menuDrinks.Add(water);
+            }
+
+            foreach (Size size in Enum.GetValues(typeof(Size)))
+            {
+                CowboyCoffee coffee = new CowboyCoffee();
+                coffee.Size = size;
+                menuDrinks.Add(coffee);
+            }
+
+            foreach (Size size in Enum.GetValues(typeof(Size)))
+            {
+                TexasTea tea = new TexasTea();
+                tea.Size = size;
+                menuDrinks.Add(tea);
+            }
             return menuDrinks;
         }
 
         /// <summary>
-        /// Updates the size of side object
+        /// Searches through the list for the given terms
         /// </summary>
-        /// <param name="side">The side object</param>
-        /// <param name="size">The size</param>
-        public static void ChangeSideSize(Side side, Size size)
+        /// <param name="terms">Terms to filter items by</param>
+        /// <returns></returns>
+        public static IEnumerable<IOrderItem> Search(string terms)
         {
-            side.Size = size;
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            if (terms == null) return Menu.All();
+            foreach (IOrderItem item in Menu.All())
+            {
+                if (item.ToString() != null && item.ToString().Contains(terms, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
         }
 
         /// <summary>
-        /// Updates the size of drink object
+        /// Filters the given list by food category
         /// </summary>
-        /// <param name="drink">The drink object</param>
-        /// <param name="size">The size</param>
-        public static void ChangeDrinkSize(Drink drink, Size size)
+        /// <param name="items">Items to filter out</param>
+        /// <param name="menuCategories">Categories to filter by</param>
+        /// <returns></returns>
+        public static IEnumerable<IOrderItem> FilterByType(IEnumerable<IOrderItem> items, string[] menuCategories)
         {
-            drink.Size = size;
+            if (menuCategories == null || menuCategories.Length == 0) return items;
+            List<IOrderItem> result = new List<IOrderItem>();
+            foreach (string menuCategory in menuCategories)
+            {
+                switch (menuCategory)
+                {
+                    case "Entree":
+                        foreach (IOrderItem item in items)
+                        {
+                            if (item is Entree) result.Add(item);
+                        }
+                        break;
+                    case "Side":
+                        foreach (IOrderItem item in items)
+                        {
+                            if (item is Side) result.Add(item);
+                        }
+                        break;
+                    case "Drink":
+                        foreach (IOrderItem item in items)
+                        {
+                            if (item is Drink) result.Add(item);
+                        }
+                        break;
+                    default:
+                        return items;
+                }
+            }
+            return result;
         }
 
+        /// <summary>
+        /// Filters by a minimum and maximum calorie amount
+        /// </summary>
+        /// <param name="items">Items to filter</param>
+        /// <param name="min">Minimum calories</param>
+        /// <param name="max">Maximum calories</param>
+        /// <returns></returns>
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> items, double? min, double? max)
+        {
+            if (min == null && max == null) return items;
+            var results = new List<IOrderItem>();
+
+            if (min == null)
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if (item.Calories <= max) results.Add(item);
+                }
+                return results;
+            }
+            if (max == null)
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if (item.Calories >= min) results.Add(item);
+                }
+                return results;
+            }
+            foreach (IOrderItem item in items)
+            {
+                if (item.Calories >= min && item.Calories <= max)
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
+
+        /// <summary>
+        /// Sorts by a minimum or maximum price
+        /// </summary>
+        /// <param name="items">Items to filter out</param>
+        /// <param name="min">Minimum Price</param>
+        /// <param name="max">Maximum Price</param>
+        /// <returns></returns>
+        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> items, double? min, double? max)
+        {
+            if (min == null && max == null) return items;
+            var results = new List<IOrderItem>();
+
+            if (min == null)
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if (item.Price <= max) results.Add(item);
+                }
+                return results;
+            }
+            if (max == null)
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if(item.Price >= min) results.Add(item);
+                }
+                return results;
+            }
+            foreach (IOrderItem item in items)
+            {
+                if (item.Price >= min && item.Price <= max)
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
     }
 }

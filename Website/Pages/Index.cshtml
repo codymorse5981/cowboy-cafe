@@ -4,60 +4,143 @@
 @{
     ViewData["Title"] = "Home page";
 }
+    <center>
+        <img class="marginauto" src="~/images/CowboyCafe.png" alt="centered image" width="200" height="50"/>
+    </center>    
 
-<div class="text-center row">
-    <h1 class="display-4">Welcome To The Cowboy Cafe!</h1>
-    <p>
-        We at Cowboy Cafe are proud to bring you authentic trail meals from the American West.
-        Shake off the dust on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas.
-        Dip your Pan de Campo into a bowl of beans. Or conquer the the mighty Texas Triple Burger!
-        You’ve had a hard ride - so take it easy with us.
-    </p>
+    <form id="menu-index">
+        <div>
+            <h1>Cowboy Cafe</h1>
+            <p>
+                We at Cowboy Cafe are proud to bring you authentic trail meals from the American West.
+                Shake off the dust on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas.
+                Dip your Pan de Campo into a bowl of beans. Or conquer the the mighty
+                Texas Triple Burger! You’ve had a hard ride - so take it easy with us.
+            </p>
+            <br />
 
-    <div class="col-sm">
-        <h2><u>All Entrees</u></h2>
-        @foreach (CowboyCafe.Data.Entree singleEntree in CowboyCafe.Data.Menu.AllEntrees())
-        {
-            <div class="menu-item">
-                <span>@singleEntree<br /></span>
-                <span>Price: @string.Format("{0:C}", singleEntree.Price)<br /></span>
-                <span>Calories: @singleEntree.Calories<br /></span>
+            <div class="text-center row">
+                @if (Model.menuItems.Count() == 0)
+                {
+                    <h5>No items found.</h5>
+                }
+                else
+                {
+                    <div class="col-sm">
+                        <h4><u>Entree:</u></h4>
+                        @foreach (IOrderItem item in @Model.menuItems)
+                        {
+                            <div class="menu-item">
+                                @if (item is Entree)
+                                {
+                                    <span>@item<br /></span>
+                                    <span>Price: @string.Format("{0:C}", item.Price)<br /></span>
+                                    <span>Calories: @item.Calories<br /><br /></span>
+                                    Model.Count++;
+                                }
+                            </div>
+                        }
+                        @if (Model.Count == 0)
+                        {
+                            <h5>No Entrees Available.</h5>     
+                        }
+                        else
+                        {
+                            Model.Count = 0;
+                        }
+                    </div>
+
+                    <div class="col-sm">
+                        <h4><u>Sides:</u></h4>
+                        @foreach (IOrderItem item in @Model.menuItems)
+                        {
+                            <div class="menu-item">
+                                @if (item is Side)
+                                {
+                                    <span>@item<br /></span>
+                                    <span>Price: @string.Format("{0:C}", item.Price)<br /></span>
+                                    <span>Calories: @item.Calories<br /><br /></span>
+                                    Model.Count++;
+                                }
+                            </div>
+                        }
+                        @if (Model.Count == 0)
+                        {
+                            <h5>No Sides Available.</h5>
+                        }
+                        else
+                        {
+                            Model.Count = 0;
+                        }
+                    </div>
+
+                    <div class="col-sm">
+                        <h4><u>Drinks:</u></h4>
+                        @foreach (IOrderItem item in @Model.menuItems)
+                        {
+                            <div class="menu-item">
+                                @if (item is Drink)
+                                {
+                                    <span>@item<br /></span>
+                                    <span>Price: @string.Format("{0:C}", item.Price)<br /></span>
+                                    <span>Calories: @item.Calories<br /><br /></span>
+                                    Model.Count++;
+                                }
+                            </div>
+                        }
+                        @if (Model.Count == 0)
+                        {
+                            <h5>No Drinks Available.</h5>
+                        }
+                        else
+                        {
+                            Model.Count = 0;
+                        }
+
+                    </div>
+
+                    <div class="col-md">
+                        <div class="search-bar">
+                            <input type="text" name="search" value="@Model.search" />
+                            <input type="submit" value="Search">
+
+                            <br /><br />
+
+                            <h4>Type</h4>
+                            <label>
+                                Entree: 
+                                <input type="checkbox" name="MenuCategory" value="Entree" checked="@Model.menuCategory.Contains("Entree")" />
+                            </label>
+                            <label>
+                                Side: 
+                                <input type="checkbox" name="MenuCategory" value="Side" checked="@Model.menuCategory.Contains("Side")" />
+                            </label>
+                            <label>
+                                Drink: 
+                                <input type="checkbox" name="MenuCategory" value="Drink" checked="@Model.menuCategory.Contains("Drink")" />
+                            </label>
+
+                            <br />
+
+                            <h4>Price (Range)</h4>
+                            <div>
+
+                                <input name="MinimumPrice" type="number" min="0" max="10" step="0.1" placeholder="min" value="@Model.minimumPrice" />
+                                -
+                                <input name="MaximumPrice" type="number" min="0" max="10" step="0.1" placeholder="max" value="@Model.maximumPrice" />
+                            </div>
+
+                            <br/>
+
+                            <h4>Calories (Range)</h4>
+                            <div>
+                                <input name="MinimumCalories" type="number" min="0" max="1000" step="1" placeholder="min" value="@Model.minimumCalories" />
+                                -
+                                <input name="MaximumCalories" type="number" min="0" max="1000" step="1" placeholder="max" value="@Model.maximumCalories" />
+                            </div>
+                        </div>
+                    </div>
+                }
             </div>
-            <br />
-        }
-    </div>
-
-    <div class="col-sm">
-        <h2><u>All Sides</u></h2>
-        @foreach (CowboyCafe.Data.Side singleSide in CowboyCafe.Data.Menu.AllSides())
-        {
-            @foreach (CowboyCafe.Data.Size size in Enum.GetValues(typeof(CowboyCafe.Data.Size)))
-            {
-                CowboyCafe.Data.Menu.ChangeSideSize(singleSide, size);
-                <div class="menu-item">
-                    <span>@singleSide<br /></span>
-                    <span>Price: @string.Format("{0:C}", singleSide.Price)<br /></span>
-                    <span>Calories: @singleSide.Calories<br /></span>
-                </div>
-            }
-            <br />
-        }
-    </div>
-
-    <div class="col-sm">
-        <h2><u>All Drinks</u></h2>
-        @foreach (CowboyCafe.Data.Drink singleDrink in CowboyCafe.Data.Menu.AllDrinks())
-        {
-            @foreach (CowboyCafe.Data.Size size in Enum.GetValues(typeof(CowboyCafe.Data.Size)))
-            {
-                CowboyCafe.Data.Menu.ChangeDrinkSize(singleDrink, size);
-                <div class="menu-item">
-                    <span>@singleDrink<br /></span>
-                    <span>Price: @string.Format("{0:C}", singleDrink.Price)<br /></span>
-                    <span>Calories: @singleDrink.Calories<br /></span>
-                </div>
-            }
-            <br />
-        }
-    </div>
-</div>
+        </div>  
+    </form>

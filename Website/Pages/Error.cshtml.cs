@@ -1,3 +1,6 @@
+/* Error.cs
+ * Author : Cody Morse
+ */
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
