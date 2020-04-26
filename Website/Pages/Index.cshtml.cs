@@ -54,13 +54,13 @@ namespace Website.Pages
         /// Minimum calories selected
         /// </summary>
         [BindProperty]
-        public double? minimumCalories { get; set; }
+        public int? minimumCalories { get; set; }
 
         /// <summary>
         /// Maximum calories selected
         /// </summary>
         [BindProperty]
-        public double? maximumCalories { get; set; }
+        public int? maximumCalories { get; set; }
 
         /// <summary>
         /// Count for determining items in each column
@@ -75,7 +75,7 @@ namespace Website.Pages
         /// <param name="MaximumPrice">Maximum Price inputed in box</param>
         /// <param name="MinimumCalories">Minimium Calories inputed in box</param>
         /// <param name="MaximumCalories">Maximum Calories inputed in box</param>
-        public void OnGet(double? MinimumPrice, double? MaximumPrice, double? MinimumCalories, double? MaximumCalories)
+        public void OnGet(double? MinimumPrice, double? MaximumPrice, int? MinimumCalories, int? MaximumCalories)
         {
             this.minimumPrice = MinimumPrice;
             this.maximumPrice = MaximumPrice;

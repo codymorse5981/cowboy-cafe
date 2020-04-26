@@ -275,5 +275,113 @@ namespace CowboyCafe.DataTests.UnitTests
                 Assert.Equal(expectedNumberOfItems, output.Count);
             }
         }
+
+        /// <summary>
+        /// Sides should contain chili cheese, baked beans, corn dodgers, and pan de campo
+        /// </summary>
+        [Fact]
+        public void MenuSideShouldContainExpectedStuff()
+        {
+            Assert.Collection(
+                Menu.Sides(),
+                (cornSm) => { Assert.IsType<CornDodgers>(cornSm); },
+                (cornMed) => { Assert.IsType<CornDodgers>(cornMed); },
+                (cornLrg) => { Assert.IsType<CornDodgers>(cornLrg); },
+
+                (ccfSm) => { Assert.IsType<ChiliCheeseFries>(ccfSm); },
+                (ccfMed) => { Assert.IsType<ChiliCheeseFries>(ccfMed); },
+                (ccfLrg) => { Assert.IsType<ChiliCheeseFries>(ccfLrg); },
+
+
+                (bakedSm) => { Assert.IsType<BakedBeans>(bakedSm); },
+                (bakedMed) => { Assert.IsType<BakedBeans>(bakedMed); },
+                (bakedLrg) => { Assert.IsType<BakedBeans>(bakedLrg); },
+
+                (panSm) => { Assert.IsType<PanDeCampo>(panSm); },
+                (panMed) => { Assert.IsType<PanDeCampo>(panMed); },
+                (panLrg) => { Assert.IsType<PanDeCampo>(panLrg); }
+                );
+        }
+
+        /// <summary>
+        /// Sides should contain all sizes of certain type of side
+        /// </summary>
+        [Theory]
+        [InlineData(typeof(ChiliCheeseFries))]
+        [InlineData(typeof(BakedBeans))]
+        [InlineData(typeof(CornDodgers))]
+        [InlineData(typeof(PanDeCampo))]
+        public void MenuSideShouldContainAllTypeOfSide(Type type)
+        {
+            int count = 0;
+            var types = new List<Type>();
+            foreach(IOrderItem item in Menu.Sides())
+            {
+                if(item.GetType() == type)
+                {
+                    count++;
+                }
+                types.Add(item.GetType());
+            }
+            if(count == 3)
+            {
+                Assert.Contains(type, types);
+            }                    
+        }
+
+        /// <summary>
+        /// Sides should contain all sizes of certain type of drink
+        /// </summary>
+        [Theory]
+        [InlineData(typeof(JerkedSoda))]
+        [InlineData(typeof(CowboyCoffee))]
+        [InlineData(typeof(TexasTea))]
+        [InlineData(typeof(Water))]
+        public void MenuDrinkShouldContainAllTypeOfDrink(Type type)
+        {
+            int count = 0;
+            var types = new List<Type>();
+            foreach (IOrderItem item in Menu.Sides())
+            {
+                if (item.GetType() == type)
+                {
+                    count++;
+                }
+                types.Add(item.GetType());
+            }
+            if (count == 3)
+            {
+                Assert.Contains(type, types);
+            }
+        }
+
+        /// <summary>
+        /// Menu should contain all sizes of certain type of sides (total 12)
+        /// </summary>
+        [Fact]
+        public void MenuSideShouldHaveTotalOfTwelveItems()
+        {
+            Assert.Equal(12, Menu.Sides().Count());
+        }
+
+        /// <summary>
+        /// Menu should contain all sizes of certain type of drinks (total 12)
+        /// </summary>
+        [Fact]
+        public void MenuDrinkShouldHaveTotalOfTwelveItems()
+        {
+            Assert.Equal(12, Menu.Drinks().Count());
+        }
+
+        /// <summary>
+        /// Menu should contain all sizes of certain type of entrees (total 7)
+        /// </summary>
+        [Fact]
+        public void MenuEntreesShouldHaveTotalOfTwelveItems()
+        {
+            Assert.Equal(7, Menu.Entrees().Count());
+        }
+
+
     }
 }

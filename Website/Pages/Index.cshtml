@@ -5,11 +5,11 @@
     ViewData["Title"] = "Home page";
 }
     <center>
-        <img class="marginauto" src="~/images/CowboyCafe.png" alt="centered image" width="200" height="50"/>
+        <img src="~/images/CowboyCafe.png" alt="centered image" width="225" height="50"/>
     </center>    
 
     <form id="menu-index">
-        <div>
+        <div class="text-center">
             <h1>Cowboy Cafe Menu</h1>
             <p>
                 We at Cowboy Cafe are proud to bring you authentic trail meals from the American West.
@@ -27,7 +27,7 @@
                 else
                 {
                     <div class="col-sm">
-                        <h4><u>Entree:</u></h4>
+                        <h2><u>Entree:</u></h2>
                         @foreach (IOrderItem item in @Model.menuItems)
                         {
                             <div class="menu-item">
@@ -51,7 +51,7 @@
                     </div>
 
                     <div class="col-sm">
-                        <h4><u>Sides:</u></h4>
+                        <h2><u>Sides:</u></h2>
                         @foreach (IOrderItem item in @Model.menuItems)
                         {
                             <div class="menu-item">
@@ -75,7 +75,7 @@
                     </div>
 
                     <div class="col-sm">
-                        <h4><u>Drinks:</u></h4>
+                        <h2><u>Drinks:</u></h2>
                         @foreach (IOrderItem item in @Model.menuItems)
                         {
                             <div class="menu-item">
@@ -101,54 +101,60 @@
 
                     <div class="col-md">
                         <div class="search-bar">
-                            <input type="text" name="search" value="@Model.search" />
-                            <input type="submit" value="Search">
-
-                            <br /><br />
-
-                            <h4>Type</h4>
-                            <label>
-                                Entree:
-                                <input type="checkbox" name="MenuCategory" value="Entree" checked="@Model.menuCategory.Contains("Entree")" />
-                            </label>
-                            <label>
-                                Side:
-                                <input type="checkbox" name="MenuCategory" value="Side" checked="@Model.menuCategory.Contains("Side")" />
-                            </label>
-                            <label>
-                                Drink:
-                                <input type="checkbox" name="MenuCategory" value="Drink" checked="@Model.menuCategory.Contains("Drink")" />
-                            </label>
-
-                            <br />
-
-                            <h4>Price (Range)</h4>
                             <div>
+                                <div style="border:thick solid black">
+                                    <div style="padding:5px">
+                                        <input type="text" name="search" value="@Model.search" />
+                                        <input type="submit" value="Search">
 
-                                <input name="MinimumPrice" type="number" min="0" max="10" step="0.1" placeholder="min" value="@Model.minimumPrice" />
-                                -
-                                <input name="MaximumPrice" type="number" min="0" max="10" step="0.1" placeholder="max" value="@Model.maximumPrice" />
-                            </div>
+                                        <br /><br />
 
-                            <br />
+                                        <h4>Type</h4>
+                                        <label>
+                                            Entree:
+                                            <input type="checkbox" name="MenuCategory" value="Entree" checked="@Model.menuCategory.Contains("Entree")" />
+                                        </label>
+                                        <label>
+                                            Side:
+                                            <input type="checkbox" name="MenuCategory" value="Side" checked="@Model.menuCategory.Contains("Side")" />
+                                        </label>
+                                        <label>
+                                            Drink:
+                                            <input type="checkbox" name="MenuCategory" value="Drink" checked="@Model.menuCategory.Contains("Drink")" />
+                                        </label>
 
-                            <h4>Calories (Range)</h4>
-                            <div>
-                                <input name="MinimumCalories" type="number" min="0" max="1000" step="1" placeholder="min" value="@Model.minimumCalories" />
-                                -
-                                <input name="MaximumCalories" type="number" min="0" max="1000" step="1" placeholder="max" value="@Model.maximumCalories" />
-                            </div>
+                                        <br />
 
-                            <br /><br /><br /><br />
+                                        <h4>Price (Range)</h4>
+                                        <div>
 
-                            <div>
-                                <img class="marginauto" src="~/images/cowboy.gif" alt="centered image" width="200" height="200" />
-                            </div>
+                                            <input name="MinimumPrice" type="number" min="0" max="10" step="0.1" placeholder="min" value="@Model.minimumPrice" />
+                                            -
+                                            <input name="MaximumPrice" type="number" min="0" max="10" step="0.1" placeholder="max" value="@Model.maximumPrice" />
+                                        </div>
 
-                            <br /><br />
+                                        <br />
 
-                            <div>
-                                <img class="marginauto" src="~/images/drunk-cowboy-gif.gif" alt="centered image" width="200" height="200" />
+                                        <h4>Calories (Range)</h4>
+                                        <div>
+                                            <input name="MinimumCalories" type="number" min="0" max="1000" step="1" placeholder="min" value="@Model.minimumCalories" />
+                                            -
+                                            <input name="MaximumCalories" type="number" min="0" max="1000" step="1" placeholder="max" value="@Model.maximumCalories" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <br /><br />
+
+                                <div>
+                                    <img class="marginauto" src="~/images/cowboy.gif" alt="centered image" width="200" height="200" />
+                                </div>
+
+                                <br /><br />
+
+                                <div>
+                                    <img class="marginauto" src="~/images/drunk-cowboy-gif.gif" alt="centered image" width="200" height="200" />
+                                </div>
                             </div>
                         </div>
                     </div>
