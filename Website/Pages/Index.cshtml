@@ -4,14 +4,14 @@
 @{
     ViewData["Title"] = "Home page";
 }
-    <center>
-        <img src="~/images/CowboyCafe.png" alt="centered image" width="225" height="50"/>
-    </center>    
+    <form id="menu-index" style="border:thick solid black">
+        <center>
+            <img src="~/images/CowboyCafe.png" alt="centered image" width="225" height="50" />
+        </center>
 
-    <form id="menu-index">
         <div class="text-center">
             <h1>Cowboy Cafe Menu</h1>
-            <p>
+            <p style="margin:5px">
                 We at Cowboy Cafe are proud to bring you authentic trail meals from the American West.
                 Shake off the dust on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas.
                 Dip your Pan de Campo into a bowl of beans. Or conquer the the mighty
@@ -22,7 +22,7 @@
             <div class="text-center row">
                 @if (Model.menuItems.Count() == 0)
                 {
-                    <h5>No items found.</h5>
+                    <h5 style="margin-left:20px">No items found.</h5>
                 }
                 else
                 {
@@ -42,7 +42,7 @@
                         }
                         @if (Model.Count == 0)
                         {
-                            <h5>No Entrees Available.</h5>     
+                            <h5>No Entrees Available.</h5>
                         }
                         else
                         {
@@ -102,7 +102,7 @@
                     <div class="col-md">
                         <div class="search-bar">
                             <div>
-                                <div style="border:thick solid black">
+                                <div>
                                     <div style="padding:5px">
                                         <input type="text" name="search" value="@Model.search" />
                                         <input type="submit" value="Search">
@@ -153,12 +153,12 @@
                                 <br /><br />
 
                                 <div>
-                                    <img class="marginauto" src="~/images/drunk-cowboy-gif.gif" alt="centered image" width="200" height="200" />
+                                    <img class="marginauto" src="~/images/drunk-cowboy-gif.gif" alt="centered image" width="200" height="200" style="padding-bottom:5px"/>
                                 </div>
                             </div>
                         </div>
                     </div>
                 }
             </div>
-        </div>  
+        </div>
     </form>
