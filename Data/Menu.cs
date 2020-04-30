@@ -15,7 +15,7 @@ namespace CowboyCafe.Data
         public static IEnumerable<IOrderItem> All()
         {
             List<IOrderItem> menuItems = new List<IOrderItem>();
-            foreach(IOrderItem item in Entrees())
+            foreach (IOrderItem item in Entrees())
             {
                 menuItems.Add(item);
             }
@@ -85,7 +85,7 @@ namespace CowboyCafe.Data
             }
 
             return menuSides;
-            
+
         }
         /// <summary>
         /// Returns All possible Drinks
@@ -97,6 +97,7 @@ namespace CowboyCafe.Data
             foreach (Size size in Enum.GetValues(typeof(Size)))
             {
                 JerkedSoda soda = new JerkedSoda();
+                soda.Flavor = SodaFlavor.None;
                 soda.Size = size;
                 menuDrinks.Add(soda);
             }
@@ -245,7 +246,7 @@ namespace CowboyCafe.Data
             {
                 foreach (IOrderItem item in items)
                 {
-                    if(item.Price >= min) results.Add(item);
+                    if (item.Price >= min) results.Add(item);
                 }
                 return results;
             }
@@ -258,5 +259,35 @@ namespace CowboyCafe.Data
             }
             return results;
         }
+
+        /// <summary>
+        /// Generates a list of jerked soda flavors
+        /// </summary>
+        /// <returns></returns>
+        public static List<SodaFlavor> GetSodaFlavors()
+        {
+            List<SodaFlavor> list = new List<SodaFlavor>();
+            foreach (SodaFlavor flavor in Enum.GetValues(typeof(SodaFlavor)))
+            {
+                list.Add(flavor);
+            }
+            return list;
+        }
+
+        /*
+        /// <summary>
+        /// Override ToString() method and provide string return.
+        /// </summary>
+        public static override string JerkedSodaToString(IOrderItem item)
+        {
+            JerkedSoda newitem = new JerkedSoda();
+            newitem.Size = (JerkedSoda)item.Size;
+
+            item = (JerkedSoda)item;
+            item.Size
+            return item + " Texas Sweet Tea";
+
+        }
+        */
     }
 }

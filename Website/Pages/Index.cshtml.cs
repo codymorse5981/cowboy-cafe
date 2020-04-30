@@ -69,6 +69,12 @@ namespace Website.Pages
         public int Count { get; set; } = 0;
 
         /// <summary>
+        /// Count for determining items in each column
+        /// </summary>
+        [BindProperty]
+        public bool ContainsJerkedSoda { get; set; } = false;
+
+        /// <summary>
         /// On submit menu items will be filtered
         /// </summary>
         /// <param name="MinimumPrice">Minimium Price inputed in box</param>

@@ -15,6 +15,7 @@ namespace CowboyCafe.Data
         OrangeSoda,
         Sarsparilla,
         BirchBeer,
-        RootBeer
+        RootBeer,
+        None
     }
 }

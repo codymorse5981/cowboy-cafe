@@ -27,7 +27,7 @@ a {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14x;
+  font-size: 14px;
 }
 @media (min-width: 768px) {
   html {
@@ -83,5 +83,11 @@ body {
 
 form#menu-index {
     width:100%;
+}
+
+.flavors {
+    margin: 5px;
+    text-align: center;
+    width: 50px;
 }
 

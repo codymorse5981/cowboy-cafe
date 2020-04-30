@@ -131,10 +131,14 @@ namespace CowboyCafe.Data
             {
                 return Size + " " + "Root Beer Jerked Soda";
             }
-            else
+            else if(Flavor == SodaFlavor.Sarsparilla)
             {
                 return Size + " " + "Sarsparilla Jerked Soda";
-            }         
+            }
+            else
+            {
+                return Size + " " + "Jerked Soda";
+            }
         }
     }
 }
