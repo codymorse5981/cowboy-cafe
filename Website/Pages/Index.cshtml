@@ -84,25 +84,7 @@
                                 <span>@item<br /></span>
                                 <span>Price: @string.Format("{0:C}", item.Price)<br /></span>
                                 <span>Calories: @item.Calories<br /><br /></span>
-                                Model.Count++;
-                                if (item is JerkedSoda && item.Price == 2.59)
-                                {
-                                    <div class="flavors">
-                                        <span><b><u>Soda Flavors:</u></b><br /></span>
-                                        @foreach (SodaFlavor flavor in Enum.GetValues(typeof(SodaFlavor)))
-                                        {
-                                            if (flavor != SodaFlavor.None)
-                                            {
-                                                <span>@flavor<br /></span>
-                                            }
-                                            else
-                                            {
-                                                <br />
-                                            }
-                                        }
-
-                                    </div>
-                                }
+                                Model.Count++;                              
                             }
                         </div>
                     }
