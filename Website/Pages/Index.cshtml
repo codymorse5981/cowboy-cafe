@@ -4,7 +4,7 @@
 @{
     ViewData["Title"] = "Home page";
 }
-<form id="menu-index" style="border:thick solid black">
+<form id="menu-index">
     <center>
         <img src="~/images/CowboyCafe.png" alt="centered image" width="225" height="50" />
     </center>
@@ -19,169 +19,167 @@
         </p>
         <br />
 
-        <div class="text-center row">
+        <div class="text-center">
             @if (Model.menuItems.Count() == 0)
             {
                 <h5 style="margin-left:20px">No items found.</h5>
             }
             else
             {
-                <div class="col-sm" style="margin-left:5px">
-                    <h2><u>Entree:</u></h2>
-                    @foreach (IOrderItem item in @Model.menuItems)
-                    {
-                        <div class="menu-item">
-                            @if (item is Entree)
-                            {
-                                <span>@item<br /></span>
-                                <span>Price: @string.Format("{0:C}", item.Price)<br /></span>
-                                <span>Calories: @item.Calories<br /><br /></span>
-                                Model.Count++;
-                            }
-                        </div>
-                    }
-                    @if (Model.Count == 0)
-                    {
-                        <h5>No Entrees Available.</h5>
-                    }
-                    else
-                    {
-                        Model.Count = 0;
-                    }
-                </div>
-
-                <div class="col-sm">
-                    <h2><u>Sides:</u></h2>
-                    @foreach (IOrderItem item in @Model.menuItems)
-                    {
-                        <div class="menu-item">
-                            @if (item is Side)
-                            {
-                                <span>@item<br /></span>
-                                <span>Price: @string.Format("{0:C}", item.Price)<br /></span>
-                                <span>Calories: @item.Calories<br /><br /></span>
-                                Model.Count++;
-                            }
-                        </div>
-                    }
-                    @if (Model.Count == 0)
-                    {
-                        <h5>No Sides Available.</h5>
-                    }
-                    else
-                    {
-                        Model.Count = 0;
-                    }
-                </div>
-
-                <div class="col-sm">
-                    <h2><u>Drinks:</u></h2>
-                    @foreach (IOrderItem item in @Model.menuItems)
-                    {
-                        <div class="menu-item">
-                            @if (item is Drink)
-                            {
-                                <span>@item<br /></span>
-                                <span>Price: @string.Format("{0:C}", item.Price)<br /></span>
-                                <span>Calories: @item.Calories<br /><br /></span>
-                                Model.Count++;                              
-                            }
-                        </div>
-                    }
-                    @if (Model.Count == 0)
-                    {
-                        <h5>No Drinks Available.</h5>
-                    }
-                    else
-                    {
-                        Model.Count = 0;
-                    }
-                </div>
-
-                @foreach (IOrderItem item in Model.menuItems)
-                {
-                    if (item is JerkedSoda)
-                    {
-                        Model.ContainsJerkedSoda = true;
-                    }
-                }
-
-                @if (Model.ContainsJerkedSoda == true)
-                {
-                    <div class="col-sm">
-                        <div class="flavors">
-                            <h2><u>Soda Flavors:</u></h2>
-                            @foreach (SodaFlavor flavor in Enum.GetValues(typeof(SodaFlavor)))
-                            {
-                                if (flavor != SodaFlavor.None)
+                <div class="flex-columns">
+                    <div class="flex-item">
+                        <h2><u>Entree:</u></h2>
+                        @foreach (IOrderItem item in @Model.menuItems)
+                        {
+                            <div class="menu-item">
+                                @if (item is Entree)
                                 {
-                                    <span>@flavor<br /></span>
-
+                                    <span>@item<br /></span>
+                                    <span>Price: @string.Format("{0:C}", item.Price)<br /></span>
+                                    <span>Calories: @item.Calories<br /><br /></span>
+                                    Model.Count++;
                                 }
-                                else
+                            </div>
+                        }
+                        @if (Model.Count == 0)
+                        {
+                            <h5>No Entrees Available.</h5>
+                        }
+                        else
+                        {
+                            Model.Count = 0;
+                        }
+                    </div>
+
+                    <div class="flex-item">
+                        <h2><u>Sides:</u></h2>
+                        @foreach (IOrderItem item in @Model.menuItems)
+                        {
+                            <div class="menu-item">
+                                @if (item is Side)
                                 {
-                                    Model.ContainsJerkedSoda = false;
+                                    <span>@item<br /></span>
+                                    <span>Price: @string.Format("{0:C}", item.Price)<br /></span>
+                                    <span>Calories: @item.Calories<br /><br /></span>
+                                    Model.Count++;
+                                }
+                            </div>
+                        }
+                        @if (Model.Count == 0)
+                        {
+                            <h5>No Sides Available.</h5>
+                        }
+                        else
+                        {
+                            Model.Count = 0;
+                        }
+                    </div>
+
+                    <div class="flex-item">
+                        <h2><u>Drinks:</u></h2>
+                        @foreach (IOrderItem item in @Model.menuItems)
+                        {
+                            <div class="menu-item">
+                                @if (item is Drink)
+                                {
+                                    <span>@item<br /></span>
+                                    <span>Price: @string.Format("{0:C}", item.Price)<br /></span>
+                                    <span>Calories: @item.Calories<br /><br /></span>
+                                    Model.Count++;
+                                }
+                            </div>
+                        }
+                        @if (Model.Count == 0)
+                        {
+                            <h5>No Drinks Available.</h5>
+                        }
+                        else
+                        {
+                            Model.Count = 0;
+                        }
+                    </div>
+
+                    <div class="flex-item-jerked" style="margin-right:5px">
+                            @foreach (IOrderItem item in Model.menuItems)
+                            {
+                                if (item is JerkedSoda)
+                                {
+                                    Model.ContainsJerkedSoda = true;
                                 }
                             }
-                        </div>
-                    </div>                                     
-                }
 
-                <div class="col-md" style="margin-right:5px">
-                    <div class="search-bar">
-                        <div>
-                            <div>
-                                <div style="padding:5px">
-                                    <input type="text" name="search" value="@Model.search" />
-                                    <input type="submit" value="Search">
+                            @if (Model.ContainsJerkedSoda == true)
+                            {
 
-                                    <br /><br />
+                                <div class="text-center">
+                                    <h2><u>Soda Flavors:</u></h2>
+                                    @foreach (SodaFlavor flavor in Enum.GetValues(typeof(SodaFlavor)))
+                                    {
+                                        if (flavor != SodaFlavor.None)
+                                        {
+                                            <span>@flavor<br /></span>
 
-                                    <h4>Type</h4>
-                                    <label>
-                                        Entree:
-                                        <input type="checkbox" name="MenuCategory" value="Entree" checked="@Model.menuCategory.Contains("Entree")" />
-                                    </label>
-                                    <label>
-                                        Side:
-                                        <input type="checkbox" name="MenuCategory" value="Side" checked="@Model.menuCategory.Contains("Side")" />
-                                    </label>
-                                    <label>
-                                        Drink:
-                                        <input type="checkbox" name="MenuCategory" value="Drink" checked="@Model.menuCategory.Contains("Drink")" />
-                                    </label>
-
-                                    <br />
-
-                                    <h4>Price (Range)</h4>
-                                    <div>
-
-                                        <input name="MinimumPrice" type="number" min="0" max="10" step="0.1" placeholder="min" value="@Model.minimumPrice" />
-                                        -
-                                        <input name="MaximumPrice" type="number" min="0" max="10" step="0.1" placeholder="max" value="@Model.maximumPrice" />
-                                    </div>
-
-                                    <br />
-
-                                    <h4>Calories (Range)</h4>
-                                    <div>
-                                        <input name="MinimumCalories" type="number" min="0" max="1000" step="1" placeholder="min" value="@Model.minimumCalories" />
-                                        -
-                                        <input name="MaximumCalories" type="number" min="0" max="1000" step="1" placeholder="max" value="@Model.maximumCalories" />
-                                    </div>
+                                        }
+                                        else
+                                        {
+                                            Model.ContainsJerkedSoda = false;
+                                        }
+                                    }
                                 </div>
-                            </div>
-
-                            <br /><br />
-
+                            }
+                        <div class="search-bar">
                             <div>
-                                <img class="marginauto" src="~/images/cowboy.gif" alt="centered image" width="200" height="200" />
-                            </div>
+                                <div>
+                                    <div>
+                                        <input type="text" class="search" name="search" value="@Model.search" />
+                                        <input type="submit" value="Search">
 
-                            <br /><br />
+                                        <br /><br />
 
-                            <div>
-                                <img class="marginauto" src="~/images/drunk-cowboy-gif.gif" alt="centered image" width="200" height="200" style="padding-bottom:5px" />
+                                        <h4>Type</h4>
+                                        <label>
+                                            Entree:
+                                            <input type="checkbox" name="MenuCategory" value="Entree" checked="@Model.menuCategory.Contains("Entree")" />
+                                        </label>
+                                        <label>
+                                            Side:
+                                            <input type="checkbox" name="MenuCategory" value="Side" checked="@Model.menuCategory.Contains("Side")" />
+                                        </label>
+                                        <label>
+                                            Drink:
+                                            <input type="checkbox" name="MenuCategory" value="Drink" checked="@Model.menuCategory.Contains("Drink")" />
+                                        </label>
+
+                                        <br />
+
+                                        <h4>Price (Range)</h4>
+                                        <div>
+
+                                            <input name="MinimumPrice" type="number" min="0" max="10" step="0.1" placeholder="min" value="@Model.minimumPrice" />
+                                            -
+                                            <input name="MaximumPrice" type="number" min="0" max="10" step="0.1" placeholder="max" value="@Model.maximumPrice" />
+                                        </div>
+
+                                        <br />
+
+                                        <h4>Calories (Range)</h4>
+                                        <div>
+                                            <input name="MinimumCalories" type="number" min="0" max="1000" step="1" placeholder="min" value="@Model.minimumCalories" />
+                                            -
+                                            <input name="MaximumCalories" type="number" min="0" max="1000" step="1" placeholder="max" value="@Model.maximumCalories" />
+                                        </div>
+                                    </div>
+                                    <br /><br />
+                                </div>
+
+                                <div class="photos">
+                                    <img class="marginauto" src="~/images/cowboy.gif" alt="centered image" width="200" height="200" />
+                                    <br /><br />
+                                </div>
+
+                                <div class="photos">
+                                    <img class="marginauto" src="~/images/drunk-cowboy-gif.gif" alt="centered image" width="200" height="200" style="padding-bottom:5px" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -190,3 +188,4 @@
         </div>
     </div>
 </form>
+<div class="clearfix"></div>
