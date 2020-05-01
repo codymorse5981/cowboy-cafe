@@ -251,7 +251,7 @@ namespace CowboyCafe.DataTests.UnitTests
 
         public void ShouldFilterByTerm(string term, int expectedNumberOfItems)
         {         
-            Assert.Equal(expectedNumberOfItems, Menu.Search(term).Count());          
+            Assert.Equal(expectedNumberOfItems, Menu.Search(Menu.All(),term).Count());          
         }
 
         /// <summary>

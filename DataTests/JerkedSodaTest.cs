@@ -20,11 +20,14 @@ namespace CowboyCafe.DataTests
             Assert.Contains(name, names);
         }
 
+        /// <summary>
+        /// Made an alteration to the jerked soda flavors enumeration cs file.
+        /// </summary>
         [Fact]
-        public void SodaFlavorEnumShouldHaveFiveValues()
+        public void SodaFlavorEnumShouldHaveSixValues()
         {
             var values = Enum.GetValues(typeof(SodaFlavor));
-            Assert.Equal(5, values.Length);
+            Assert.Equal(6, values.Length);
         }
 
         [Theory]

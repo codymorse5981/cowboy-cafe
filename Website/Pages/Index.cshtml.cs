@@ -24,7 +24,7 @@ namespace Website.Pages
         /// <summary>
         /// Enumerable list of menu items based on filter items
         /// </summary>
-        public IEnumerable<IOrderItem> menuItems { get; protected set;}
+        public IEnumerable<IOrderItem> menuItems { get; protected set; } = Menu.All();
 
         /// <summary>
         /// Search terms to filter out
@@ -89,7 +89,7 @@ namespace Website.Pages
             this.maximumCalories = MaximumCalories;
             search = Request.Query["search"];
             menuCategory = Request.Query["MenuCategory"];
-            menuItems = Menu.Search(search);
+            menuItems = Menu.Search(menuItems,search);
             menuItems = Menu.FilterByPrice(menuItems, minimumPrice, maximumPrice);
             menuItems = Menu.FilterByCalories(menuItems, minimumCalories, maximumCalories);
             menuItems = Menu.FilterByType(menuItems, menuCategory);

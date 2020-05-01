@@ -3,6 +3,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace CowboyCafe.Data
@@ -128,21 +129,14 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Searches through the list for the given terms
         /// </summary>
+        /// <param name="items">Items to filter</param>
         /// <param name="terms">Terms to filter items by</param>
         /// <returns></returns>
-        public static IEnumerable<IOrderItem> Search(string terms)
+        public static IEnumerable<IOrderItem> Search(IEnumerable<IOrderItem> items, string terms)
         {
-            List<IOrderItem> results = new List<IOrderItem>();
+            if (terms == null) return items;
 
-            if (terms == null) return Menu.All();
-            foreach (IOrderItem item in Menu.All())
-            {
-                if (item.ToString() != null && item.ToString().Contains(terms, StringComparison.InvariantCultureIgnoreCase))
-                {
-                    results.Add(item);
-                }
-            }
-            return results;
+            return items.Where(item => item.ToString().Contains(terms, StringComparison.InvariantCultureIgnoreCase));
         }
 
         /// <summary>
@@ -155,31 +149,28 @@ namespace CowboyCafe.Data
         {
             if (menuCategories == null || menuCategories.Length == 0) return items;
             List<IOrderItem> result = new List<IOrderItem>();
+            IEnumerable<IOrderItem> temp = null;
             foreach (string menuCategory in menuCategories)
             {
                 switch (menuCategory)
                 {
                     case "Entree":
-                        foreach (IOrderItem item in items)
-                        {
-                            if (item is Entree) result.Add(item);
-                        }
+                        temp = items.Where(item => item is Entree);
                         break;
                     case "Side":
-                        foreach (IOrderItem item in items)
-                        {
-                            if (item is Side) result.Add(item);
-                        }
+                        temp = items.Where(item => item is Side);
                         break;
                     case "Drink":
-                        foreach (IOrderItem item in items)
-                        {
-                            if (item is Drink) result.Add(item);
-                        }
+                        temp = items.Where(item => item is Drink);
                         break;
                     default:
                         return items;
                 }
+                foreach(IOrderItem item in temp)
+                {
+                    result.Add(item);
+                }
+                temp = null;
             }
             return result;
         }
@@ -194,32 +185,10 @@ namespace CowboyCafe.Data
         public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> items, double? min, double? max)
         {
             if (min == null && max == null) return items;
-            var results = new List<IOrderItem>();
+            if (min == null) min = 0;
+            if (max == null) max = 10;
+            return items.Where(item => item.Calories >= min && item.Calories <= max);
 
-            if (min == null)
-            {
-                foreach (IOrderItem item in items)
-                {
-                    if (item.Calories <= max) results.Add(item);
-                }
-                return results;
-            }
-            if (max == null)
-            {
-                foreach (IOrderItem item in items)
-                {
-                    if (item.Calories >= min) results.Add(item);
-                }
-                return results;
-            }
-            foreach (IOrderItem item in items)
-            {
-                if (item.Calories >= min && item.Calories <= max)
-                {
-                    results.Add(item);
-                }
-            }
-            return results;
         }
 
         /// <summary>
@@ -232,62 +201,10 @@ namespace CowboyCafe.Data
         public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> items, double? min, double? max)
         {
             if (min == null && max == null) return items;
-            var results = new List<IOrderItem>();
-
-            if (min == null)
-            {
-                foreach (IOrderItem item in items)
-                {
-                    if (item.Price <= max) results.Add(item);
-                }
-                return results;
-            }
-            if (max == null)
-            {
-                foreach (IOrderItem item in items)
-                {
-                    if (item.Price >= min) results.Add(item);
-                }
-                return results;
-            }
-            foreach (IOrderItem item in items)
-            {
-                if (item.Price >= min && item.Price <= max)
-                {
-                    results.Add(item);
-                }
-            }
-            return results;
-        }
-
-        /// <summary>
-        /// Generates a list of jerked soda flavors
-        /// </summary>
-        /// <returns></returns>
-        public static List<SodaFlavor> GetSodaFlavors()
-        {
-            List<SodaFlavor> list = new List<SodaFlavor>();
-            foreach (SodaFlavor flavor in Enum.GetValues(typeof(SodaFlavor)))
-            {
-                list.Add(flavor);
-            }
-            return list;
-        }
-
-        /*
-        /// <summary>
-        /// Override ToString() method and provide string return.
-        /// </summary>
-        public static override string JerkedSodaToString(IOrderItem item)
-        {
-            JerkedSoda newitem = new JerkedSoda();
-            newitem.Size = (JerkedSoda)item.Size;
-
-            item = (JerkedSoda)item;
-            item.Size
-            return item + " Texas Sweet Tea";
+            if (min == null) min = 0;
+            if (max == null) max = 10;
+            return items.Where(item => item.Price >= min && item.Price <= max); 
 
         }
-        */
     }
 }
